@@ -63,10 +63,10 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
 
         jLabel_Soluc_Comenta_Seg_Atrac_Admi.setText("Solución o Comentario");
 
-        jButton_Agregar_Seguimiento_Atra_Admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\agregar.png")); // NOI18N
+        jButton_Agregar_Seguimiento_Atra_Admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/agregar.png"))); // NOI18N
         jButton_Agregar_Seguimiento_Atra_Admin.setContentAreaFilled(false);
 
-        jButton_volver_seguimiento_atracciones_admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
+        jButton_volver_seguimiento_atracciones_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton_volver_seguimiento_atracciones_admin.setContentAreaFilled(false);
 
         jTextArea_Solc_Comenta_Segui_De_Atrac_Admin.setColumns(20);
@@ -161,7 +161,7 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
                         .addGap(51, 51, 51))))
         );
 
-        jLabel_Seguimiento_atrac.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\Seguimiento de atrac.png")); // NOI18N
+        jLabel_Seguimiento_atrac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/Seguimiento de atrac.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

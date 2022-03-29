@@ -56,7 +56,7 @@ public class Ver_Usuarios_Admin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable_Ver_Usuarios_Admin);
 
-        jButton_Back_Ver_Usuarios_Admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
+        jButton_Back_Ver_Usuarios_Admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton_Back_Ver_Usuarios_Admin.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -80,7 +80,7 @@ public class Ver_Usuarios_Admin extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jLabel1_Users.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\verusuarios.png")); // NOI18N
+        jLabel1_Users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/verusuarios.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

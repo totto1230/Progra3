@@ -62,9 +62,9 @@ public class Login extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(usuario_email);
 
-        jLabeluser_email.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\username_email.png")); // NOI18N
+        jLabeluser_email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/username_email.png"))); // NOI18N
 
-        jLabelPassword.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\password.png")); // NOI18N
+        jLabelPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/password.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -100,7 +100,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel_person.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\Person.png")); // NOI18N
+        jLabel_person.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/Person.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -211,10 +211,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox_type_of_user;
+    public javax.swing.JComboBox<String> jComboBox_type_of_user;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabel_person;
-    private javax.swing.JLabel jLabeluser_email;
+    public javax.swing.JLabel jLabeluser_email;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -225,8 +225,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JButton login;
-    private javax.swing.JPasswordField password;
-    private javax.swing.JTextPane usuario_email;
+    public javax.swing.JButton login;
+    public javax.swing.JPasswordField password;
+    public javax.swing.JTextPane usuario_email;
     // End of variables declaration//GEN-END:variables
 }

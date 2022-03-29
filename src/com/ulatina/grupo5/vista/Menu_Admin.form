@@ -94,17 +94,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton_Registrar_Usuarios_Main_admin" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton_Ver_Usuarios_Main_Admin" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButton_Registrar_Usuarios_Main_admin" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_Ver_Usuarios_Main_Admin" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="jButton_add_atraccion_main_admin" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jButton_add_atraccion_main_admin" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -157,7 +151,7 @@
         <Component class="javax.swing.JButton" name="jButton_Registrar_Usuarios_Main_admin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\add-user.png"/>
+              <Image iconType="3" name="/proyecto/images/add-user.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -168,7 +162,7 @@
         <Component class="javax.swing.JButton" name="jButton_add_atraccion_main_admin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\add-attraction.png"/>
+              <Image iconType="3" name="/proyecto/images/add-attraction.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -184,7 +178,7 @@
         <Component class="javax.swing.JButton" name="jButton_mantenimiento_atracciones_main_admin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\mantenimiento atra.png"/>
+              <Image iconType="3" name="/proyecto/images/mantenimiento atra.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -195,7 +189,7 @@
         <Component class="javax.swing.JButton" name="jButton_ganancias_main_menu">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\money.png"/>
+              <Image iconType="3" name="/proyecto/images/money.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -227,7 +221,7 @@
         <Component class="javax.swing.JButton" name="jButton_Ver_Usuarios_Main_Admin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\buscar_user.png"/>
+              <Image iconType="3" name="/proyecto/images/buscar_user.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -238,7 +232,7 @@
         <Component class="javax.swing.JButton" name="jButton_Buscar_Atraccio_Main_Admin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\parque-de-atracciones.png"/>
+              <Image iconType="3" name="/proyecto/images/parque-de-atracciones.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -284,7 +278,7 @@
         <Component class="javax.swing.JLabel" name="jLabel_menu_admin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\menu_admin.png"/>
+              <Image iconType="3" name="/proyecto/images/menu_admin.png"/>
             </Property>
           </Properties>
         </Component>

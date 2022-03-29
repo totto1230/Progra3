@@ -76,10 +76,10 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
 
         jLabel_Rango_de_Edad_Permitido.setText("Rango de edad permitido");
 
-        jButton_Agregar_Atrac_Registro_Users.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\agregar.png")); // NOI18N
+        jButton_Agregar_Atrac_Registro_Users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/agregar.png"))); // NOI18N
         jButton_Agregar_Atrac_Registro_Users.setContentAreaFilled(false);
 
-        jButton_volver_registro_atracciones_admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
+        jButton_volver_registro_atracciones_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton_volver_registro_atracciones_admin.setContentAreaFilled(false);
 
         jLabel_Precio_Por_Persona.setText("Precio por persona");
@@ -183,7 +183,7 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
                         .addGap(17, 17, 17))))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\registrodeatrac.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/registrodeatrac.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

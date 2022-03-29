@@ -79,14 +79,14 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
 
         jLabel7.setText("Tipo de Usuario");
 
-        jButton_create_user.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\sign up.png")); // NOI18N
+        jButton_create_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/sign up.png"))); // NOI18N
         jButton_create_user.setContentAreaFilled(false);
 
         jPasswordField_register.setText("**********************************");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1- Admin", "2- Empleado", "3- Cliente" }));
 
-        jButton_previous_register.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
+        jButton_previous_register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton_previous_register.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1_Regist_Users_AdminLayout = new javax.swing.GroupLayout(jPanel1_Regist_Users_Admin);
@@ -162,7 +162,7 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
-        jLabel_registro_user.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\registrouser1.png")); // NOI18N
+        jLabel_registro_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/registrouser1.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

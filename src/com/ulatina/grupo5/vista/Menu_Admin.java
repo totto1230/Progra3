@@ -47,18 +47,18 @@ public class Menu_Admin extends javax.swing.JFrame {
 
         jLabel_Registrar_Usuarios_Main_admin.setText("Registrar Usuarios");
 
-        jButton_Registrar_Usuarios_Main_admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\add-user.png")); // NOI18N
+        jButton_Registrar_Usuarios_Main_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/add-user.png"))); // NOI18N
         jButton_Registrar_Usuarios_Main_admin.setContentAreaFilled(false);
 
-        jButton_add_atraccion_main_admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\add-attraction.png")); // NOI18N
+        jButton_add_atraccion_main_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/add-attraction.png"))); // NOI18N
         jButton_add_atraccion_main_admin.setContentAreaFilled(false);
 
         jLabel_Registrar_atrac_Main_admin.setText("Agregar Atracción");
 
-        jButton_mantenimiento_atracciones_main_admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\mantenimiento atra.png")); // NOI18N
+        jButton_mantenimiento_atracciones_main_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/mantenimiento atra.png"))); // NOI18N
         jButton_mantenimiento_atracciones_main_admin.setContentAreaFilled(false);
 
-        jButton_ganancias_main_menu.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\money.png")); // NOI18N
+        jButton_ganancias_main_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/money.png"))); // NOI18N
         jButton_ganancias_main_menu.setContentAreaFilled(false);
 
         jButton5_back_main_menu_admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
@@ -68,10 +68,10 @@ public class Menu_Admin extends javax.swing.JFrame {
 
         jLabel2.setText("Ganancias");
 
-        jButton_Ver_Usuarios_Main_Admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\buscar_user.png")); // NOI18N
+        jButton_Ver_Usuarios_Main_Admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/buscar_user.png"))); // NOI18N
         jButton_Ver_Usuarios_Main_Admin.setContentAreaFilled(false);
 
-        jButton_Buscar_Atraccio_Main_Admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\parque-de-atracciones.png")); // NOI18N
+        jButton_Buscar_Atraccio_Main_Admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/parque-de-atracciones.png"))); // NOI18N
         jButton_Buscar_Atraccio_Main_Admin.setContentAreaFilled(false);
 
         jLabel_Ver_Usuarios_Main_admin.setText("Ver Usuarios");
@@ -121,14 +121,10 @@ public class Menu_Admin extends javax.swing.JFrame {
             jPanel_Menu_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_Menu_AdminLayout.createSequentialGroup()
                 .addGroup(jPanel_Menu_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_Menu_AdminLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addGroup(jPanel_Menu_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton_Registrar_Usuarios_Main_admin)
-                            .addComponent(jButton_Ver_Usuarios_Main_Admin, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jPanel_Menu_AdminLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jButton_add_atraccion_main_admin)))
+                    .addGroup(jPanel_Menu_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton_Registrar_Usuarios_Main_admin)
+                        .addComponent(jButton_Ver_Usuarios_Main_Admin, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jButton_add_atraccion_main_admin))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel_Menu_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_Registrar_atrac_Main_admin)
@@ -159,7 +155,7 @@ public class Menu_Admin extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jLabel_menu_admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\menu_admin.png")); // NOI18N
+        jLabel_menu_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/menu_admin.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

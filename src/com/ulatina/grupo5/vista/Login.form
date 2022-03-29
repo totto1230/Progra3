@@ -185,7 +185,7 @@
         <Component class="javax.swing.JLabel" name="jLabeluser_email">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\username_email.png"/>
+              <Image iconType="3" name="/proyecto/images/username_email.png"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -195,7 +195,7 @@
         <Component class="javax.swing.JLabel" name="jLabelPassword">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\password.png"/>
+              <Image iconType="3" name="/proyecto/images/password.png"/>
             </Property>
           </Properties>
         </Component>
@@ -259,7 +259,7 @@
         <Component class="javax.swing.JLabel" name="jLabel_person">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\Person.png"/>
+              <Image iconType="3" name="/proyecto/images/Person.png"/>
             </Property>
           </Properties>
         </Component>

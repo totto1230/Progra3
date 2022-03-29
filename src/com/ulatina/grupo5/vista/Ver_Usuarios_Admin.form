@@ -133,7 +133,7 @@
         <Component class="javax.swing.JButton" name="jButton_Back_Ver_Usuarios_Admin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\previous1.png"/>
+              <Image iconType="3" name="/proyecto/images/previous1.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -165,7 +165,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1_Users">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\verusuarios.png"/>
+              <Image iconType="3" name="/proyecto/images/verusuarios.png"/>
             </Property>
           </Properties>
         </Component>

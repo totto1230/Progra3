@@ -49,7 +49,7 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1_Ganacias.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\ganancias.png")); // NOI18N
+        jLabel1_Ganacias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/ganancias.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

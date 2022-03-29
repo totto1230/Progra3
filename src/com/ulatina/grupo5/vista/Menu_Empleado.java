@@ -46,7 +46,7 @@ public class Menu_Empleado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_menu_empleadp.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\menu_empleado.png")); // NOI18N
+        jLabel_menu_empleadp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/menu_empleado.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -62,12 +62,12 @@ public class Menu_Empleado extends javax.swing.JFrame {
             .addComponent(jLabel_menu_empleadp, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        jButton_mantenimiento_atracciones_main_empleado.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\mantenimiento atra.png")); // NOI18N
+        jButton_mantenimiento_atracciones_main_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/mantenimiento atra.png"))); // NOI18N
         jButton_mantenimiento_atracciones_main_empleado.setContentAreaFilled(false);
 
         jLabel2.setText("Seguimiento de Atracciones");
 
-        jButton5_back_main_menu_empleado.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
+        jButton5_back_main_menu_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton5_back_main_menu_empleado.setContentAreaFilled(false);
 
         jButton_Buscar_Atraccio_Main_Empleado.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\parque-de-atracciones.png")); // NOI18N

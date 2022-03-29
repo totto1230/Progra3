@@ -102,7 +102,7 @@
             <Component class="javax.swing.JLabel" name="jLabel_menu_empleadp">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\menu_empleado.png"/>
+                  <Image iconType="3" name="/proyecto/images/menu_empleado.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -167,7 +167,7 @@
             <Component class="javax.swing.JButton" name="jButton_mantenimiento_atracciones_main_empleado">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\mantenimiento atra.png"/>
+                  <Image iconType="3" name="/proyecto/images/mantenimiento atra.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
@@ -183,7 +183,7 @@
             <Component class="javax.swing.JButton" name="jButton5_back_main_menu_empleado">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\previous1.png"/>
+                  <Image iconType="3" name="/proyecto/images/previous1.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
