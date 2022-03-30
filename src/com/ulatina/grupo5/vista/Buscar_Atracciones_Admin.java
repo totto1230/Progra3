@@ -31,7 +31,7 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
         jTable_Buscar_Atracciones_Admin = new javax.swing.JTable();
         jButton_Back_Buscar_Atrac_Admin = new javax.swing.JButton();
         jLabel_Fecha_Inst_Buscar_Atra_Admin = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        txtFechaInstalacion = new com.toedter.calendar.JDateChooser();
         jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -58,7 +58,6 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable_Buscar_Atracciones_Admin);
 
-        jButton_Back_Buscar_Atrac_Admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
         jButton_Back_Buscar_Atrac_Admin.setContentAreaFilled(false);
 
         jLabel_Fecha_Inst_Buscar_Atra_Admin.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -83,7 +82,7 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel_Fecha_Inst_Buscar_Atra_Admin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFechaInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(jLabel1))
@@ -105,7 +104,7 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
                         .addComponent(jLabel_Fecha_Inst_Buscar_Atra_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtFechaInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,11 +164,11 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Back_Buscar_Atrac_Admin;
     public javax.swing.JButton jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_Fecha_Inst_Buscar_Atra_Admin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable_Buscar_Atracciones_Admin;
+    public com.toedter.calendar.JDateChooser txtFechaInstalacion;
     // End of variables declaration//GEN-END:variables
 }
