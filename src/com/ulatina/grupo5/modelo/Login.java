@@ -2,12 +2,7 @@ package com.ulatina.grupo5.modelo;
 
 import java.sql.Date;
 
-/*
- `idLogin` INT NOT NULL, -
-  `numTickets` INT NOT NULL,-
-  `fechaLogin` DATETIME(6) NULL,-
-  `fechaLogoff` DATETIME(6) NULL,-
- */
+
 public class Login {
 
     public Integer idLogin;

@@ -133,6 +133,10 @@ public class UsuariosDAOImpl implements BaseDAO{
     }
     
     @Override
+    public Boolean eliminarTodos(Integer id) {
+        return null;
+    }   
+    @Override
     public void listar(JTable table) {
         
         String[] users = {"cedula", "password", "correo" , "nombre", "apellido1", "apellido2", "tipoUsuario"};
@@ -171,6 +175,18 @@ public class UsuariosDAOImpl implements BaseDAO{
         }
         
     }
+
+    @Override
+    public Object listarUno(Integer id) {
+        return null;
+    }
+
+    @Override
+    public Object[] listarPor(Object obj) {
+        return null;
+    }
+    
+    
     
 }
  

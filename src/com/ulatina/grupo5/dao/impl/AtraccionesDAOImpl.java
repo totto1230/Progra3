@@ -20,6 +20,10 @@ public class AtraccionesDAOImpl implements BaseDAO{
     
     Atracciones p = new Atracciones ();
 
+    
+    
+    
+
     @Override
     public Boolean insertar(Object obj) {
 
@@ -98,7 +102,6 @@ public class AtraccionesDAOImpl implements BaseDAO{
         }
     }
 
-
     @Override
     public Boolean eliminar(Object obj) {
         
@@ -132,6 +135,12 @@ public class AtraccionesDAOImpl implements BaseDAO{
        
     }
     
+    @Override
+    public Boolean eliminarTodos(Integer id)
+    {
+        return null;
+    }
+
     @Override
     public void listar(JTable table) {
         
@@ -173,4 +182,13 @@ public class AtraccionesDAOImpl implements BaseDAO{
         
     }
     
+    @Override
+    public Object listarUno(Integer id) {
+        return null;
+    }
+
+    @Override
+    public Object[] listarPor(Object obj) {
+        return null;
+    }
 }

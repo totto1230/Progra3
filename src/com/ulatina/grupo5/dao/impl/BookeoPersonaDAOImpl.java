@@ -2,11 +2,14 @@ package com.ulatina.grupo5.dao.impl;
 
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.helpers.Conexion;
+import com.ulatina.grupo5.modelo.Bookeo;
 import com.ulatina.grupo5.modelo.BookeoPersona;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -59,19 +62,15 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
         
         b = (BookeoPersona) obj;
         
-        String sql = "UPDATE bookeopersona SET orderId = ?, email = ?, ticket = ? WHERE orderId = ?";
+        String sql = "UPDATE bookeopersona SET email = ? WHERE orderId = ? and ticket = ?";
         try {
-            
             conectar.connectar();
-            
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1,b.getOrderId());
-            ps.setString(2, b.getEmail());
-            ps.setInt(3, b.getTicket());
-            ps.setInt(4, b.getOrderId());
-            
+            ps.setString(1, b.getEmail());
+            ps.setInt(2, b.getTicket());
+            ps.setInt(3, b.getOrderId());
             
             int registros = ps.executeUpdate();
             
@@ -90,7 +89,6 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
         }
     }
 
-
     @Override
     public Boolean eliminar(Object obj) {
         
@@ -105,6 +103,37 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
             ps = con.prepareStatement(sql);
             
             ps.setInt(1,b.getOrderId());
+            
+            int registros = ps.executeUpdate();
+            
+            if(registros > 0){
+                con.close();
+                return true;
+            }
+            else {
+                con.close();
+                return false;
+            }
+            
+        } catch (SQLException e) {
+            
+            return false;
+        }
+       
+    }
+    
+    @Override
+    public Boolean eliminarTodos(Integer id) {
+                
+        String sql = "DELETE FROM BookeoPersona WHERE ticket = ?";
+        
+        try {
+            
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            
+            ps.setInt(1,id);
             
             int registros = ps.executeUpdate();
             
@@ -160,5 +189,59 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
         }
         
     }
+    
+    @Override
+    public BookeoPersona listarUno(Integer id) {
+        String sql = "select orderId, email, ticket from BookeoPersona where orderId = ?";
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, p.getTicket());
+
+            while (rs.next()) {
+                b.setOrderId(Integer.parseInt(rs.getString("orderId")));
+                b.setEmail(rs.getString("email"));
+                b.setTicket(Integer.parseInt(rs.getString("ticket")));
+                
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return b;
+
+    }
+    
+    @Override
+    public BookeoPersona[] listarPor(Object obj) {
+        b = (BookeoPersona)obj;
+        ArrayList<BookeoPersona> bookeoPersonas = new ArrayList<BookeoPersona>();
+        String sql = "select orderId, email, ticket from BookeoPersona where ticket = ?";
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, b.ticket);
+
+            while (rs.next()) {
+                BookeoPersona bookeoPersona = new BookeoPersona();
+                bookeoPersona.setOrderId(Integer.parseInt(rs.getString("orderId")));
+                bookeoPersona.setEmail(rs.getString("email"));
+                bookeoPersona.setTicket(Integer.parseInt(rs.getString("ticket")));
+                bookeoPersonas.add(bookeoPersona);
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }        
+        return (BookeoPersona[])bookeoPersonas.toArray();
+
+    }
+    
     
 }

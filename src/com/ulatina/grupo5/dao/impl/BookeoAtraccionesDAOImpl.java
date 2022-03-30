@@ -1,16 +1,26 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.ulatina.grupo5.dao.impl;
 
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.helpers.Conexion;
-import com.ulatina.grupo5.modelo.Precio;
+import com.ulatina.grupo5.modelo.BookeoAtracciones;
+
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class PrecioDAOImpl implements BaseDAO{
+/**
+ *
+ * @author fernando
+ */
+public class BookeoAtraccionesDAOImpl implements BaseDAO{
 
     Conexion conectar = new Conexion();
 
@@ -18,14 +28,14 @@ public class PrecioDAOImpl implements BaseDAO{
     ResultSet rs;
     Connection con;
     
-    Precio p = new Precio ();
+    BookeoAtracciones p = new BookeoAtracciones ();
 
     @Override
     public Boolean insertar(Object obj) {
 
-        p = (Precio) obj;
+        p = (BookeoAtracciones) obj;
 
-        String sql = "INSERT INTO Precio (idPrecio, descripcion, precio, activoBIT) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO BookeoAtracciones (orderId,ticket,idenAtrac) VALUES(?,?,?)";
         try {
 
             conectar.connectar();
@@ -33,11 +43,10 @@ public class PrecioDAOImpl implements BaseDAO{
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             
-            ps.setInt(1,p.getIdPrecio());
-            ps.setString(2, p.getDescripcion());
-            ps.setInt(3, p.getPrecio());
-            ps.setBoolean(4, p.isActivoBIT());
-           
+            ps.setInt(1, p.getOrderId());
+            ps.setInt(2, p.getTicket());
+            ps.setInt(3, p.getIdenAtrac());
+            
             int registros = ps.executeUpdate();
 
             if (registros > 0) {
@@ -58,9 +67,9 @@ public class PrecioDAOImpl implements BaseDAO{
    @Override
     public Boolean actualizar(Object obj) {
         
-        p = (Precio) obj;
+        p = (BookeoAtracciones) obj;
         
-        String sql = "UPDATE SET Precio descripcion = ?, precio = ?, activoBIT = ? WHERE idPrecio = ?";
+        String sql = "UPDATE BookeoAtracciones SET orderId = ?, ticket = ?, idenAtrac = ? WHERE orderId = ?";
         try {
             
             conectar.connectar();
@@ -68,11 +77,10 @@ public class PrecioDAOImpl implements BaseDAO{
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1,p.getIdPrecio());
-            ps.setString(2, p.getDescripcion());
-            ps.setInt(3, p.getPrecio());
-            ps.setBoolean(4, p.isActivoBIT());
-            
+            ps.setInt(1, p.getOrderId());
+            ps.setInt(2, p.getTicket());
+            ps.setInt(3, p.getIdenAtrac());
+           
             int registros = ps.executeUpdate();
             
             if(registros > 0){
@@ -90,21 +98,16 @@ public class PrecioDAOImpl implements BaseDAO{
         }
     }
 
-
     @Override
-    public Boolean eliminar(Object obj) {
-        
-        p = (Precio) obj;
-        
-        String sql = "DELETE FROM persona WHERE idPrecio = ?";
-        
+    public Boolean eliminar(Object obj) {  
+        p = (BookeoAtracciones) obj;
+        String sql = "DELETE FROM BookeoAtracciones WHERE orderId = ?";  
         try {
-            
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             
-            ps.setInt(1,p.getIdPrecio());
+            ps.setInt(1, p.getOrderId());
             
             int registros = ps.executeUpdate();
             
@@ -121,36 +124,42 @@ public class PrecioDAOImpl implements BaseDAO{
             
             return false;
         }
-       
     }
     
     @Override
-    public Boolean eliminarTodos(Integer id) {
+    public Boolean eliminarTodos(Integer id)
+    {
         return null;
     }
     
     @Override
     public void listar(JTable table) {
         
-        String[] titulos = {"ID de Precio", "Descripción", "Precio" , "Activo"};
+        String[] titulos = {"Orden", "Ticket", "idenAtrac"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         
-        String sql = "SELECT idPrecio, descripcion, precio, activo FROM Precio";
+        String sql = "SELECT orderId,ticket,idenAtrac FROM BookeoAtracciones";
         
-        try {    
+        try {
+            
             con = conectar.getConnection();
+            
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
+            
             while (rs.next()){
-                registros[0] = rs.getString("idPrecio"); 
-                registros[1] = rs.getString("descripcion");
-                registros[2] = rs.getString("precio");
-                registros[3] = rs.getString("activo");
+            
+                registros[1] = rs.getString("orderId");
+                registros[2] = rs.getString("ticket");
+                registros[3] = rs.getString("idenAtrac");
                 model.addRow(registros);
+    
             }
             table.setModel(model);
+            
             con.close();
+            
         }
         
         catch (Exception ex){
@@ -158,7 +167,7 @@ public class PrecioDAOImpl implements BaseDAO{
         }
         
     }
-    
+
     @Override
     public Object listarUno(Integer id) {
         return null;
