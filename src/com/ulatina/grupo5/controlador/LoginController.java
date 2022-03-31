@@ -75,8 +75,8 @@ public class LoginController implements ActionListener {
             else {
                 String usuario = vista.txtUsername.getText();
                 String password = vista.txtPassword.getPassword().toString();
-                daoUsuario.listarUno(Integer.SIZE)
-                agregar();
+                //daoUsuario.listarUno(Integer.SIZE)
+                //agregar();
             }
         }
         else if (e.getSource() == vista.btnCancel) {
