@@ -11,8 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 import com.ulatina.grupo5.dao.BaseDAO;
+import com.ulatina.grupo5.dao.impl.LoginDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.vista.Login;
+import com.ulatina.grupo5.vista.Menu_Admin;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -22,41 +26,34 @@ import com.ulatina.grupo5.vista.Login;
 public class LoginController implements ActionListener {
 
     com.ulatina.grupo5.modelo.Login login = new com.ulatina.grupo5.modelo.Login();
-    BaseDAO dao = new UsuariosDAOImpl();
-    Login vista = new Login();
-    
+    BaseDAO daoUsuario = new UsuariosDAOImpl();
+    BaseDAO dao = new LoginDAOImpl();
+    Login vista = new Login();  
+    Menu_Admin menu = new Menu_Admin();
 
     public LoginController(Login vista) {
         this.vista = vista;
         this.vista.btnLogin.addActionListener(this);
         this.vista.btnCancel.addActionListener(this);
-        
-    }
-
-    public void listarTabla(JTable tabla) {
-        dao.listar(tabla);
-    }
-
-    public void limpiarCampos() {
-        //vista..setText("");        
     }
 
     public void iniciar() {
-        limpiarCampos();
 
     }
 
-    public void agregar() {
-        String usuario = vista.txtUsername.getText();
-        String password = vista.txtPassword.getPassword().toString();// optiene la primer letra (I,A,F)
-        login.setIdLogin(Integer.SIZE);
-        
+    public void agregar(String usuario, String password) {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
 
-        boolean r = dao.insertar(atraccion);
+        login.setIdLogin(dao.nextID());
+        login.setEmail(usuario);
+        login.setNumTickets(0);
+        login.setFechaLogin(java.sql.Date.valueOf(date.toString()));
+        login.setFechaLogoff(java.sql.Date.valueOf(date.toString()));
+
+        boolean r = dao.insertar(login);
 
         if (r) {
-            listarTabla(vista.tblAtracciones);
-            limpiarCampos();
             JOptionPane.showMessageDialog(vista, "La atraccion fue agregado correctamente");
         } else {
             JOptionPane.showMessageDialog(vista, "La atraccion no fue agregada");
@@ -76,6 +73,9 @@ public class LoginController implements ActionListener {
                 vista.txtPassword.requestFocus();
             }
             else {
+                String usuario = vista.txtUsername.getText();
+                String password = vista.txtPassword.getPassword().toString();
+                daoUsuario.listarUno(Integer.SIZE)
                 agregar();
             }
         }

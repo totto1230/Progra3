@@ -9,23 +9,35 @@ public class Login {
     public Integer numTickets;
     public Date fechaLogin;
     public Date fechaLogoff;
-
+    public String email;
+    
     public Login() {
+        
     }
 
-    public Login(Integer idLogin, Integer numTickets, Date fechaLogin, Date fechaLogoff) {
+    public Login(Integer idLogin,String email, Integer numTickets, Date fechaLogin, Date fechaLogoff) {
         this.idLogin = idLogin;
+        this.email = email;
         this.numTickets = numTickets;
         this.fechaLogin = fechaLogin;
         this.fechaLogoff = fechaLogoff;
     }
 
+    
     public Integer getIdLogin() {
         return idLogin;
     }
 
     public void setIdLogin(Integer idLogin) {
         this.idLogin = idLogin;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Integer getNumTickets() {
