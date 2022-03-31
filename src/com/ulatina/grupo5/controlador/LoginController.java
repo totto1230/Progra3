@@ -16,6 +16,7 @@ import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Usuarios;
 import com.ulatina.grupo5.vista.Login;
 import com.ulatina.grupo5.vista.Menu_Admin;
+import com.ulatina.grupo5.vista.Menu_Empleado;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +27,9 @@ public class LoginController implements ActionListener {
     BaseDAO dao = new LoginDAOImpl();
     Login vista = new Login();
     Menu_Admin menu = new Menu_Admin();
-
+    public static com.ulatina.grupo5.modelo.Login session = new com.ulatina.grupo5.modelo.Login();
+    public static com.ulatina.grupo5.modelo.Usuarios sessionUsr = new com.ulatina.grupo5.modelo.Usuarios();
+    
     public LoginController(Login vista) {
         this.vista = vista;
         this.vista.btnLogin.addActionListener(this);
@@ -37,7 +40,7 @@ public class LoginController implements ActionListener {
 
     }
 
-    public void agregar(int usuario, String password) {
+    public boolean agregar(int usuario, String password) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
         Date date = new Date(System.currentTimeMillis());
 
@@ -46,27 +49,34 @@ public class LoginController implements ActionListener {
         login.setNumTickets(0);
         login.setFechaLogin(java.sql.Date.valueOf(date.toString()));
         login.setFechaLogoff(java.sql.Date.valueOf(date.toString()));
-
+        
         boolean r = dao.insertar(login);
-
         if (r) {
-            JOptionPane.showMessageDialog(vista, "La atraccion fue agregado correctamente");
+            session = login;
+            JOptionPane.showMessageDialog(vista, "Ingreso con exito");
         } else {
-            JOptionPane.showMessageDialog(vista, "La atraccion no fue agregada");
+            JOptionPane.showMessageDialog(vista, "Error al ingresar, por favor intente de nuevo");
         }
+        return r;
 
     }
 
-    private void cargarMenu() {
+    private void cargarMenuAdmin() {
         Menu_Admin vistaMenuAdmin = new Menu_Admin();
-        
-       // PersonaController controlador = new PersonaController(vista);
-       // controlador.iniciar();
+        Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);    
+    }
+    
+    private void cargarMenuEmpleado() {
+        Menu_Empleado vistaMenuAdmin = new Menu_Empleado();
+        MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);    
+    }
+    
+    private void cargarMenuUsuario() {
+        //TODO  
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource() == vista.btnLogin) {
             if (vista.txtUsername.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "Debe ingresar el Usuario", "Error al autenticar", JOptionPane.INFORMATION_MESSAGE);
@@ -80,19 +90,31 @@ public class LoginController implements ActionListener {
                 Usuarios usuario = (Usuarios) daoUsuario.listarUno(cedula);
                 if (usuario != null) {
                     if (usuario.password == password) {
-                        agregar(cedula,password);
-                        cargarMenu();
+                        if(agregar(cedula,password)){
+                            sessionUsr = usuario;
+                            switch(sessionUsr.getTipoUsuario())
+                            {
+                                case 1:
+                                    cargarMenuAdmin();
+                                    break;
+                                case 2:
+                                    cargarMenuEmpleado();
+                                    break;
+                                default:
+                                     cargarMenuUsuario();
+                                     break;
+                            }
+                            
+                            cargarMenuEmpleado();
+                        } 
                     } else {
                         JOptionPane.showMessageDialog(vista, "Usuario o contraseña invalidos", "Error al autenticar", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } else {
                     JOptionPane.showMessageDialog(vista, "Usuario o contraseña invalidos", "Error al autenticar", JOptionPane.INFORMATION_MESSAGE);
                 }
-
-                //agregar();
             }
         } else if (e.getSource() == vista.btnCancel) {
-            
             vista.setVisible(false); 
             vista.dispose();
         }

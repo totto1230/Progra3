@@ -71,6 +71,11 @@ public class Usuarios {
         this.appellido2 = appellido2;
     }
 
+    /**
+     * 1- Admin
+     * 2- Empleado 
+     * 3- Cliente
+    */
     public int getTipoUsuario() {
         return tipoUsuario;
     }
