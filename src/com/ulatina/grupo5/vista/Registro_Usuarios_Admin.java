@@ -40,14 +40,15 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
         jLabel_Segundo_Apellido = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton_create_user = new javax.swing.JButton();
-        jPasswordField_register = new javax.swing.JPasswordField();
-        jTextField_correo_register = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField_cedu_register = new javax.swing.JTextField();
-        jTextField_segundo_apellido = new javax.swing.JTextField();
-        jTextField_primer_apellido_register = new javax.swing.JTextField();
-        jTextField_nombre_register = new javax.swing.JTextField();
+        txtContra = new javax.swing.JPasswordField();
+        txtCorreo = new javax.swing.JTextField();
+        ddlTipoUser = new javax.swing.JComboBox<>();
+        txtCed = new javax.swing.JTextField();
+        txtSegundoApe = new javax.swing.JTextField();
+        txtPrimerApe = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jButton_previous_register = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel_registro_user = new javax.swing.JLabel();
@@ -82,47 +83,52 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
         jButton_create_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/sign up.png"))); // NOI18N
         jButton_create_user.setContentAreaFilled(false);
 
-        jPasswordField_register.setText("**********************************");
+        txtContra.setText("**********************************");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1- Admin", "2- Empleado", "3- Cliente" }));
+        ddlTipoUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1- Admin", "2- Empleado", "3- Cliente" }));
 
         jButton_previous_register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton_previous_register.setContentAreaFilled(false);
+
+        btnActualizar.setText("Actualizar");
 
         javax.swing.GroupLayout jPanel1_Regist_Users_AdminLayout = new javax.swing.GroupLayout(jPanel1_Regist_Users_Admin);
         jPanel1_Regist_Users_Admin.setLayout(jPanel1_Regist_Users_AdminLayout);
         jPanel1_Regist_Users_AdminLayout.setHorizontalGroup(
             jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(93, 93, 93)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
                         .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_contra)
-                            .addComponent(jLabel_correo)
-                            .addComponent(jLabelCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_Segundo_Apellido)
-                            .addComponent(jLabel_Primer_apellido)
-                            .addComponent(jLabel_nombre))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPasswordField_register)
-                            .addComponent(jTextField_correo_register)
-                            .addComponent(jTextField_cedu_register)
-                            .addComponent(jTextField_segundo_apellido)
-                            .addComponent(jTextField_primer_apellido_register)
-                            .addComponent(jTextField_nombre_register))))
+                            .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(93, 93, 93)
+                                .addComponent(ddlTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                                .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_contra)
+                                    .addComponent(jLabel_correo)
+                                    .addComponent(jLabelCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_Segundo_Apellido)
+                                    .addComponent(jLabel_Primer_apellido)
+                                    .addComponent(jLabel_nombre))
+                                .addGap(43, 43, 43)
+                                .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtContra)
+                                    .addComponent(txtCorreo)
+                                    .addComponent(txtCed)
+                                    .addComponent(txtSegundoApe)
+                                    .addComponent(txtPrimerApe)
+                                    .addComponent(txtNombre)))))
+                    .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jButton_previous_register)
+                        .addGap(75, 75, 75)
+                        .addComponent(jButton_create_user, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton_previous_register)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_create_user, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(212, 212, 212))
         );
         jPanel1_Regist_Users_AdminLayout.setVerticalGroup(
             jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,36 +136,45 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_nombre)
-                    .addComponent(jTextField_nombre_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Primer_apellido)
-                    .addComponent(jTextField_primer_apellido_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrimerApe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Segundo_Apellido)
-                    .addComponent(jTextField_segundo_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSegundoApe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCedula)
-                    .addComponent(jTextField_cedu_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_correo)
-                    .addComponent(jTextField_correo_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_contra)
-                    .addComponent(jPasswordField_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton_create_user, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_previous_register))
-                .addGap(16, 16, 16))
+                    .addComponent(ddlTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                        .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(jButton_previous_register))
+                            .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_create_user, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
         );
 
         jLabel_registro_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/registrouser1.png"))); // NOI18N
@@ -245,9 +260,10 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnActualizar;
+    public javax.swing.JComboBox<String> ddlTipoUser;
     public javax.swing.JButton jButton_create_user;
     public javax.swing.JButton jButton_previous_register;
-    private javax.swing.JComboBox<String> jComboBox1;
     public javax.swing.JComboBox<String> jComboBox_type_of_user;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
@@ -260,13 +276,13 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_registro_user;
     private javax.swing.JPanel jPanel1_Regist_Users_Admin;
     private javax.swing.JPanel jPanel2;
-    public javax.swing.JPasswordField jPasswordField_register;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    public javax.swing.JTextField jTextField_cedu_register;
-    public javax.swing.JTextField jTextField_correo_register;
-    public javax.swing.JTextField jTextField_nombre_register;
-    public javax.swing.JTextField jTextField_primer_apellido_register;
-    public javax.swing.JTextField jTextField_segundo_apellido;
+    public javax.swing.JTextField txtCed;
+    public javax.swing.JPasswordField txtContra;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtPrimerApe;
+    public javax.swing.JTextField txtSegundoApe;
     // End of variables declaration//GEN-END:variables
 }

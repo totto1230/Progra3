@@ -27,7 +27,7 @@ public class Usuarios {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(Integer cedula) {
         this.cedula = cedula;
     }
 
@@ -80,7 +80,7 @@ public class Usuarios {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(int tipoUsuario) {
+    public void setTipoUsuario(Integer tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 

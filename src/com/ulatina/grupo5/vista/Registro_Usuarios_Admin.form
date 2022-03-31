@@ -79,41 +79,46 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" pref="90" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="ddlTipoUser" min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel_contra" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_correo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelCedula" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Component id="jLabel_Segundo_Apellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_Primer_apellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtContra" max="32767" attributes="0"/>
+                                      <Component id="txtCorreo" max="32767" attributes="0"/>
+                                      <Component id="txtCed" max="32767" attributes="0"/>
+                                      <Component id="txtSegundoApe" max="32767" attributes="0"/>
+                                      <Component id="txtPrimerApe" max="32767" attributes="0"/>
+                                      <Component id="txtNombre" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel_contra" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_correo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelCedula" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
-                              <Component id="jLabel_Segundo_Apellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_Primer_apellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_nombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPasswordField_register" max="32767" attributes="0"/>
-                              <Component id="jTextField_correo_register" max="32767" attributes="0"/>
-                              <Component id="jTextField_cedu_register" max="32767" attributes="0"/>
-                              <Component id="jTextField_segundo_apellido" max="32767" attributes="0"/>
-                              <Component id="jTextField_primer_apellido_register" max="32767" attributes="0"/>
-                              <Component id="jTextField_nombre_register" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="jButton_previous_register" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="jButton_create_user" min="-2" pref="103" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Component id="btnActualizar" min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                  <Component id="jButton_previous_register" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButton_create_user" min="-2" pref="103" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -123,44 +128,58 @@
                   <EmptySpace pref="43" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField_nombre_register" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel_Primer_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField_primer_apellido_register" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrimerApe" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel_Segundo_Apellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField_segundo_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtSegundoApe" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelCedula" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField_cedu_register" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCed" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel_correo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField_correo_register" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel_contra" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField_register" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtContra" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ddlTipoUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jButton_create_user" min="-2" pref="103" max="-2" attributes="0"/>
-                      <Component id="jButton_previous_register" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="jButton_previous_register" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jButton_create_user" min="-2" pref="103" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnActualizar" min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -215,7 +234,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField_register">
+        <Component class="javax.swing.JPasswordField" name="txtContra">
           <Properties>
             <Property name="text" type="java.lang.String" value="**********************************"/>
           </Properties>
@@ -223,12 +242,12 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField_correo_register">
+        <Component class="javax.swing.JTextField" name="txtCorreo">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="ddlTipoUser">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -240,24 +259,25 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField_cedu_register">
+        <Component class="javax.swing.JTextField" name="txtCed">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField_segundo_apellido">
+        <Component class="javax.swing.JTextField" name="txtSegundoApe">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField_primer_apellido_register">
+        <Component class="javax.swing.JTextField" name="txtPrimerApe">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField_nombre_register">
+        <Component class="javax.swing.JTextField" name="txtNombre">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -268,6 +288,14 @@
               <Image iconType="3" name="/proyecto/images/previous1.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnActualizar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
