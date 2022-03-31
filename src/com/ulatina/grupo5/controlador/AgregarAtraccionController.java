@@ -8,6 +8,10 @@ package com.ulatina.grupo5.controlador;
  *
  * @author josep
  */
+
+package com.ulatina.grupo5.controlador;
+
+
 public class AgregarAtraccionController {
     
 }
