@@ -179,11 +179,11 @@ public class BookeoDAOImpl implements BaseDAO {
 
             while (rs.next()) {
                 p.setTicket(Integer.parseInt(rs.getString("ticket")));
-                p.setEmail(rs.getString("ticket"));
-                p.setFechaCompra(Date.valueOf(rs.getString("ticket")));
-                p.setFechaVisita(Date.valueOf(rs.getString("ticket")));
-                p.setTotalVenta(Double.parseDouble(rs.getString("ticket")));
-                p.setPaseEspecial(Boolean.parseBoolean(rs.getString("ticket")));
+                p.setEmail(rs.getString("email"));
+                p.setFechaCompra(Date.valueOf(rs.getString("fechaCompra")));
+                p.setFechaVisita(Date.valueOf(rs.getString("fechaVisita")));
+                p.setTotalVenta(Double.parseDouble(rs.getString("totalVenta")));
+                p.setPaseEspecial(Boolean.parseBoolean(rs.getString("paseEspecial")));
             }
             con.close();
 
@@ -201,7 +201,7 @@ public class BookeoDAOImpl implements BaseDAO {
 
     @Override
     public int nextID() {
-        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        String sql = "select COALESCE(max(ticket),0) + 1 as nextCode from bookeo";
         Integer nextCode = 0;
         try {
             con = conectar.getConnection();

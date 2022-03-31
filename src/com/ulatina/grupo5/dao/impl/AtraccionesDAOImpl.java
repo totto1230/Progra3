@@ -190,7 +190,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
 
     @Override
     public int nextID() {
-        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        String sql = "select COALESCE(max(idAtracciones),0) + 1 as nextCode from Atracciones";
        Integer nextCode = 0;
        try {
            con = conectar.getConnection();

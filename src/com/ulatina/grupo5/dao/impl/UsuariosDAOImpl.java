@@ -256,7 +256,7 @@ public class UsuariosDAOImpl implements BaseDAO {
 
     @Override
     public int nextID() {
-        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        String sql = "select COALESCE(max(cedula),0) + 1 as nextCode from usuarios";
         Integer nextCode = 0;
         try {
             con = conectar.getConnection();
