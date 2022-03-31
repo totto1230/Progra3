@@ -98,7 +98,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jButton_back_ganancias_admin_empleado" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAtras" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -112,21 +112,21 @@
                       </Group>
                       <EmptySpace pref="78" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jTextField_Num_De_Atrac" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextField_Num_Atra_Gananci_Ad_Emple" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtIdAtraccion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNombreAtraccion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="dtpFecha" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSlider_ganacias_admin_empleado" alignment="0" pref="215" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel_colones" min="-2" pref="13" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField_Recaudacion_Por_Atra" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="txtRecaudacionFondos" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton_Agregar_Ganancias" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -137,23 +137,23 @@
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel_Num_Atrac_Gana" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField_Num_De_Atrac" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIdAtraccion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField_Num_Atra_Gananci_Ad_Emple" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNombreAtraccion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField_Recaudacion_Por_Atra" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRecaudacionFondos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel_colones" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtpFecha" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -161,20 +161,17 @@
                           <Component id="jSlider_ganacias_admin_empleado" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton_Agregar_Ganancias" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Component id="jButton_back_ganancias_admin_empleado" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAtras" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton_back_ganancias_admin_empleado">
+            <Component class="javax.swing.JButton" name="btnAtras">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\previous1.png"/>
-                </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
@@ -206,22 +203,22 @@
                 <Property name="text" type="java.lang.String" value="Cantidad de Personas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField_Num_De_Atrac">
+            <Component class="javax.swing.JTextField" name="txtIdAtraccion">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField_Num_Atra_Gananci_Ad_Emple">
+            <Component class="javax.swing.JTextField" name="txtNombreAtraccion">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField_Recaudacion_Por_Atra">
+            <Component class="javax.swing.JTextField" name="txtRecaudacionFondos">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            <Component class="com.toedter.calendar.JDateChooser" name="dtpFecha">
             </Component>
             <Component class="javax.swing.JSlider" name="jSlider_ganacias_admin_empleado">
               <Properties>
@@ -241,11 +238,8 @@
                 <Property name="text" type="java.lang.String" value="&#x20a1;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton_Agregar_Ganancias">
+            <Component class="javax.swing.JButton" name="btnAgregar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\agregar.png"/>
-                </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
@@ -282,7 +276,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable_Ganancias">
+                <Component class="javax.swing.JTable" name="tbkAtracciones">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="4">

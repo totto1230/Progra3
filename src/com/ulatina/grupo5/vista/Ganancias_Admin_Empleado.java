@@ -30,22 +30,22 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1_Ganacias = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton_back_ganancias_admin_empleado = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
         jLabel_Num_Atrac_Gana = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField_Num_De_Atrac = new javax.swing.JTextField();
-        jTextField_Num_Atra_Gananci_Ad_Emple = new javax.swing.JTextField();
-        jTextField_Recaudacion_Por_Atra = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        txtIdAtraccion = new javax.swing.JTextField();
+        txtNombreAtraccion = new javax.swing.JTextField();
+        txtRecaudacionFondos = new javax.swing.JTextField();
+        dtpFecha = new com.toedter.calendar.JDateChooser();
         jSlider_ganacias_admin_empleado = new javax.swing.JSlider();
         jLabel_colones = new javax.swing.JLabel();
-        jButton_Agregar_Ganancias = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable_Ganancias = new javax.swing.JTable();
+        tbkAtracciones = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,8 +65,7 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
             .addComponent(jLabel1_Ganacias, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
         );
 
-        jButton_back_ganancias_admin_empleado.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\previous1.png")); // NOI18N
-        jButton_back_ganancias_admin_empleado.setContentAreaFilled(false);
+        btnAtras.setContentAreaFilled(false);
 
         jLabel_Num_Atrac_Gana.setText("Número De Atracción");
 
@@ -85,8 +84,7 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
         jLabel_colones.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel_colones.setText("₡");
 
-        jButton_Agregar_Ganancias.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\agregar.png")); // NOI18N
-        jButton_Agregar_Ganancias.setContentAreaFilled(false);
+        btnAgregar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -94,7 +92,7 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jButton_back_ganancias_admin_empleado)
+                .addComponent(btnAtras)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
@@ -106,18 +104,18 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
                     .addComponent(jLabel_Num_Atrac_Gana))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField_Num_De_Atrac, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField_Num_Atra_Gananci_Ad_Emple, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtIdAtraccion, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombreAtraccion, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dtpFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSlider_ganacias_admin_empleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel_colones, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_Recaudacion_Por_Atra, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtRecaudacionFondos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(65, 65, 65))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_Agregar_Ganancias)
+                .addComponent(btnAgregar)
                 .addGap(142, 142, 142))
         );
         jPanel3Layout.setVerticalGroup(
@@ -126,32 +124,32 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Num_Atrac_Gana)
-                    .addComponent(jTextField_Num_De_Atrac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdAtraccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField_Num_Atra_Gananci_Ad_Emple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreAtraccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField_Recaudacion_Por_Atra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRecaudacionFondos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_colones, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dtpFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jSlider_ganacias_admin_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_Agregar_Ganancias)
+                .addComponent(btnAgregar)
                 .addGap(9, 9, 9)
-                .addComponent(jButton_back_ganancias_admin_empleado)
+                .addComponent(btnAtras)
                 .addGap(31, 31, 31))
         );
 
-        jTable_Ganancias.setModel(new javax.swing.table.DefaultTableModel(
+        tbkAtracciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -170,7 +168,7 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable_Ganancias);
+        jScrollPane1.setViewportView(tbkAtracciones);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -260,9 +258,9 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton_Agregar_Ganancias;
-    public javax.swing.JButton jButton_back_ganancias_admin_empleado;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAtras;
+    private com.toedter.calendar.JDateChooser dtpFecha;
     private javax.swing.JLabel jLabel1_Ganacias;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -276,9 +274,9 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JSlider jSlider_ganacias_admin_empleado;
-    public javax.swing.JTable jTable_Ganancias;
-    public javax.swing.JTextField jTextField_Num_Atra_Gananci_Ad_Emple;
-    public javax.swing.JTextField jTextField_Num_De_Atrac;
-    public javax.swing.JTextField jTextField_Recaudacion_Por_Atra;
+    public javax.swing.JTable tbkAtracciones;
+    public javax.swing.JTextField txtIdAtraccion;
+    public javax.swing.JTextField txtNombreAtraccion;
+    public javax.swing.JTextField txtRecaudacionFondos;
     // End of variables declaration//GEN-END:variables
 }

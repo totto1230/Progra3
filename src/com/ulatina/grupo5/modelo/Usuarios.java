@@ -4,16 +4,16 @@ public class Usuarios {
 
     public int cedula;
     public String password;
-    public String correo;
+    public String email;
     public String nombre;
     public String apellido1;
     public String appellido2;
     public int tipoUsuario;
 
-    public Usuarios(int cedula, String password, String correo, String nombre, String apellido1, String appellido2, int tipoUsuario) {
+    public Usuarios(int cedula, String password, String email, String nombre, String apellido1, String appellido2, int tipoUsuario) {
         this.cedula = cedula;
         this.password = password;
-        this.correo = correo;
+        this.email = email;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.appellido2 = appellido2;
@@ -39,12 +39,12 @@ public class Usuarios {
         this.password = paasword;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNombre() {
@@ -81,7 +81,7 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios{" + "cedula=" + cedula + ", password=" + password + ", correo=" + correo + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", appellido2=" + appellido2 + ", TipoUsuario=" + tipoUsuario + '}';
+        return "Usuarios{" + "cedula=" + cedula + ", password=" + password + ", correo=" + email + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", appellido2=" + appellido2 + ", TipoUsuario=" + tipoUsuario + '}';
     }
 
 }

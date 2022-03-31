@@ -53,16 +53,17 @@ public class LoginDAOImpl implements BaseDAO{
     @Override
     public Boolean insertar(Object obj) {
         p = (Login) obj;
-        String sql = "INSERT INTO Login (id,numTickets,fechaLogin,fechaLogoff) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO Login (id,email,numTickets,fechaLogin,fechaLogoff) VALUES (?,?,?,?,?);";
         try {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             
             ps.setInt(1, p.getIdLogin());
-            ps.setInt(2,p.getNumTickets());
-            ps.setDate(3, (Date)p.getFechaLogin());
+            ps.setInt(2, p.getNumTickets());
+            ps.setString(3, p.getEmail());
             ps.setDate(4, (Date)p.getFechaLogoff());
+            ps.setDate(5, (Date)p.getFechaLogoff());
 
             int registros = ps.executeUpdate();
 
@@ -85,7 +86,7 @@ public class LoginDAOImpl implements BaseDAO{
         
         p = (Login) obj;
         
-        String sql = "UPDATE Login SET numTickets = ?, fechaLogin= ?, fechaLogoff = ? WHERE id= ?";
+        String sql = "UPDATE Login SET numTickets = ?, numTickets = ?, fechaLogin= ?, fechaLogoff = ? WHERE id= ?";
         try {
             
             conectar.connectar();
@@ -158,11 +159,11 @@ public class LoginDAOImpl implements BaseDAO{
     @Override
     public void listar(JTable table) {
         
-        String[] titulos = {"ID", "Ticketes", "Fecha Login" , "Fecha Logogg"};
+        String[] titulos = {"ID", "email", "Ticketes", "Fecha Login" , "Fecha Logogg"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         
-        String sql = "SELECT id, numTickets, fechaLogin, fechaLogoff FROM Login";
+        String sql = "SELECT id, email, numTickets, fechaLogin, fechaLogoff FROM Login";
         
         try {
             con = conectar.getConnection();
@@ -172,9 +173,10 @@ public class LoginDAOImpl implements BaseDAO{
             while (rs.next()){
             
                 registros[1] = rs.getString("id");
-                registros[2] = rs.getString("numTickets");
-                registros[3] = rs.getString("fechaLogin");
-                registros[4] = rs.getString("fechaLogoff");
+                registros[2] = rs.getString("email");
+                registros[3] = rs.getString("numTickets");
+                registros[4] = rs.getString("fechaLogin");
+                registros[5] = rs.getString("fechaLogoff");
                 model.addRow(registros);
     
             }
