@@ -2,15 +2,15 @@ package com.ulatina.grupo5.modelo;
 
 public class Usuarios {
 
-    public int cedula;
+    public Integer cedula;
     public String password;
     public String email;
     public String nombre;
     public String apellido1;
     public String appellido2;
-    public int tipoUsuario;
+    public Integer tipoUsuario;
 
-    public Usuarios(int cedula, String password, String email, String nombre, String apellido1, String appellido2, int tipoUsuario) {
+    public Usuarios(Integer cedula, String password, String email, String nombre, String apellido1, String appellido2, Integer tipoUsuario) {
         this.cedula = cedula;
         this.password = password;
         this.email = email;
@@ -23,7 +23,7 @@ public class Usuarios {
     public Usuarios() {
     }
 
-    public int getCedula() {
+    public Integer getCedula() {
         return cedula;
     }
 
@@ -76,7 +76,7 @@ public class Usuarios {
      * 2- Empleado 
      * 3- Cliente
     */
-    public int getTipoUsuario() {
+    public Integer getTipoUsuario() {
         return tipoUsuario;
     }
 
