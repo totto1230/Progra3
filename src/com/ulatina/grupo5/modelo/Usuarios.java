@@ -81,7 +81,7 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios{" + "cedula=" + cedula + ", password=" + password + ", correo=" + correo + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", appellido2=" + appellido2 + ", TipoUsuario=" + tipoUsuario + '}';
+        return "Usuarios{" + "cedula=" + cedula + ", password=" + password + ", correo=" + email + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", appellido2=" + appellido2 + ", TipoUsuario=" + tipoUsuario + '}';
     }
 
 }
