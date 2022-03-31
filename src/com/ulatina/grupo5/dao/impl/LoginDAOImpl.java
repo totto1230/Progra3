@@ -31,7 +31,7 @@ public class LoginDAOImpl implements BaseDAO{
 
     @Override
     public int nextID() {
-       String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+       String sql = "select COALESCE(max(id),0) + 1 as nextCode from Login";
        Integer nextCode = 0;
        try {
            con = conectar.getConnection();

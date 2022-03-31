@@ -124,7 +124,7 @@ public class PrecioDAOImpl implements BaseDAO {
 
         p = (Precio) obj;
 
-        String sql = "DELETE FROM persona WHERE idPrecio = ?";
+        String sql = "DELETE FROM Precio WHERE idPrecio = ?";
 
         try {
 
@@ -153,30 +153,7 @@ public class PrecioDAOImpl implements BaseDAO {
 
     @Override
     public Boolean eliminarTodos(Integer id) {
-        String sql = "DELETE FROM persona WHERE idPrecio = ?";
-
-        try {
-
-            conectar.connectar();
-            con = conectar.getConnection();
-            ps = con.prepareStatement(sql);
-
-            ps.setInt(1, id);
-
-            int registros = ps.executeUpdate();
-
-            if (registros > 0) {
-                con.close();
-                return true;
-            } else {
-                con.close();
-                return false;
-            }
-
-        } catch (SQLException e) {
-
-            return false;
-        }
+        return null;
     }
 
     @Override
@@ -233,7 +210,7 @@ public class PrecioDAOImpl implements BaseDAO {
 
     @Override
     public int nextID() {
-        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        String sql = "select COALESCE(max(idPrecio),0) + 1 as nextCode from Precio";
         Integer nextCode = 0;
         try {
             con = conectar.getConnection();

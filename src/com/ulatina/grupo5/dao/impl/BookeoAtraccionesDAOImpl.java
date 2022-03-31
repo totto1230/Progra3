@@ -175,7 +175,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
 
     @Override
     public int nextID() {
-        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        String sql = "select COALESCE(max(orderId),0) + 1 as nextCode from BookeoAtracciones";
         Integer nextCode = 0;
         try {
             con = conectar.getConnection();
