@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/LoginController.java</file>
             <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/Menu_AdminController.java</file>
             <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/vista/Registro_Usuarios_Admin.java</file>
             <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/vista/Menu_Admin.java</file>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/modelo/Usuarios.java</file>
             <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/RegistrarUsuariosController.java</file>
-            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/dao/impl/UsuariosDAOImpl.java</file>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/vista/Ver_Usuarios_Admin.java</file>
             <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/RegistroAtraccionesController.java</file>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/UsuariosController.java</file>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/AgregarAtraccionController.java</file>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/SeguimientoController.java</file>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/prograIII-master/src/com/ulatina/grupo5/controlador/GananciasAdminEmpleadoController.java</file>
         </group>
     </open-files>
 </project-private>

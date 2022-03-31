@@ -43,6 +43,8 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
         jSlider_ganacias_admin_empleado = new javax.swing.JSlider();
         jLabel_colones = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
+        btnAgregarGanaciaBack = new javax.swing.JButton();
+        btnAgregarGanacia = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbkAtracciones = new javax.swing.JTable();
@@ -86,15 +88,26 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
 
         btnAgregar.setContentAreaFilled(false);
 
+        btnAgregarGanaciaBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
+        btnAgregarGanaciaBack.setBorderPainted(false);
+        btnAgregarGanaciaBack.setContentAreaFilled(false);
+
+        btnAgregarGanacia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/money.png"))); // NOI18N
+        btnAgregarGanacia.setContentAreaFilled(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(btnAtras)
+                .addComponent(btnAgregarGanaciaBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnAtras))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
@@ -102,7 +115,7 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel_Num_Atrac_Gana))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(txtIdAtraccion, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombreAtraccion, javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,12 +124,11 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel_colones, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRecaudacionFondos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtRecaudacionFondos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(btnAgregarGanacia)))
                 .addGap(65, 65, 65))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAgregar)
-                .addGap(142, 142, 142))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,9 +155,14 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jSlider_ganacias_admin_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAgregar)
-                .addGap(9, 9, 9)
-                .addComponent(btnAtras)
+                .addComponent(btnAgregarGanacia)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnAgregar)
+                        .addGap(9, 9, 9)
+                        .addComponent(btnAtras))
+                    .addComponent(btnAgregarGanaciaBack, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(31, 31, 31))
         );
 
@@ -259,8 +276,10 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnAgregarGanacia;
+    public javax.swing.JButton btnAgregarGanaciaBack;
     public javax.swing.JButton btnAtras;
-    private com.toedter.calendar.JDateChooser dtpFecha;
+    public com.toedter.calendar.JDateChooser dtpFecha;
     private javax.swing.JLabel jLabel1_Ganacias;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
