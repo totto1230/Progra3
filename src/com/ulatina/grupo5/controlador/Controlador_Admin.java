@@ -31,6 +31,7 @@ public class Controlador_Admin extends Menu_Admin implements ActionListener{
         this.ui.jButton_mantenimiento_atracciones_main_admin.addActionListener(this);
         this.ui2.jButton_create_user.addActionListener(this);
         this.ui2.jButton_previous_register.addActionListener(this);
+        
     }
 
   

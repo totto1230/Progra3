@@ -115,6 +115,7 @@ public class LoginController implements ActionListener {
                 }
             }
         } else if (e.getSource() == vista.btnCancel) {
+            
             vista.setVisible(false); 
             vista.dispose();
         }

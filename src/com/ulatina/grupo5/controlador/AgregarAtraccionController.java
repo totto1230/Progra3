@@ -4,14 +4,18 @@
  */
 package com.ulatina.grupo5.controlador;
 
-/**
- *
- * @author josep
- */
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-package com.ulatina.grupo5.controlador;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
+import com.ulatina.grupo5.dao.BaseDAO;
+import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
+import com.ulatina.grupo5.modelo.Atracciones;
+import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
 
 public class AgregarAtraccionController {
+    
     
 }

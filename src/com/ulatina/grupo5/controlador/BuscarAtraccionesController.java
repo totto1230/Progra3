@@ -16,10 +16,7 @@ import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.vista.Buscar_Atracciones_Admin;
 import com.ulatina.grupo5.vista.Menu_Admin;
 
-/**
- *
- * @author fernando
- */
+
 public class BuscarAtraccionesController implements ActionListener {
 
     Atracciones atraccion = new Atracciones();
