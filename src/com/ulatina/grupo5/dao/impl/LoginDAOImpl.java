@@ -53,7 +53,7 @@ public class LoginDAOImpl implements BaseDAO{
     @Override
     public Boolean insertar(Object obj) {
         p = (Login) obj;
-        String sql = "INSERT INTO Login (id,email,numTickets,fechaLogin,fechaLogoff) VALUES (?,?,?,?,?);";
+        String sql = "INSERT INTO Login (idLogin,cedula,numTickets,fechaLogin,fechaLogoff) VALUES (?,?,?,?,?);";
         try {
             conectar.connectar();
             con = conectar.getConnection();
@@ -61,7 +61,7 @@ public class LoginDAOImpl implements BaseDAO{
             
             ps.setInt(1, p.getIdLogin());
             ps.setInt(2, p.getNumTickets());
-            ps.setString(3, p.getEmail());
+            ps.setInt(3, p.getCedula());
             ps.setDate(4, (Date)p.getFechaLogoff());
             ps.setDate(5, (Date)p.getFechaLogoff());
 
@@ -159,11 +159,11 @@ public class LoginDAOImpl implements BaseDAO{
     @Override
     public void listar(JTable table) {
         
-        String[] titulos = {"ID", "email", "Ticketes", "Fecha Login" , "Fecha Logogg"};
+        String[] titulos = {"ID", "cedula", "Ticketes", "Fecha Login" , "Fecha Logogg"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         
-        String sql = "SELECT id, email, numTickets, fechaLogin, fechaLogoff FROM Login";
+        String sql = "SELECT idLogin, cedula, numTickets, fechaLogin, fechaLogoff FROM Login";
         
         try {
             con = conectar.getConnection();
@@ -172,8 +172,8 @@ public class LoginDAOImpl implements BaseDAO{
             
             while (rs.next()){
             
-                registros[1] = rs.getString("id");
-                registros[2] = rs.getString("email");
+                registros[1] = rs.getString("idLogin");
+                registros[2] = rs.getString("cedula");
                 registros[3] = rs.getString("numTickets");
                 registros[4] = rs.getString("fechaLogin");
                 registros[5] = rs.getString("fechaLogoff");

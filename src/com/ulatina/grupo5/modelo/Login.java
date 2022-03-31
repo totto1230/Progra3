@@ -9,15 +9,15 @@ public class Login {
     public Integer numTickets;
     public Date fechaLogin;
     public Date fechaLogoff;
-    public String email;
+    public Integer cedula;
     
     public Login() {
         
     }
 
-    public Login(Integer idLogin,String email, Integer numTickets, Date fechaLogin, Date fechaLogoff) {
+    public Login(Integer idLogin,Integer cedula, Integer numTickets, Date fechaLogin, Date fechaLogoff) {
         this.idLogin = idLogin;
-        this.email = email;
+        this.cedula = cedula;
         this.numTickets = numTickets;
         this.fechaLogin = fechaLogin;
         this.fechaLogoff = fechaLogoff;
@@ -32,12 +32,12 @@ public class Login {
         this.idLogin = idLogin;
     }
     
-    public String getEmail() {
-        return email;
+    public int getCedula() {
+        return cedula;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCedula(Integer cedula) {
+        this.cedula = cedula;
     }
 
     public Integer getNumTickets() {

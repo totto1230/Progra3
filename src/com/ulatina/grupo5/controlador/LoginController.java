@@ -71,7 +71,7 @@ public class LoginController implements ActionListener {
             if (vista.txtUsername.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "Debe ingresar el Usuario", "Error al autenticar", JOptionPane.INFORMATION_MESSAGE);
                 vista.txtUsername.requestFocus();
-            } else if (vista.txtPassword.getText().isEmpty()) {
+            } else if (vista.txtPassword.getPassword().toString().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "Debe ingresar la contraseña", "Error al autenticar", JOptionPane.INFORMATION_MESSAGE);
                 vista.txtPassword.requestFocus();
             } else {
@@ -92,7 +92,8 @@ public class LoginController implements ActionListener {
                 //agregar();
             }
         } else if (e.getSource() == vista.btnCancel) {
-            vista.setVisible(false); //you can't see me!
+            
+            vista.setVisible(false); 
             vista.dispose();
         }
     }

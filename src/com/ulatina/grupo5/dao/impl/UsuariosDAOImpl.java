@@ -29,9 +29,7 @@ public class UsuariosDAOImpl implements BaseDAO {
 
         String sql = "INSERT INTO Usuarios (cedula,password,correo,nombre,apellido1,appellido2,tipoUsuario) VALUES (?,?,?,?,?,?,?)";
         try {
-
             conectar.connectar();
-
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
@@ -94,13 +92,9 @@ public class UsuariosDAOImpl implements BaseDAO {
 
     @Override
     public Boolean eliminar(Object obj) {
-
         p = (Usuarios) obj;
-
         String sql = "DELETE FROM usuarios WHERE cedula = ?";
-
         try {
-
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
@@ -146,7 +140,6 @@ public class UsuariosDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-
                 registros[0] = rs.getString("cedula");
                 registros[1] = rs.getString("password");
                 registros[2] = rs.getString("correo");
@@ -155,7 +148,6 @@ public class UsuariosDAOImpl implements BaseDAO {
                 registros[5] = rs.getString("apellido2");
                 registros[6] = rs.getString("tipoUsuario");
                 model.addRow(registros);
-
             }
             table.setModel(model);
 
