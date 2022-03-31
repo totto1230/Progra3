@@ -27,7 +27,7 @@ public class Menu_AdminController implements ActionListener {
     LoginController loginC;
 
     //Atracciones atraccion = new Atracciones();
-   //BaseDAO dao = new AtraccionesDAOImpl();
+    //BaseDAO dao = new AtraccionesDAOImpl();
     Menu_Admin vista = new Menu_Admin();
 
     Registro_Usuarios_Admin registroUsuariosVista = new Registro_Usuarios_Admin();
@@ -48,6 +48,8 @@ public class Menu_AdminController implements ActionListener {
         this.vista.jButton_mantenimiento_atracciones_main_admin.addActionListener(this);
         this.vista.jButton5_back_main_menu_admin.addActionListener(this);
     }
+
+  
 
     @Override
     public void actionPerformed(ActionEvent e) {
