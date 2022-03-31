@@ -20,15 +20,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author fernando
  */
-public class BookeoAtraccionesDAOImpl implements BaseDAO{
+public class BookeoAtraccionesDAOImpl implements BaseDAO {
 
     Conexion conectar = new Conexion();
 
     PreparedStatement ps;
     ResultSet rs;
     Connection con;
-    
-    BookeoAtracciones p = new BookeoAtracciones ();
+
+    BookeoAtracciones p = new BookeoAtracciones();
 
     @Override
     public Boolean insertar(Object obj) {
@@ -42,11 +42,11 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO{
 
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
+
             ps.setInt(1, p.getOrderId());
             ps.setInt(2, p.getTicket());
             ps.setInt(3, p.getIdenAtrac());
-            
+
             int registros = ps.executeUpdate();
 
             if (registros > 0) {
@@ -64,34 +64,33 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO{
 
     }
 
-   @Override
+    @Override
     public Boolean actualizar(Object obj) {
-        
+
         p = (BookeoAtracciones) obj;
-        
+
         String sql = "UPDATE BookeoAtracciones SET orderId = ?, ticket = ?, idenAtrac = ? WHERE orderId = ?";
         try {
-            
+
             conectar.connectar();
-            
+
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
             ps.setInt(1, p.getOrderId());
             ps.setInt(2, p.getTicket());
             ps.setInt(3, p.getIdenAtrac());
-           
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
             System.out.println("Error");
             return false;
@@ -99,73 +98,69 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO{
     }
 
     @Override
-    public Boolean eliminar(Object obj) {  
+    public Boolean eliminar(Object obj) {
         p = (BookeoAtracciones) obj;
-        String sql = "DELETE FROM BookeoAtracciones WHERE orderId = ?";  
+        String sql = "DELETE FROM BookeoAtracciones WHERE orderId = ?";
         try {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
+
             ps.setInt(1, p.getOrderId());
-            
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
-            
+
             return false;
         }
     }
-    
+
     @Override
-    public Boolean eliminarTodos(Integer id)
-    {
+    public Boolean eliminarTodos(Integer id) {
         return null;
     }
-    
+
     @Override
     public void listar(JTable table) {
-        
+
         String[] titulos = {"Orden", "Ticket", "idenAtrac"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         String sql = "SELECT orderId,ticket,idenAtrac FROM BookeoAtracciones";
-        
+
         try {
-            
+
             con = conectar.getConnection();
-            
+
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            
-            while (rs.next()){
-            
+
+            while (rs.next()) {
+
                 registros[1] = rs.getString("orderId");
                 registros[2] = rs.getString("ticket");
                 registros[3] = rs.getString("idenAtrac");
                 model.addRow(registros);
-    
+
             }
             table.setModel(model);
-            
+
             con.close();
-            
-        }
-        
-        catch (Exception ex){
+
+        } catch (Exception ex) {
             System.out.println("Error");
         }
-        
+
     }
 
     @Override
@@ -176,5 +171,25 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO{
     @Override
     public Object[] listarPor(Object obj) {
         return null;
+    }
+
+    @Override
+    public int nextID() {
+        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        Integer nextCode = 0;
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                nextCode = Integer.parseInt(rs.getString("nextCode"));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error");
+            return -1;
+        }
+        return nextCode;
     }
 }

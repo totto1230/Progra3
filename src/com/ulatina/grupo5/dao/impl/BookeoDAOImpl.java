@@ -198,4 +198,24 @@ public class BookeoDAOImpl implements BaseDAO {
     public Object[] listarPor(Object obj) {
         return null;
     }
+
+    @Override
+    public int nextID() {
+        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        Integer nextCode = 0;
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                nextCode = Integer.parseInt(rs.getString("nextCode"));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error");
+            return -1;
+        }
+        return nextCode;
+    }
 }

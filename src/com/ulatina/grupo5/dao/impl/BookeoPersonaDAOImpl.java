@@ -13,33 +13,33 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class BookeoPersonaDAOImpl implements BaseDAO{
+public class BookeoPersonaDAOImpl implements BaseDAO {
 
     Conexion conectar = new Conexion();
 
     PreparedStatement ps;
     ResultSet rs;
     Connection con;
-    
-    BookeoPersona b = new BookeoPersona ();
+
+    BookeoPersona b = new BookeoPersona();
 
     @Override
     public Boolean insertar(Object obj) {
 
         b = (BookeoPersona) obj;
         String sql = "INSERT INTO bookeopersona (orderId,email,ticket) VALUES(?,?,?)";
-        
+
         try {
 
             conectar.connectar();
 
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,b.getOrderId());
+
+            ps.setInt(1, b.getOrderId());
             ps.setString(2, b.getEmail());
             ps.setInt(3, b.getTicket());
-            
+
             int registros = ps.executeUpdate();
 
             if (registros > 0) {
@@ -57,11 +57,11 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
 
     }
 
-   @Override
+    @Override
     public Boolean actualizar(Object obj) {
-        
+
         b = (BookeoPersona) obj;
-        
+
         String sql = "UPDATE bookeopersona SET email = ? WHERE orderId = ? and ticket = ?";
         try {
             conectar.connectar();
@@ -71,18 +71,17 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
             ps.setString(1, b.getEmail());
             ps.setInt(2, b.getTicket());
             ps.setInt(3, b.getOrderId());
-            
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
             System.out.println("Error");
             return false;
@@ -91,105 +90,102 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
 
     @Override
     public Boolean eliminar(Object obj) {
-        
+
         b = (BookeoPersona) obj;
-        
+
         String sql = "DELETE FROM BookeoPersona WHERE orderId = ?";
-        
+
         try {
-            
+
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,b.getOrderId());
-            
+
+            ps.setInt(1, b.getOrderId());
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
-            
+
             return false;
         }
-       
+
     }
-    
+
     @Override
     public Boolean eliminarTodos(Integer id) {
-                
-        String sql = "DELETE FROM BookeoPersona WHERE ticket = ?";
         
+        
+        String sql = "DELETE FROM BookeoPersona WHERE ticket = ?";
+
         try {
-            
+
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,id);
-            
+
+            ps.setInt(1, id);
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
-            
+
             return false;
         }
-       
+
     }
-    
+
     @Override
     public void listar(JTable table) {
-        
-        String[] titulos = {"Orden", "E-Mail", "Ticket" };
+
+        String[] titulos = {"Orden", "E-Mail", "Ticket"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         String sql = "select * from BookeoPersona";
-        
+
         try {
-            
+
             con = conectar.getConnection();
-            
+
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            
-            while (rs.next()){
-            
-                registros[0] = rs.getString("orderId"); 
+
+            while (rs.next()) {
+
+                registros[0] = rs.getString("orderId");
                 registros[1] = rs.getString("email");
                 registros[2] = rs.getString("ticket");
-                
+
                 model.addRow(registros);
-    
+
             }
             table.setModel(model);
-            
+
             con.close();
-            
-        }
-        
-        catch (Exception ex){
+
+        } catch (Exception ex) {
             System.out.println("Error");
         }
-        
+
     }
-    
+
     @Override
     public BookeoPersona listarUno(Integer id) {
         String sql = "select orderId, email, ticket from BookeoPersona where orderId = ?";
@@ -198,13 +194,13 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, p.getTicket());
+            ps.setInt(1, id);
 
             while (rs.next()) {
                 b.setOrderId(Integer.parseInt(rs.getString("orderId")));
                 b.setEmail(rs.getString("email"));
                 b.setTicket(Integer.parseInt(rs.getString("ticket")));
-                
+
             }
             con.close();
 
@@ -214,10 +210,10 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
         return b;
 
     }
-    
+
     @Override
     public BookeoPersona[] listarPor(Object obj) {
-        b = (BookeoPersona)obj;
+        b = (BookeoPersona) obj;
         ArrayList<BookeoPersona> bookeoPersonas = new ArrayList<BookeoPersona>();
         String sql = "select orderId, email, ticket from BookeoPersona where ticket = ?";
         try {
@@ -238,10 +234,29 @@ public class BookeoPersonaDAOImpl implements BaseDAO{
 
         } catch (Exception ex) {
             System.out.println("Error");
-        }        
-        return (BookeoPersona[])bookeoPersonas.toArray();
+        }
+        return (BookeoPersona[]) bookeoPersonas.toArray();
 
     }
-    
-    
+
+    @Override
+    public int nextID() {
+        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        Integer nextCode = 0;
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                nextCode = Integer.parseInt(rs.getString("nextCode"));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error");
+            return -1;
+        }
+        return nextCode;
+    }
+
 }

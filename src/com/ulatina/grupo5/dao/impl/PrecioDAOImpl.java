@@ -2,23 +2,25 @@ package com.ulatina.grupo5.dao.impl;
 
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.helpers.Conexion;
+import com.ulatina.grupo5.modelo.BookeoPersona;
 import com.ulatina.grupo5.modelo.Precio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class PrecioDAOImpl implements BaseDAO{
+public class PrecioDAOImpl implements BaseDAO {
 
     Conexion conectar = new Conexion();
 
     PreparedStatement ps;
     ResultSet rs;
     Connection con;
-    
-    Precio p = new Precio ();
+
+    Precio p = new Precio();
 
     @Override
     public Boolean insertar(Object obj) {
@@ -32,12 +34,12 @@ public class PrecioDAOImpl implements BaseDAO{
 
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,p.getIdPrecio());
+
+            ps.setInt(1, p.getIdPrecio());
             ps.setString(2, p.getDescripcion());
             ps.setInt(3, p.getPrecio());
             ps.setBoolean(4, p.isActivoBIT());
-           
+
             int registros = ps.executeUpdate();
 
             if (registros > 0) {
@@ -55,95 +57,143 @@ public class PrecioDAOImpl implements BaseDAO{
 
     }
 
-   @Override
+    @Override
     public Boolean actualizar(Object obj) {
-        
+
         p = (Precio) obj;
-        
+
         String sql = "UPDATE SET Precio descripcion = ?, precio = ?, activoBIT = ? WHERE idPrecio = ?";
         try {
-            
+
             conectar.connectar();
-            
+
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1,p.getIdPrecio());
+            ps.setInt(1, p.getIdPrecio());
             ps.setString(2, p.getDescripcion());
             ps.setInt(3, p.getPrecio());
             ps.setBoolean(4, p.isActivoBIT());
-            
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
             System.out.println("Error");
             return false;
         }
     }
 
-
     @Override
-    public Boolean eliminar(Object obj) {
-        
+    public Object[] listarPor(Object obj) {
         p = (Precio) obj;
-        
-        String sql = "DELETE FROM persona WHERE idPrecio = ?";
-        
+        ArrayList<Precio> Precio = new ArrayList<Precio>();
+        String sql = "select  descripcion = ?, precio = ?, activoBIT = ? FROM Precio WHERE idPrecio = ?";
         try {
-            
+
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,p.getIdPrecio());
-            
+            ps.setInt(1, p.idPrecio);
+
+            while (rs.next()) {
+                Precio precio = new Precio();
+                precio.setIdPrecio(Integer.parseInt(rs.getString("orderId")));
+                precio.setDescripcion(rs.getString("descripcion"));
+                precio.setPrecio(Integer.parseInt(rs.getString("precio")));
+                precio.setActivoBIT(rs.getBoolean("activoBIT"));
+                Precio.add(precio);
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return (Precio[]) Precio.toArray();
+    }
+
+    @Override
+    public Boolean eliminar(Object obj) {
+
+        p = (Precio) obj;
+
+        String sql = "DELETE FROM persona WHERE idPrecio = ?";
+
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+
+            ps.setInt(1, p.getIdPrecio());
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
-            
+
             return false;
         }
-       
+
     }
-    
+
     @Override
     public Boolean eliminarTodos(Integer id) {
-        return null;
+        String sql = "DELETE FROM persona WHERE idPrecio = ?";
+
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            int registros = ps.executeUpdate();
+
+            if (registros > 0) {
+                con.close();
+                return true;
+            } else {
+                con.close();
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            return false;
+        }
     }
-    
+
     @Override
     public void listar(JTable table) {
-        
-        String[] titulos = {"ID de Precio", "Descripción", "Precio" , "Activo"};
+
+        String[] titulos = {"ID de Precio", "Descripción", "Precio", "Activo"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         String sql = "SELECT idPrecio, descripcion, precio, activo FROM Precio";
-        
-        try {    
+
+        try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            while (rs.next()){
-                registros[0] = rs.getString("idPrecio"); 
+            while (rs.next()) {
+                registros[0] = rs.getString("idPrecio");
                 registros[1] = rs.getString("descripcion");
                 registros[2] = rs.getString("precio");
                 registros[3] = rs.getString("activo");
@@ -151,21 +201,53 @@ public class PrecioDAOImpl implements BaseDAO{
             }
             table.setModel(model);
             con.close();
-        }
-        
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Error");
         }
-        
-    }
-    
-    @Override
-    public Object listarUno(Integer id) {
-        return null;
+
     }
 
     @Override
-    public Object[] listarPor(Object obj) {
-        return null;
+    public Object listarUno(Integer id) {
+        String sql = "SELECT idPrecio, descripcion, precio, activo FROM Precio where idPrecio = ?";
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            while (rs.next()) {
+                p.setIdPrecio(Integer.parseInt(rs.getString("idPrecio")));
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setActivoBIT(rs.getBoolean("activo"));
+                p.setPrecio(Integer.parseInt(rs.getString("precio")));
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return p;
+    }
+
+    @Override
+    public int nextID() {
+        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        Integer nextCode = 0;
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                nextCode = Integer.parseInt(rs.getString("nextCode"));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error");
+            return -1;
+        }
+        return nextCode;
     }
 }
