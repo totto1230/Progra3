@@ -37,7 +37,7 @@ public class UsuariosDAOImpl implements BaseDAO {
 
             ps.setInt(1, p.getCedula());
             ps.setString(2, p.getPassword());
-            ps.setString(3, p.getCorreo());
+            ps.setString(3, p.getEmail());
             ps.setString(4, p.getNombre());
             ps.setString(5, p.getApellido1());
             ps.setString(5, p.getAppellido2());
@@ -65,7 +65,7 @@ public class UsuariosDAOImpl implements BaseDAO {
 
         p = (Usuarios) obj;
 
-        String sql = "UPDATE SET usuarios password = ?, correo = ? , nombre=?, apellido1=? , apellido2=?, tipoUsuario=? WHERE cedula = ?";
+        String sql = "UPDATE SET usuarios password = ?, email = ? , nombre=?, apellido1=? , apellido2=?, tipoUsuario=? WHERE cedula = ?";
         try {
 
             conectar.connectar();
@@ -75,7 +75,7 @@ public class UsuariosDAOImpl implements BaseDAO {
 
             ps.setInt(1, p.getCedula());
             ps.setString(2, p.getPassword());
-            ps.setString(3, p.getCorreo());
+            ps.setString(3, p.getEmail());
             ps.setString(4, p.getNombre());
             ps.setString(5, p.getApellido1());
             ps.setString(5, p.getAppellido2());
@@ -208,7 +208,7 @@ public class UsuariosDAOImpl implements BaseDAO {
             while (rs.next()) {
                 
                 p.setCedula(Integer.parseInt(rs.getString("Cedula")));
-                p.setCorreo(rs.getString("correo"));
+                p.setEmail(rs.getString("correo"));
                 p.setPassword(rs.getString("Password"));
                 p.setNombre(rs.getString("Nombre"));
                 p.setApellido1(rs.getString("Apellido1"));
