@@ -30,10 +30,7 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_Buscar_Atracciones_Admin = new javax.swing.JTable();
         jButton_Back_Buscar_Atrac_Admin = new javax.swing.JButton();
-        jLabel_Fecha_Inst_Buscar_Atra_Admin = new javax.swing.JLabel();
-        txtFechaInstalacion = new com.toedter.calendar.JDateChooser();
-        jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        BtnBackAtracAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,55 +57,30 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
 
         jButton_Back_Buscar_Atrac_Admin.setContentAreaFilled(false);
 
-        jLabel_Fecha_Inst_Buscar_Atra_Admin.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel_Fecha_Inst_Buscar_Atra_Admin.setText("Selecione la Fecha De Instalación");
-
-        jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin.setText("Ordernar por Sección");
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        jLabel1.setText("Filtros");
+        BtnBackAtracAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
+        BtnBackAtracAdmin.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton_Back_Buscar_Atrac_Admin))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel_Fecha_Inst_Buscar_Atra_Admin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtFechaInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_Back_Buscar_Atrac_Admin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnBackAtracAdmin)
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel_Fecha_Inst_Buscar_Atra_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(txtFechaInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_Back_Buscar_Atrac_Admin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtnBackAtracAdmin)
+                    .addComponent(jButton_Back_Buscar_Atrac_Admin))
                 .addGap(20, 20, 20))
         );
 
@@ -116,7 +88,9 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,13 +136,10 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton BtnBackAtracAdmin;
     public javax.swing.JButton jButton_Back_Buscar_Atrac_Admin;
-    public javax.swing.JButton jButton_Ordernar_por_Seccion_Buscar_Atrac_Admin;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel_Fecha_Inst_Buscar_Atra_Admin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable_Buscar_Atracciones_Admin;
-    public com.toedter.calendar.JDateChooser txtFechaInstalacion;
     // End of variables declaration//GEN-END:variables
 }
