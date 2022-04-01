@@ -17,7 +17,7 @@ import javax.swing.JTable;
 public class GananciasAdminEmpleadoController implements ActionListener {
 
     Atracciones atraccion = new Atracciones();
-    BaseDAO dao = new GanaciasDAOImpl();
+    GanaciasDAOImpl dao = new GanaciasDAOImpl();
     Ganancias_Admin_Empleado vista = new Ganancias_Admin_Empleado();
 
     Menu_AdminController menuAdminCtrl;
@@ -26,46 +26,30 @@ public class GananciasAdminEmpleadoController implements ActionListener {
 
     public GananciasAdminEmpleadoController(Ganancias_Admin_Empleado vista) {
         this.vista = vista;
-        this.vista.btnAgregarGanaciaBack.addActionListener(this);
-        this.vista.btnAgregarGanacia.addActionListener(this);
-
+        this.vista.btnPreviousGanacias.addActionListener(this);
+        this.vista.btnFiltrar.addActionListener(this);
+        this.vista.ddlFiltroSec.addActionListener(this);
     }
 
     public void iniciar() {
-        vista.txtIdAtraccion.setText("");
-        vista.txtNombreAtraccion.setText("");
-        vista.txtRecaudacionFondos.setText("");
-        this.listarTabla(vista.tbkAtracciones);
+        this.listarTabla(vista.tbkAtraccionesGanacias);
 
     }
-    
+
     public void listarTabla(JTable tabla) {
         dao.listar(tabla);
     }
 
-    public Ganancias devolverGanacias() {
-        Integer numeroAtrac = Integer.parseInt(vista.txtIdAtraccion.getText());
-        String nombreAtrac = vista.txtNombreAtraccion.getText();
-        Integer recaudacionAtrac = Integer.parseInt(vista.txtRecaudacionFondos.getText());
-        Date fechaSelec = (Date) vista.dtpFecha.getDate();
-        Integer cantPersonas = vista.jSlider_ganacias_admin_empleado.getValue();
-
-        return ganancia = new Ganancias(numeroAtrac, nombreAtrac, recaudacionAtrac, fechaSelec, cantPersonas);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
-           
+
+        if (e.getSource() == vista.btnPreviousGanacias) {
+            menuAdminCtrl = new Menu_AdminController(menuVista);
+            menuVista.setVisible(true);
+            vista.dispose();
+
+        }
         if (e.getSource() == vista.btnAgregarGanacia) {
-            ganancia = devolverGanacias();
-
-            boolean resultado = dao.insertar(ganancia);
-
-            if (resultado) {
-                JOptionPane.showMessageDialog(vista, "Actualizado Correctamente");
-            } else {
-                JOptionPane.showMessageDialog(vista, "Error al ingresar, por favor intente de nuevo");
-            }
 
         }
     }
