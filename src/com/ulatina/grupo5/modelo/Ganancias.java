@@ -1,15 +1,18 @@
-
 package com.ulatina.grupo5.modelo;
 
 import java.sql.Date;
 
 public class Ganancias {
-    
+
     public Integer numeroAtrac;
     public String nombreAtrac;
     public Integer recaudacionAtrac;
     public Date fechaSelec;
     public Integer cantPersonas;
+    public String seccion;
+    public Boolean filtrar;
+    public Date dateFrom;
+    public Date dateTo;
 
     public Ganancias(Integer numeroAtrac, String nombreAtrac, Integer recaudacionAtrac, Date fechaSelec, Integer cantPersonas) {
         this.numeroAtrac = numeroAtrac;
@@ -19,6 +22,14 @@ public class Ganancias {
         this.cantPersonas = cantPersonas;
     }
 
+    public Ganancias(String seccion, Boolean filtrar, Date dateFrom, Date dateTo) {
+        this.seccion = seccion;
+        this.filtrar = filtrar;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
+    }
+
+    
     public Ganancias() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -67,6 +78,5 @@ public class Ganancias {
     public void setCantPersonas(Integer cantPersonas) {
         this.cantPersonas = cantPersonas;
     }
-    
-    
+
 }

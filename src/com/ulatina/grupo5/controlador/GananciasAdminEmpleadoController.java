@@ -17,6 +17,7 @@ import javax.swing.JTable;
 public class GananciasAdminEmpleadoController implements ActionListener {
 
     Atracciones atraccion = new Atracciones();
+    Ganancias ganacia = new Ganancias();
     GanaciasDAOImpl dao = new GanaciasDAOImpl();
     Ganancias_Admin_Empleado vista = new Ganancias_Admin_Empleado();
 
@@ -33,11 +34,24 @@ public class GananciasAdminEmpleadoController implements ActionListener {
 
     public void iniciar() {
         this.listarTabla(vista.tbkAtraccionesGanacias);
-
     }
 
     public void listarTabla(JTable tabla) {
-        dao.listar(tabla);
+        String seccion = String.valueOf(vista.ddlFiltroSec.getSelectedItem().toString().charAt(0)).toUpperCase();
+        Boolean filtrar = vista.chkFiltroFechas.isSelected();
+        Date dateFrom = (Date) vista.dateChFechaInicio.getDate();
+        Date dateTo = (Date) vista.dateChFechaFinal.getDate();
+        dao.listar(tabla, seccion, filtrar, dateFrom, dateTo);
+
+    }
+
+    public Ganancias devolverValor() {
+        String seccion = String.valueOf(vista.ddlFiltroSec.getSelectedItem().toString().charAt(0)).toUpperCase();
+        Boolean filtrar = vista.chkFiltroFechas.isSelected();
+        Date dateFrom = (Date) vista.dateChFechaInicio.getDate();
+        Date dateTo = (Date) vista.dateChFechaFinal.getDate();
+        Ganancias valores = new Ganancias(seccion, filtrar, dateFrom, dateTo);
+        return valores;
     }
 
     @Override
@@ -49,8 +63,8 @@ public class GananciasAdminEmpleadoController implements ActionListener {
             vista.dispose();
 
         }
-        if (e.getSource() == vista.btnAgregarGanacia) {
-
+        if (e.getSource() == vista.btnFiltrar) {
+            listarTabla(vista.tbkAtraccionesGanacias);
         }
     }
 }
