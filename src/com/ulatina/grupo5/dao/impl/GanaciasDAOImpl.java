@@ -1,8 +1,6 @@
 package com.ulatina.grupo5.dao.impl;
 
-import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.helpers.Conexion;
-import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Ganancias;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
