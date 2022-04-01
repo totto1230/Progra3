@@ -68,7 +68,7 @@ public class Ganancias_Admin_Empleado extends javax.swing.JFrame {
 
         btnFiltrar.setText("Filtrar");
 
-        ddlFiltroSec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "F", "I" }));
+        ddlFiltroSec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Infantil", "Adultos", "Familiar" }));
         ddlFiltroSec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ddlFiltroSecActionPerformed(evt);
