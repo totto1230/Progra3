@@ -55,13 +55,8 @@ public class GananciasAdminEmpleadoController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if (e.getSource() == vista.btnAgregarGanaciaBack) {
-            menuAdminCtrl = new Menu_AdminController(menuVista);
-            menuVista.setVisible(true);
-            vista.dispose();
-
-        } else if (e.getSource() == vista.btnAgregarGanacia) {
+           
+        if (e.getSource() == vista.btnAgregarGanacia) {
             ganancia = devolverGanacias();
 
             boolean resultado = dao.insertar(ganancia);
