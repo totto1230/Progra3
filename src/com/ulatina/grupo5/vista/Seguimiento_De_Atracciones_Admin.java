@@ -38,11 +38,12 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
         jTextField_Revisor_Segui_De_Atra_Admin = new javax.swing.JTextField();
         Date_Fecha_Revi_Seguimiento = new com.toedter.calendar.JDateChooser();
         jCheckBox_Error = new javax.swing.JCheckBox();
-        jTextField_Atrac_Seguimiento_Atrc_Admin = new javax.swing.JTextField();
+        txtAtrac = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea_Solc_Comenta_Segui_De_Atrac_Admin = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea_Descrip_Error_Segui_Atra_Admi = new javax.swing.JTextArea();
+        btnActualizar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel_Seguimiento_atrac = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -77,6 +78,8 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
         jTextArea_Descrip_Error_Segui_Atra_Admi.setRows(5);
         jScrollPane3.setViewportView(jTextArea_Descrip_Error_Segui_Atra_Admi);
 
+        btnActualizar.setText("Actualizar");
+
         javax.swing.GroupLayout jPane_Regist_Atra_AdminLayout = new javax.swing.GroupLayout(jPane_Regist_Atra_Admin);
         jPane_Regist_Atra_Admin.setLayout(jPane_Regist_Atra_AdminLayout);
         jPane_Regist_Atra_AdminLayout.setHorizontalGroup(
@@ -95,18 +98,17 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
                     .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton_volver_seguimiento_atracciones_admin)))
+                .addGap(59, 59, 59)
                 .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_Agregar_Seguimiento_Atra_Admin)
-                        .addGap(131, 131, 131))
+                    .addComponent(txtAtrac, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField_Atrac_Seguimiento_Atrc_Admin, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
+                        .addComponent(jButton_Agregar_Seguimiento_Atra_Admin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))))
             .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
                 .addGap(254, 254, 254)
                 .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +126,7 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Nombre_Atraccion_Seguimiento_Atrac)
-                    .addComponent(jTextField_Atrac_Seguimiento_Atrc_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAtrac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_Revisor_Segui_De_Atra_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,13 +154,18 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
                         .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel_Soluc_Comenta_Seg_Atrac_Admi))
-                        .addGap(83, 83, 83)
-                        .addComponent(jButton_volver_seguimiento_atracciones_admin)
+                        .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(jButton_volver_seguimiento_atracciones_admin))
+                            .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jButton_Agregar_Seguimiento_Atra_Admin)))
                         .addGap(17, 17, 17))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_Agregar_Seguimiento_Atra_Admin)
-                        .addGap(51, 51, 51))))
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71))))
         );
 
         jLabel_Seguimiento_atrac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/Seguimiento de atrac.png"))); // NOI18N
@@ -278,6 +285,7 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public com.toedter.calendar.JDateChooser Date_Fecha_Revi_Seguimiento;
+    public javax.swing.JButton btnActualizar;
     public javax.swing.JButton jButton_Agregar_Seguimiento_Atra_Admin;
     public javax.swing.JButton jButton_volver_seguimiento_atracciones_admin;
     public javax.swing.JCheckBox jCheckBox_Error;
@@ -297,7 +305,7 @@ public class Seguimiento_De_Atracciones_Admin extends javax.swing.JFrame {
     public javax.swing.JTable jTable_Seguimiento_Atracciones;
     public javax.swing.JTextArea jTextArea_Descrip_Error_Segui_Atra_Admi;
     public javax.swing.JTextArea jTextArea_Solc_Comenta_Segui_De_Atrac_Admin;
-    public javax.swing.JTextField jTextField_Atrac_Seguimiento_Atrc_Admin;
     public javax.swing.JTextField jTextField_Revisor_Segui_De_Atra_Admin;
+    public javax.swing.JTextField txtAtrac;
     // End of variables declaration//GEN-END:variables
 }

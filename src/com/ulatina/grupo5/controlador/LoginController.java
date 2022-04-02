@@ -29,7 +29,7 @@ public class LoginController implements ActionListener {
     Menu_Admin menu = new Menu_Admin();
     public static com.ulatina.grupo5.modelo.Login session = new com.ulatina.grupo5.modelo.Login();
     public static com.ulatina.grupo5.modelo.Usuarios sessionUsr = new com.ulatina.grupo5.modelo.Usuarios();
-    
+
     public LoginController(Login vista) {
         this.vista = vista;
         this.vista.btnLogin.addActionListener(this);
@@ -49,7 +49,7 @@ public class LoginController implements ActionListener {
         login.setNumTickets(0);
         login.setFechaLogin(java.sql.Date.valueOf(date.toString()));
         login.setFechaLogoff(java.sql.Date.valueOf(date.toString()));
-        
+
         boolean r = dao.insertar(login);
         if (r) {
             session = login;
@@ -63,14 +63,18 @@ public class LoginController implements ActionListener {
 
     private void cargarMenuAdmin() {
         Menu_Admin vistaMenuAdmin = new Menu_Admin();
-        Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);    
+        Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
+        vistaMenuAdmin.setVisible(true);
+        vista.dispose();
     }
-    
+
     private void cargarMenuEmpleado() {
         Menu_Empleado vistaMenuAdmin = new Menu_Empleado();
-        MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);    
+        MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);
+        vistaMenuAdmin.setVisible(true);
+        vista.dispose();
     }
-    
+
     private void cargarMenuUsuario() {
         //TODO  
     }
@@ -87,13 +91,12 @@ public class LoginController implements ActionListener {
             } else {
                 int cedula = Integer.parseInt(vista.txtUsername.getText());
                 String password = vista.txtPassword.getPassword().toString();
-                Usuarios usuario = (Usuarios)daoUsuario.listarUno(cedula);
+                Usuarios usuario = (Usuarios) daoUsuario.listarUno(cedula);
                 if (usuario != null) {
                     if (usuario.password == password) {
-                        if(agregar(cedula,password)){
+                        if (agregar(cedula, password)) {
                             sessionUsr = usuario;
-                            switch(sessionUsr.getTipoUsuario())
-                            {
+                            switch (sessionUsr.getTipoUsuario()) {
                                 case 1:
                                     cargarMenuAdmin();
                                     break;
@@ -101,12 +104,12 @@ public class LoginController implements ActionListener {
                                     cargarMenuEmpleado();
                                     break;
                                 default:
-                                     cargarMenuUsuario();
-                                     break;
+                                    cargarMenuUsuario();
+                                    break;
                             }
-                            
+
                             cargarMenuEmpleado();
-                        } 
+                        }
                     } else {
                         JOptionPane.showMessageDialog(vista, "Usuario o contraseña invalidos", "Error al autenticar", JOptionPane.INFORMATION_MESSAGE);
                     }
@@ -115,8 +118,8 @@ public class LoginController implements ActionListener {
                 }
             }
         } else if (e.getSource() == vista.btnCancel) {
-            
-            vista.setVisible(false); 
+
+            vista.setVisible(false);
             vista.dispose();
         }
     }
