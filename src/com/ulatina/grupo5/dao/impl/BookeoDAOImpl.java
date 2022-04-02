@@ -25,7 +25,7 @@ public class BookeoDAOImpl implements BaseDAO {
 
         p = (Bookeo) obj;
 
-        String sql = "INSERT INTO bookeo (ticket,email,fechaCompra,fechaVisita,totalVenta,paseEspecial)VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO bookeo (ticket,cedula,fechaCompra,fechaVisita,totalVenta,paseEspecial)VALUES(?,?,?,?,?,?)";
         try {
 
             conectar.connectar();
@@ -34,7 +34,7 @@ public class BookeoDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
 
             ps.setInt(1, p.getTicket());
-            ps.setString(2, p.getEmail());
+            ps.setInt(2, p.getCedula());
             ps.setDate(3, (Date) p.getFechaCompra());
             ps.setDate(4, (Date) p.getFechaVisita());
             ps.setDouble(5, p.getTotalVenta());
@@ -62,7 +62,7 @@ public class BookeoDAOImpl implements BaseDAO {
 
         p = (Bookeo) obj;
 
-        String sql = "UPDATE bookeo SET ticket = ?, email = ?, fechaCompra = ?, fechaVisita = ?, totalVenta = ?, paseEspecial = ? WHERE ticket = ?";
+        String sql = "UPDATE bookeo SET ticket = ?, cedula = ?, fechaCompra = ?, fechaVisita = ?, totalVenta = ?, paseEspecial = ? WHERE ticket = ?";
         try {
 
             conectar.connectar();
@@ -71,7 +71,7 @@ public class BookeoDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
 
             ps.setInt(1, p.getTicket());
-            ps.setString(2, p.getEmail());
+            ps.setInt(2, p.getCedula());
             ps.setDate(3, (Date) p.getFechaCompra());
             ps.setDate(4, (Date) p.getFechaVisita());
             ps.setDouble(5, p.getTicket());
@@ -137,7 +137,7 @@ public class BookeoDAOImpl implements BaseDAO {
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
-        String sql = "select ticket, email, fechaCompra, fechaVisita, totalVenta, paseEspecial from bookeo";
+        String sql = "select ticket, cedula, fechaCompra, fechaVisita, totalVenta, paseEspecial from bookeo";
 
         try {
 
@@ -149,11 +149,11 @@ public class BookeoDAOImpl implements BaseDAO {
             while (rs.next()) {
 
                 registros[1] = rs.getString("Tiket");
-                registros[2] = rs.getString("E-Mail");
-                registros[3] = rs.getString("Fecha Compra");
-                registros[4] = rs.getString("Fecha Visita");
-                registros[5] = rs.getString("Total Venta");
-                registros[6] = rs.getString("Pase Especial");
+                registros[2] = rs.getString("cedula");
+                registros[3] = rs.getString("fechaCompra");
+                registros[4] = rs.getString("fechaVisita");
+                registros[5] = rs.getString("totalVenta");
+                registros[6] = rs.getString("paseEspecial");
                 model.addRow(registros);
 
             }
@@ -179,7 +179,7 @@ public class BookeoDAOImpl implements BaseDAO {
 
             while (rs.next()) {
                 p.setTicket(Integer.parseInt(rs.getString("ticket")));
-                p.setEmail(rs.getString("email"));
+                p.setCedula(rs.getInt("cedula"));
                 p.setFechaCompra(Date.valueOf(rs.getString("fechaCompra")));
                 p.setFechaVisita(Date.valueOf(rs.getString("fechaVisita")));
                 p.setTotalVenta(Double.parseDouble(rs.getString("totalVenta")));

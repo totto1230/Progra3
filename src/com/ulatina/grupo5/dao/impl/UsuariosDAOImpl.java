@@ -5,6 +5,7 @@ import com.ulatina.grupo5.helpers.Conexion;
 import com.ulatina.grupo5.modelo.BookeoPersona;
 import com.ulatina.grupo5.modelo.Usuarios;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ public class UsuariosDAOImpl implements BaseDAO {
 
         p = (Usuarios) obj;
 
-        String sql = "INSERT INTO Usuarios (cedula,password,correo,nombre,apellido1,appellido2,tipoUsuario) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Usuarios (cedula,password,correo,nombre,apellido1,appellido2,fechaNacimiento,tipoUsuario) VALUES (?,?,?,?,?,?,?,?)";
         try {
             conectar.connectar();
             con = conectar.getConnection();
@@ -39,6 +40,7 @@ public class UsuariosDAOImpl implements BaseDAO {
             ps.setString(4, p.getNombre());
             ps.setString(5, p.getApellido1());
             ps.setString(5, p.getAppellido2());
+            ps.setDate(5, (Date)p.getFechaNacimiento());
             ps.setInt(7, p.getTipoUsuario());
 
             int registros = ps.executeUpdate();
@@ -61,7 +63,7 @@ public class UsuariosDAOImpl implements BaseDAO {
     @Override
     public Boolean actualizar(Object obj) {
         p = (Usuarios) obj;
-        String sql = "UPDATE Usuarios SET password = ?, correo = ?, nombre = ?, apellido1 = ?, appellido2 = ?, tipoUsuario = ? WHERE cedula = ?";
+        String sql = "UPDATE Usuarios SET password = ?, correo = ?, nombre = ?, apellido1 = ?, appellido2 = ?,fechaNacimiento = ?, tipoUsuario = ? WHERE cedula = ?";
         try {
             conectar.connectar();
             con = conectar.getConnection();
@@ -72,6 +74,7 @@ public class UsuariosDAOImpl implements BaseDAO {
             ps.setString(3, p.getNombre());
             ps.setString(4, p.getApellido1());
             ps.setString(5, p.getAppellido2());
+            ps.setDate(5, (Date)p.getFechaNacimiento());
             ps.setInt(6, p.getTipoUsuario());
             ps.setInt(7, p.getCedula());
 
@@ -126,11 +129,11 @@ public class UsuariosDAOImpl implements BaseDAO {
     @Override
     public void listar(JTable table) {
 
-        String[] users = {"cedula", "password", "correo", "nombre", "apellido1", "apellido2", "tipoUsuario"};
+        String[] users = {"Cedula", "Contraseña", "Correo", "Nombre", "Primer Apellido", "Segundo Apellido","Fecha Nacimiento", "tipoUsuario"};
         String[] registros = new String[users.length];
         DefaultTableModel model = new DefaultTableModel(null, users);
 
-        String sql = "SELECT cedula, password, correo, nombre, apellido1, appellido2, tipoUsuario FROM Usuarios";
+        String sql = "SELECT cedula, '****' as [password], correo, nombre, apellido1, appellido2,fechaNacimiento, tipoUsuario FROM Usuarios";
 
         try {
 
@@ -146,7 +149,8 @@ public class UsuariosDAOImpl implements BaseDAO {
                 registros[3] = rs.getString("nombre");
                 registros[4] = rs.getString("apellido1");
                 registros[5] = rs.getString("apellido2");
-                registros[6] = rs.getString("tipoUsuario");
+                registros[6] = rs.getString("fechaNacimiento");
+                registros[7] = rs.getString("tipoUsuario");
                 model.addRow(registros);
             }
             table.setModel(model);
@@ -161,7 +165,7 @@ public class UsuariosDAOImpl implements BaseDAO {
 
     @Override
     public Object listarUno(Integer id) {
-        String sql = "SELECT cedula, password, correo, nombre, apellido1, appellido2, tipoUsuario FROM Usuarios where cedula = ?";
+        String sql = "SELECT cedula, password, correo, nombre, apellido1, appellido2,fechaNacimiento, tipoUsuario FROM Usuarios where cedula = ?";
         try {
 
             conectar.connectar();
@@ -177,6 +181,7 @@ public class UsuariosDAOImpl implements BaseDAO {
                 p.setNombre(rs.getString("Nombre"));
                 p.setApellido1(rs.getString("Apellido1"));
                 p.setAppellido2(rs.getString("Apellido2"));
+                p.setFechaNacimiento(rs.getDate("fechaNacimiento"));
                 p.setTipoUsuario(Integer.parseInt(rs.getString("TipoUsuario")));
             }
             con.close();
@@ -191,7 +196,7 @@ public class UsuariosDAOImpl implements BaseDAO {
     public Object[] listarPor(Object obj) {
         p = (Usuarios) obj;
         ArrayList<Usuarios> Usuarios = new ArrayList<Usuarios>();
-        String sql = "select cedula, correo, password,nombre, apellido1,apellido2, tipoUsuario from usuarios where cedula = ?";
+        String sql = "select cedula, correo, password,nombre, apellido1,apellido2,fechaNacimiento, tipoUsuario from usuarios where cedula = ?";
         try {
 
             conectar.connectar();
@@ -207,6 +212,7 @@ public class UsuariosDAOImpl implements BaseDAO {
                 Usuario.setNombre(rs.getString("Nombre"));
                 Usuario.setApellido1(rs.getString("Apellido1"));
                 Usuario.setAppellido2(rs.getString("Apellido2"));
+                Usuario.setFechaNacimiento(rs.getDate("fechaNacimiento"));
                 Usuario.setTipoUsuario(Integer.parseInt(rs.getString("TipoUsuario")));
                 Usuarios.add(Usuario);
             }

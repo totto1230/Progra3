@@ -1,5 +1,7 @@
 package com.ulatina.grupo5.modelo;
 
+import java.util.Date;
+
 public class Usuarios {
 
     public Integer cedula;
@@ -8,17 +10,20 @@ public class Usuarios {
     public String nombre;
     public String apellido1;
     public String appellido2;
+    public Date fechaNacimiento;
     public Integer tipoUsuario;
 
-    public Usuarios(Integer cedula, String password, String email, String nombre, String apellido1, String appellido2, Integer tipoUsuario) {
+    public Usuarios(Integer cedula, String password, String email, String nombre, String apellido1, String appellido2, Date fechaNacimiento, Integer tipoUsuario) {
         this.cedula = cedula;
         this.password = password;
         this.email = email;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.appellido2 = appellido2;
+        this.fechaNacimiento = fechaNacimiento;
         this.tipoUsuario = tipoUsuario;
     }
+
 
     public Usuarios() {
     }
@@ -70,6 +75,15 @@ public class Usuarios {
     public void setAppellido2(String appellido2) {
         this.appellido2 = appellido2;
     }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+    
 
     /**
      * 1- Admin

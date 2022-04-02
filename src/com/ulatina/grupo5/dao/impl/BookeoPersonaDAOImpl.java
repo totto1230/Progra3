@@ -27,7 +27,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
     public Boolean insertar(Object obj) {
 
         b = (BookeoPersona) obj;
-        String sql = "INSERT INTO bookeopersona (orderId,email,ticket) VALUES(?,?,?)";
+        String sql = "INSERT INTO bookeopersona (orderId,cedula,ticket) VALUES(?,?,?)";
 
         try {
 
@@ -37,7 +37,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
 
             ps.setInt(1, b.getOrderId());
-            ps.setString(2, b.getEmail());
+            ps.setInt(2, b.getCedula());
             ps.setInt(3, b.getTicket());
 
             int registros = ps.executeUpdate();
@@ -62,15 +62,15 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
 
         b = (BookeoPersona) obj;
 
-        String sql = "UPDATE bookeopersona SET email = ? WHERE orderId = ? and ticket = ?";
+        String sql = "UPDATE bookeopersona SET cedula = ? WHERE orderId = ?";
         try {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setString(1, b.getEmail());
-            ps.setInt(2, b.getTicket());
-            ps.setInt(3, b.getOrderId());
+            ps.setInt(1, b.getCedula());
+            ps.setInt(2, b.getOrderId());
+
 
             int registros = ps.executeUpdate();
 
@@ -170,7 +170,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
             while (rs.next()) {
 
                 registros[0] = rs.getString("orderId");
-                registros[1] = rs.getString("email");
+                registros[1] = rs.getString("cedula");
                 registros[2] = rs.getString("ticket");
 
                 model.addRow(registros);
@@ -188,7 +188,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
 
     @Override
     public BookeoPersona listarUno(Integer id) {
-        String sql = "select orderId, email, ticket from BookeoPersona where orderId = ?";
+        String sql = "select orderId, cedula, ticket from BookeoPersona where orderId = ?";
         try {
 
             conectar.connectar();
@@ -198,7 +198,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
 
             while (rs.next()) {
                 b.setOrderId(Integer.parseInt(rs.getString("orderId")));
-                b.setEmail(rs.getString("email"));
+                b.setCedula(rs.getInt("cedula"));
                 b.setTicket(Integer.parseInt(rs.getString("ticket")));
 
             }
@@ -215,7 +215,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
     public BookeoPersona[] listarPor(Object obj) {
         b = (BookeoPersona) obj;
         ArrayList<BookeoPersona> bookeoPersonas = new ArrayList<BookeoPersona>();
-        String sql = "select orderId, email, ticket from BookeoPersona where ticket = ?";
+        String sql = "select orderId, cedula, ticket from BookeoPersona where ticket = ?";
         try {
 
             conectar.connectar();
@@ -226,7 +226,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
             while (rs.next()) {
                 BookeoPersona bookeoPersona = new BookeoPersona();
                 bookeoPersona.setOrderId(Integer.parseInt(rs.getString("orderId")));
-                bookeoPersona.setEmail(rs.getString("email"));
+                bookeoPersona.setCedula(rs.getInt("cedula"));
                 bookeoPersona.setTicket(Integer.parseInt(rs.getString("ticket")));
                 bookeoPersonas.add(bookeoPersona);
             }

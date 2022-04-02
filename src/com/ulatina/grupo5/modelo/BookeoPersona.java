@@ -8,17 +8,18 @@ package com.ulatina.grupo5.modelo;
 public class BookeoPersona {
 
     public Integer orderId;
-    public String email;
+    public Integer cedula;
     public Integer ticket;
 
     public BookeoPersona() {
     }
 
-    public BookeoPersona(Integer orderId, String email, Integer ticket) {
+    public BookeoPersona(Integer orderId, Integer cedula, Integer ticket) {
         this.orderId = orderId;
-        this.email = email;
+        this.cedula = cedula;
         this.ticket = ticket;
     }
+
 
     public Integer getOrderId() {
         return orderId;
@@ -28,13 +29,15 @@ public class BookeoPersona {
         this.orderId = orderId;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getCedula() {
+        return cedula;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCedula(Integer cedula) {
+        this.cedula = cedula;
     }
+
+
 
     public Integer getTicket() {
         return ticket;
@@ -46,7 +49,9 @@ public class BookeoPersona {
 
     @Override
     public String toString() {
-        return "BookeoPersona{" + "orderId=" + orderId + ", email=" + email + ", ticket=" + ticket + '}';
+        return "BookeoPersona{" + "orderId=" + orderId + ", cedula=" + cedula + ", ticket=" + ticket + '}';
     }
+
+
 
 }

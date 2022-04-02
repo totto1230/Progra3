@@ -4,6 +4,7 @@ import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.helpers.Conexion;
 import com.ulatina.grupo5.modelo.BookeoPersona;
 import com.ulatina.grupo5.modelo.Precio;
+import com.ulatina.grupo5.modelo.Usuarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -91,11 +92,14 @@ public class PrecioDAOImpl implements BaseDAO {
         }
     }
 
+    /**
+     * Esta funcion retorna los precios por rango de edad para el cliente 
+    */
     @Override
-    public Object[] listarPor(Object obj) {
-        p = (Precio) obj;
+    public Object[] listarPor(Usuarios obj) {
+        p = (Usuarios) obj;
         ArrayList<Precio> Precio = new ArrayList<Precio>();
-        String sql = "select  descripcion = ?, precio = ?, activoBIT = ? FROM Precio WHERE idPrecio = ?";
+        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion";
         try {
 
             conectar.connectar();
