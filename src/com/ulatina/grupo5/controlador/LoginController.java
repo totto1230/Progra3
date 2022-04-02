@@ -87,7 +87,7 @@ public class LoginController implements ActionListener {
             } else {
                 int cedula = Integer.parseInt(vista.txtUsername.getText());
                 String password = vista.txtPassword.getPassword().toString();
-                Usuarios usuario = (Usuarios) daoUsuario.listarUno(cedula);
+                Usuarios usuario = (Usuarios)daoUsuario.listarUno(cedula);
                 if (usuario != null) {
                     if (usuario.password == password) {
                         if(agregar(cedula,password)){
