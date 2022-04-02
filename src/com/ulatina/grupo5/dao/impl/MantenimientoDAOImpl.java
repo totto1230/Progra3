@@ -35,7 +35,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
 
         p = (Mantenimiento) obj;
 
-        String sql = "INSERT INTO Mantenimiento (idMantenimiento,idenAtrac, usuario, fechaRevi, error, descripcion, solucion) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Mantenimiento (idMantenimiento,idAtracciones, cedula ,fechaRevision, error, descripcion, solucion) VALUES (?,?,?,?,?,?,?)";
         try {
 
             conectar.connectar();
@@ -44,9 +44,9 @@ public class MantenimientoDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
             
             ps.setInt(1, p.getIdMantenimiento());
-            ps.setInt(2, p.getIdenAtrac());
+            ps.setInt(2, p.getIdAtracciones());
             ps.setInt(3, p.getCedula());
-            ps.setDate(4, (Date)p.getFechaRevi());
+            ps.setDate(4, (Date)p.getFechaRevision());
             ps.setBoolean(5, p.getError());
             ps.setString(6, p.getDescripcion());
             ps.setString(7, p.getSolucion());
@@ -73,7 +73,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
 
         p = (Mantenimiento) obj;
 
-        String sql = "UPDATE Mantenimiento SET idenAtrac = ? and fechaRevi = ?, usuario = ?, error = ?, descripcion = ?, solucion = ? WHERE idMantenimiento = ?";
+        String sql = "UPDATE Mantenimiento SET idAtracciones = ?, cedula = ?,fechaRevision = ?, error = ?, descripcion = ?, solucion = ? WHERE idMantenimiento = ?";
         try {
 
             conectar.connectar();
@@ -81,8 +81,8 @@ public class MantenimientoDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, p.getIdenAtrac());
-            ps.setDate(2, (Date)p.getFechaRevi());
+            ps.setInt(1, p.getIdAtracciones());
+            ps.setDate(2, (Date)p.getFechaRevision());
             ps.setInt(3, p.getCedula());
             ps.setBoolean(4, p.getError());
             ps.setString(5, p.getDescripcion());
@@ -174,11 +174,11 @@ public class MantenimientoDAOImpl implements BaseDAO {
     @Override
     public void listar(JTable table) {
 
-        String[] titulos = {"id","IdAtraccion", "usuario", "fechaRevi", "error","descripcion","solucion"};
+        String[] titulos = {"id","IdAtraccion", "Usuario", "Fecha Revision", "Error","Descripción","Solución"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
-        String sql = "SELECT idMantenimiento,idenAtrac, usuario, fechaRevi, error, descripcion, solucion FROM Mantenimiento";
+        String sql = "SELECT idMantenimiento,idAtracciones, cedula ,fechaRevision, error, descripcion, solucion FROM Mantenimiento";
 
         try {
             con = conectar.getConnection();
@@ -186,9 +186,9 @@ public class MantenimientoDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 registros[0] = rs.getString("idMantenimiento");
-                registros[1] = rs.getString("idenAtrac");
-                registros[2] = rs.getString("usuario");
-                registros[3] = rs.getString("fechaRevi");
+                registros[1] = rs.getString("idAtracciones");
+                registros[2] = rs.getString("cedula");
+                registros[3] = rs.getString("fechaRevision");
                 registros[4] = rs.getString("error");
                 registros[5] = rs.getString("descripcion");
                 registros[6] = rs.getString("solucion");
@@ -204,7 +204,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
 
     @Override
     public Object listarUno(Integer id) {
-        String sql = "SELECT idMantenimiento, idenAtrac, usuario, fechaRevi, error, descripcion, solucion FROM Mantenimiento where idMantenimiento = ?";
+        String sql = "SELECT idMantenimiento, idAtracciones, cedula ,fechaRevision, error, descripcion, solucion FROM Mantenimiento where idMantenimiento = ?";
         try {
 
             conectar.connectar();
@@ -214,9 +214,9 @@ public class MantenimientoDAOImpl implements BaseDAO {
 
             while (rs.next()) {
                 p.setIdMantenimiento(rs.getInt("idMantenimiento"));
-                p.setIdenAtrac(rs.getInt("idenAtrac"));
-                p.setCedula(rs.getInt("usuario"));
-                p.setFechaRevi(rs.getDate("fechaRevi"));
+                p.setIdAtracciones(rs.getInt("idAtracciones"));
+                p.setCedula(rs.getInt("cedula"));
+                p.setFechaRevision(rs.getDate("fechaRevision"));
                 p.setError(rs.getBoolean("error"));
                 p.setDescripcion(rs.getString("descripcion"));
                 p.setSolucion(rs.getString("solucion"));

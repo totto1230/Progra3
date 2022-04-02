@@ -33,25 +33,31 @@ public class GanaciasDAOImpl {
                         "\n" +
                         "Select \n" +
                         "	0 orden,\n" +
+                        "       a.idAtracciones,\n" +
                         "	a.nombreAtrac,\n" +
                         "	case a.seccion \n" +
                         "		when 'I' then 'Infantil' \n" +
                         "		when '' then 'Adulto'\n" +
                         "		Else 'Familiar' end as Seccion,\n" +
-                        "	sum(a.precioNormal) TotalVenta \n" +
+                        "	sum(a.precioNormal) TotalVenta, \n" +
+                        "	count(bp.cedula) TotalPersoas \n" +
                         "from Atracciones a\n" +
                         "inner join BookeoAtracciones ba on\n" +
-                        "a.idenAtrac = b.idAtracciones\n" +
+                        "a.idAtracciones = b.idAtracciones\n" +
                         "inner join Bookeo b on\n" +
                         "ba.ticket = b.ticket   \n" +
+                        "inner join BookeoPersonas bp on\n" +
+                        "bp.ticket = b.ticket   \n" +
                         "where (@prmseccion = 'T' or a.seccion = @prmseccion)\n" +
                         "and (@prmFiltrar = false or b.fechaVisita between @prmdatefrom and @prmdateto)\n" +
                         "Union \n" +
-                        "Select 1 orden, 'Pases Especiales' nombreAtrac, 'Todas' Seccion, sum(b.totalVenta) TotalVenta\n" +
+                        "Select 1 orden,0, 'Pases Especiales' nombreAtrac, 'Todas' Seccion, sum(b.totalVenta) TotalVenta, count(bp.cedula) TotalPersoas\n" +
                         "from Bookeo \n" +
+                        "inner join BookeoPersonas bp on\n" +
+                        "bp.ticket = b.ticket   \n" +
                         "where paseEspecial = true\n" +
                         "and (@prmFiltrar = false or b.fechaVisita between @prmdatefrom and @prmdateto)\n" +
-                        "group by a.nombreAtrac,Seccion\n" +
+                        "group by a.idAtracciones,a.nombreAtrac,Seccion\n" +
                         "order by orden,a.nombreAtrac";
 
         try {

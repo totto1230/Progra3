@@ -13,7 +13,7 @@ import java.util.Date;
 public class Bookeo {
 
     public Integer ticket;
-    public String email;
+    public Integer cedula;
     public Date fechaCompra;
     public Date fechaVisita;
     public double totalVenta;
@@ -22,9 +22,9 @@ public class Bookeo {
     public Bookeo() {
     }
 
-    public Bookeo(Integer ticket, String email, Date fechaCompra, Date fechaVisita, double totalVenta, boolean paseEspecial) {
+    public Bookeo(Integer ticket, Integer cedula, Date fechaCompra, Date fechaVisita, double totalVenta, boolean paseEspecial) {
         this.ticket = ticket;
-        this.email = email;
+        this.cedula = cedula;
         this.fechaCompra = fechaCompra;
         this.fechaVisita = fechaVisita;
         this.totalVenta = totalVenta;
@@ -33,7 +33,7 @@ public class Bookeo {
 
     @Override
     public String toString() {
-        return "Bookeo{" + "ticket=" + ticket + ", email=" + email + ", fechaCompra=" + fechaCompra + ", fechaVisita=" + fechaVisita + ", totalVenta=" + totalVenta + ", paseEspecial=" + paseEspecial + '}';
+        return "Bookeo{" + "ticket=" + ticket + ", cedula=" + cedula + ", fechaCompra=" + fechaCompra + ", fechaVisita=" + fechaVisita + ", totalVenta=" + totalVenta + ", paseEspecial=" + paseEspecial + '}';
     }
 
     public Integer getTicket() {
@@ -44,12 +44,12 @@ public class Bookeo {
         this.ticket = ticket;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getCedula() {
+        return cedula;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCedula(Integer cedula) {
+        this.cedula = cedula;
     }
 
     public Date getFechaCompra() {

@@ -13,9 +13,9 @@ import java.util.Date;
 public class Mantenimiento {
 
     public Integer idMantenimiento;
-    public Integer idenAtrac;
+    public Integer idAtracciones;
     public Integer cedula;
-    public Date fechaRevi;
+    public Date fechaRevision;
     public Boolean error;
     public String descripcion;
     public String solucion;
@@ -23,11 +23,11 @@ public class Mantenimiento {
     public Mantenimiento() {
     }
 
-    public Mantenimiento(Integer idMantenimiento,Integer idenAtrac, Integer cedula, Date fechaRevi, Boolean error, String descripcion, String solucion) {
+    public Mantenimiento(Integer idMantenimiento, Integer idAtracciones, Integer cedula, Date fechaRevision, Boolean error, String descripcion, String solucion) {
         this.idMantenimiento = idMantenimiento;
-        this.idenAtrac = idenAtrac;
+        this.idAtracciones = idAtracciones;
         this.cedula = cedula;
-        this.fechaRevi = fechaRevi;
+        this.fechaRevision = fechaRevision;
         this.error = error;
         this.descripcion = descripcion;
         this.solucion = solucion;
@@ -40,14 +40,13 @@ public class Mantenimiento {
     public void setIdMantenimiento(Integer idMantenimiento) {
         this.idMantenimiento = idMantenimiento;
     }
-     
 
-    public Integer getIdenAtrac() {
-        return idenAtrac;
+    public Integer getIdAtracciones() {
+        return idAtracciones;
     }
 
-    public void setIdenAtrac(Integer idenAtrac) {
-        this.idenAtrac = idenAtrac;
+    public void setIdAtracciones(Integer idAtracciones) {
+        this.idAtracciones = idAtracciones;
     }
 
     public Integer getCedula() {
@@ -58,12 +57,12 @@ public class Mantenimiento {
         this.cedula = cedula;
     }
 
-    public Date getFechaRevi() {
-        return fechaRevi;
+    public Date getFechaRevision() {
+        return fechaRevision;
     }
 
-    public void setFechaRevi(Date fechaRevi) {
-        this.fechaRevi = fechaRevi;
+    public void setFechaRevision(Date fechaRevision) {
+        this.fechaRevision = fechaRevision;
     }
 
     public Boolean getError() {
@@ -92,7 +91,9 @@ public class Mantenimiento {
 
     @Override
     public String toString() {
-        return "Mantenimiento{" + "idenAtrac=" + idenAtrac + ", usuario=" + cedula + ", fechaRevi=" + fechaRevi + ", error=" + error + ", descripcion=" + descripcion + ", solucion=" + solucion + '}';
+        return "Mantenimiento{" + "idMantenimiento=" + idMantenimiento + ", idAtracciones=" + idAtracciones + ", cedula=" + cedula + ", fechaRevision=" + fechaRevision + ", error=" + error + ", descripcion=" + descripcion + ", solucion=" + solucion + '}';
     }
+
+   
 
 }
