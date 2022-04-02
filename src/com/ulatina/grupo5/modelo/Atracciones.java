@@ -28,6 +28,18 @@ public class Atracciones {
     public Atracciones() {
     }
 
+    public Atracciones(int idAtracciones, String nombreAtraccion, Date fechaInstalacion, int capacidad, String seccion, int edadMin, float precioNormal, Boolean activo) {
+        this.idAtracciones = idAtracciones;
+        this.nombreAtraccion = nombreAtraccion;
+        this.fechaInstalacion = fechaInstalacion;
+        this.capacidad = capacidad;
+        this.seccion = seccion;
+        this.edadMin = edadMin;
+        this.precioNormal = precioNormal;
+        this.activo = activo;
+    }
+
+    
     public Atracciones(int idAtracciones, String nombreAtraccion, Date fechaInstalacion, int capacidad, String seccion, int edadMin, int edadMax, float precioNormal, Boolean activo) {
         this.idAtracciones = idAtracciones;
         this.nombreAtraccion = nombreAtraccion;

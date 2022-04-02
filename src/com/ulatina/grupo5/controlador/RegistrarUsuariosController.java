@@ -7,6 +7,7 @@ import com.ulatina.grupo5.vista.Menu_Admin;
 import com.ulatina.grupo5.vista.Registro_Usuarios_Admin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 class RegistrarUsuariosController implements ActionListener {
@@ -46,7 +47,7 @@ class RegistrarUsuariosController implements ActionListener {
 
     public Usuarios devolverUsers() {
         int cedula = Integer.parseInt(vista.txtCed.getText());
-        String password = vista.txtContra.getPassword();
+        String password = Arrays.toString(vista.txtContra.getPassword());
         String email = vista.txtCorreo.getText();
         String nombre = vista.txtNombre.getText();
         String apellido1 = vista.txtPrimerApe.getText();

@@ -15,10 +15,6 @@ import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
 
-/**
- *
- * @author fernando
- */
 public class RegistroAtraccionesController implements ActionListener {
 
     Atracciones atraccion = new Atracciones();
