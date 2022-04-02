@@ -178,7 +178,7 @@ public class BookeoView extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Usuario"
+                "Usuarios"
             }
         ));
         jScrollPane1.setViewportView(tblUsuarios);

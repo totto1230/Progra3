@@ -12,8 +12,9 @@ import java.util.Date;
  */
 public class Mantenimiento {
 
+    public Integer idMantenimiento;
     public Integer idenAtrac;
-    public String email;
+    public Integer cedula;
     public Date fechaRevi;
     public Boolean error;
     public String descripcion;
@@ -22,14 +23,24 @@ public class Mantenimiento {
     public Mantenimiento() {
     }
 
-    public Mantenimiento(Integer idenAtrac, String email, Date fechaRevi, Boolean error, String descripcion, String solucion) {
+    public Mantenimiento(Integer idMantenimiento,Integer idenAtrac, Integer cedula, Date fechaRevi, Boolean error, String descripcion, String solucion) {
+        this.idMantenimiento = idMantenimiento;
         this.idenAtrac = idenAtrac;
-        this.email = email;
+        this.cedula = cedula;
         this.fechaRevi = fechaRevi;
         this.error = error;
         this.descripcion = descripcion;
         this.solucion = solucion;
     }
+
+    public Integer getIdMantenimiento() {
+        return idMantenimiento;
+    }
+
+    public void setIdMantenimiento(Integer idMantenimiento) {
+        this.idMantenimiento = idMantenimiento;
+    }
+     
 
     public Integer getIdenAtrac() {
         return idenAtrac;
@@ -39,12 +50,12 @@ public class Mantenimiento {
         this.idenAtrac = idenAtrac;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getCedula() {
+        return cedula;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCedula(Integer cedula) {
+        this.cedula = cedula;
     }
 
     public Date getFechaRevi() {
@@ -81,7 +92,7 @@ public class Mantenimiento {
 
     @Override
     public String toString() {
-        return "Mantenimiento{" + "idenAtrac=" + idenAtrac + ", email=" + email + ", fechaRevi=" + fechaRevi + ", error=" + error + ", descripcion=" + descripcion + ", solucion=" + solucion + '}';
+        return "Mantenimiento{" + "idenAtrac=" + idenAtrac + ", usuario=" + cedula + ", fechaRevi=" + fechaRevi + ", error=" + error + ", descripcion=" + descripcion + ", solucion=" + solucion + '}';
     }
 
 }
