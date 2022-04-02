@@ -104,7 +104,7 @@ public class BookeoView extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 27, Short.MAX_VALUE)))
+                        .addGap(0, 32, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnMasterLayout.setVerticalGroup(
@@ -128,7 +128,7 @@ public class BookeoView extends javax.swing.JFrame {
                 .addGroup(pnMasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(lblTotalVenta))
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/ganancias.png"))); // NOI18N
@@ -206,6 +206,12 @@ public class BookeoView extends javax.swing.JFrame {
         jLabel7.setText("Atracción:");
 
         btnAgregarAtraccion.setText("Agregar");
+
+        ddlAtracciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ddlAtraccionesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -329,6 +335,10 @@ public class BookeoView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ddlAtraccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ddlAtraccionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ddlAtraccionesActionPerformed
 
     /**
      * @param args the command line arguments
