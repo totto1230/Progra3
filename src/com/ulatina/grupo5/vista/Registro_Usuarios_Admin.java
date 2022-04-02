@@ -49,6 +49,8 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         jButton_previous_register = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
+        jLabel_contra1 = new javax.swing.JLabel();
+        dtpFechaCumpleanos = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel_registro_user = new javax.swing.JLabel();
@@ -92,6 +94,8 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
 
         btnActualizar.setText("Actualizar");
 
+        jLabel_contra1.setText("Fecha Cumpleaños:");
+
         javax.swing.GroupLayout jPanel1_Regist_Users_AdminLayout = new javax.swing.GroupLayout(jPanel1_Regist_Users_Admin);
         jPanel1_Regist_Users_Admin.setLayout(jPanel1_Regist_Users_AdminLayout);
         jPanel1_Regist_Users_AdminLayout.setHorizontalGroup(
@@ -112,7 +116,8 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
                                     .addComponent(jLabelCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel_Segundo_Apellido)
                                     .addComponent(jLabel_Primer_apellido)
-                                    .addComponent(jLabel_nombre))
+                                    .addComponent(jLabel_nombre)
+                                    .addComponent(jLabel_contra1))
                                 .addGap(43, 43, 43)
                                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtContra)
@@ -120,7 +125,8 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
                                     .addComponent(txtCed)
                                     .addComponent(txtSegundoApe)
                                     .addComponent(txtPrimerApe)
-                                    .addComponent(txtNombre)))))
+                                    .addComponent(txtNombre)
+                                    .addComponent(dtpFechaCumpleanos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jButton_previous_register)
@@ -133,7 +139,7 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
         jPanel1_Regist_Users_AdminLayout.setVerticalGroup(
             jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_Regist_Users_AdminLayout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_nombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,6 +164,10 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
                     .addComponent(jLabel_contra)
                     .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_contra1)
+                    .addComponent(dtpFechaCumpleanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1_Regist_Users_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(ddlTipoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,6 +272,7 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizar;
     public javax.swing.JComboBox<String> ddlTipoUser;
+    public com.toedter.calendar.JDateChooser dtpFechaCumpleanos;
     public javax.swing.JButton jButton_create_user;
     public javax.swing.JButton jButton_previous_register;
     public javax.swing.JComboBox<String> jComboBox_type_of_user;
@@ -271,6 +282,7 @@ public class Registro_Usuarios_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Primer_apellido;
     private javax.swing.JLabel jLabel_Segundo_Apellido;
     public javax.swing.JLabel jLabel_contra;
+    public javax.swing.JLabel jLabel_contra1;
     private javax.swing.JLabel jLabel_correo;
     private javax.swing.JLabel jLabel_nombre;
     private javax.swing.JLabel jLabel_registro_user;

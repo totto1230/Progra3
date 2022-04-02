@@ -40,9 +40,9 @@ public class SeguimientoController implements ActionListener {
 
     public void iniciar(Mantenimiento seguimiento) {
 
-        vista.txtAtrac.setText(seguimiento.getIdenAtrac().toString());
+        vista.txtAtrac.setText(seguimiento.getIdAtracciones().toString());
         vista.jTextField_Revisor_Segui_De_Atra_Admin.setText(seguimiento.getCedula().toString());
-        vista.Date_Fecha_Revi_Seguimiento.setDate(seguimiento.getFechaRevi());
+        vista.Date_Fecha_Revi_Seguimiento.setDate(seguimiento.getFechaRevision());
         vista.jCheckBox_Error.setText(seguimiento.getError().toString());
         vista.jTextArea_Descrip_Error_Segui_Atra_Admi.setText(seguimiento.getDescripcion());
         vista.jTextArea_Solc_Comenta_Segui_De_Atrac_Admin.setText(seguimiento.getSolucion());

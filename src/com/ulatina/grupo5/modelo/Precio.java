@@ -10,6 +10,10 @@ public class Precio {
     public Integer edadMin;
     public Integer edadMax;
 
+    public Precio() {
+    }
+
+    
     public Precio(Integer idPrecio, Integer idAtraccion, String descripcion, Integer precio, boolean activo, Integer edadMin, Integer edadMax) {
         this.idPrecio = idPrecio;
         this.idAtraccion = idAtraccion;
@@ -59,6 +63,8 @@ public class Precio {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+
 
     public Integer getEdadMin() {
         return edadMin;

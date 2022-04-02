@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import com.ulatina.grupo5.controlador.BaseController;
 
 public class PrecioDAOImpl implements BaseDAO {
 
@@ -22,13 +23,33 @@ public class PrecioDAOImpl implements BaseDAO {
     Connection con;
 
     Precio p = new Precio();
+    
+    @Override
+    public int nextID() {
+        String sql = "select COALESCE(max(idPrecio),0) + 1 as nextCode from Precio";
+        Integer nextCode = 0;
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                nextCode = Integer.parseInt(rs.getString("nextCode"));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error");
+            return -1;
+        }
+        return nextCode;
+    }
 
     @Override
     public Boolean insertar(Object obj) {
 
         p = (Precio) obj;
 
-        String sql = "INSERT INTO Precio (idPrecio, descripcion, precio, activoBIT) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Precio (idPrecio,idAtraccion,descripcion,precio,activo,edadMin,edadMax) VALUES (?,?,?,?,?,?,?)";
         try {
 
             conectar.connectar();
@@ -36,10 +57,14 @@ public class PrecioDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, p.getIdPrecio());
+            ps.setInt(7, p.getIdPrecio());
+            ps.setInt(1, p.getIdAtraccion());
             ps.setString(2, p.getDescripcion());
             ps.setInt(3, p.getPrecio());
-            ps.setBoolean(4, p.isActivoBIT());
+            ps.setBoolean(4, p.isActivo());
+            ps.setInt(5, p.getEdadMin());
+            ps.setInt(6, p.getEdadMax());
+            
 
             int registros = ps.executeUpdate();
 
@@ -63,7 +88,7 @@ public class PrecioDAOImpl implements BaseDAO {
 
         p = (Precio) obj;
 
-        String sql = "UPDATE SET Precio descripcion = ?, precio = ?, activoBIT = ? WHERE idPrecio = ?";
+        String sql = "UPDATE Precio SET idAtraccion = ?, descripcion = ?, precio = ?, activo = ?, edadMin = ?, edadMax = ? WHERE idPrecio = ?";
         try {
 
             conectar.connectar();
@@ -71,10 +96,13 @@ public class PrecioDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, p.getIdPrecio());
+            ps.setInt(1, p.getIdAtraccion());
             ps.setString(2, p.getDescripcion());
             ps.setInt(3, p.getPrecio());
-            ps.setBoolean(4, p.isActivoBIT());
+            ps.setBoolean(4, p.isActivo());
+            ps.setInt(5, p.getEdadMin());
+            ps.setInt(6, p.getEdadMax());
+            ps.setInt(7, p.getIdPrecio());
 
             int registros = ps.executeUpdate();
 
@@ -90,37 +118,6 @@ public class PrecioDAOImpl implements BaseDAO {
             System.out.println("Error");
             return false;
         }
-    }
-
-    /**
-     * Esta funcion retorna los precios por rango de edad de un cliente.
-    */
-    @Override
-    public Object[] listarPor(Usuarios obj) {
-        Usuarios usr = (Usuarios) obj;
-        ArrayList<Precio> Precio = new ArrayList<Precio>();
-        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion";
-        try {
-
-            conectar.connectar();
-            con = conectar.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, p.);
-
-            while (rs.next()) {
-                Precio precio = new Precio();
-                precio.setIdPrecio(Integer.parseInt(rs.getString("orderId")));
-                precio.setDescripcion(rs.getString("descripcion"));
-                precio.setPrecio(Integer.parseInt(rs.getString("precio")));
-                precio.setActivoBIT(rs.getBoolean("activoBIT"));
-                Precio.add(precio);
-            }
-            con.close();
-
-        } catch (Exception ex) {
-            System.out.println("Error");
-        }
-        return (Precio[]) Precio.toArray();
     }
 
     @Override
@@ -157,17 +154,41 @@ public class PrecioDAOImpl implements BaseDAO {
 
     @Override
     public Boolean eliminarTodos(Integer id) {
-        return null;
-    }
+        
+        String sql = "DELETE FROM Precio WHERE idAtraccion = ?";
 
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            int registros = ps.executeUpdate();
+
+            if (registros > 0) {
+                con.close();
+                return true;
+            } else {
+                con.close();
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+    
     @Override
     public void listar(JTable table) {
 
-        String[] titulos = {"ID de Precio", "Descripción", "Precio", "Activo"};
+        String[] titulos = {"ID de Precio", "idAtraccion", "Descripción", "Precio","Activo","Edad Minima","Edad Maxima"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
-        String sql = "SELECT idPrecio, descripcion, precio, activo FROM Precio";
+        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio";
 
         try {
             con = conectar.getConnection();
@@ -175,9 +196,13 @@ public class PrecioDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 registros[0] = rs.getString("idPrecio");
-                registros[1] = rs.getString("descripcion");
-                registros[2] = rs.getString("precio");
-                registros[3] = rs.getString("activo");
+                registros[1] = rs.getString("idAtraccion");
+                registros[2] = rs.getString("descripcion");
+                registros[3] = rs.getString("precio");
+                registros[4] = rs.getString("activo");
+                registros[5] = rs.getString("edadMin");
+                registros[6] = rs.getString("edadMax");
+
                 model.addRow(registros);
             }
             table.setModel(model);
@@ -187,10 +212,10 @@ public class PrecioDAOImpl implements BaseDAO {
         }
 
     }
-
+   
     @Override
     public Object listarUno(Integer id) {
-        String sql = "SELECT idPrecio, descripcion, precio, activo FROM Precio where idPrecio = ?";
+        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idPrecio = ?";
         try {
 
             conectar.connectar();
@@ -200,9 +225,12 @@ public class PrecioDAOImpl implements BaseDAO {
 
             while (rs.next()) {
                 p.setIdPrecio(Integer.parseInt(rs.getString("idPrecio")));
+                p.setIdAtraccion(rs.getInt("idAtraccion"));
                 p.setDescripcion(rs.getString("descripcion"));
-                p.setActivoBIT(rs.getBoolean("activo"));
-                p.setPrecio(Integer.parseInt(rs.getString("precio")));
+                p.setPrecio(rs.getInt("precio"));
+                p.setActivo(rs.getBoolean("activo"));
+                p.setEdadMin(rs.getInt("edadMin"));
+                p.setEdadMax(rs.getInt("edadMax"));
             }
             con.close();
 
@@ -211,24 +239,42 @@ public class PrecioDAOImpl implements BaseDAO {
         }
         return p;
     }
-
+    
+     
     @Override
-    public int nextID() {
-        String sql = "select COALESCE(max(idPrecio),0) + 1 as nextCode from Precio";
-        Integer nextCode = 0;
+    /**
+     * Esta funcion retorna los precios por rango de edad de un cliente.
+     * parametro es un objeto tipo Usuarios, retorna una arreglo de precios.
+    */
+    public Object[] listarPor(Object obj) {
+        Usuarios usr = (Usuarios) obj;
+        ArrayList<Precio> Precio = new ArrayList<Precio>();
+        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion";
         try {
+            BaseController common = new BaseController();
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
+            ps.setInt(1, common.CalcularEdad(usr));
 
             while (rs.next()) {
-                nextCode = Integer.parseInt(rs.getString("nextCode"));
+                Precio precio = new Precio();
+                precio.setIdPrecio(Integer.parseInt(rs.getString("idPrecio")));
+                precio.setIdAtraccion(rs.getInt("idAtraccion"));
+                precio.setDescripcion(rs.getString("descripcion"));
+                precio.setPrecio(rs.getInt("precio"));
+                precio.setActivo(rs.getBoolean("activo"));
+                precio.setEdadMin(rs.getInt("edadMin"));
+                precio.setEdadMax(rs.getInt("edadMax"));
+                Precio.add(precio);
             }
             con.close();
-        } catch (SQLException e) {
+
+        } catch (Exception ex) {
             System.out.println("Error");
-            return -1;
         }
-        return nextCode;
+        return (Precio[]) Precio.toArray();
     }
+
+    
 }

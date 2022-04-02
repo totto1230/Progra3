@@ -96,6 +96,7 @@
                                       <Component id="jLabel_Segundo_Apellido" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel_Primer_apellido" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel_nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_contra1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -105,6 +106,7 @@
                                       <Component id="txtSegundoApe" max="32767" attributes="0"/>
                                       <Component id="txtPrimerApe" max="32767" attributes="0"/>
                                       <Component id="txtNombre" max="32767" attributes="0"/>
+                                      <Component id="dtpFechaCumpleanos" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -125,7 +127,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="43" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -156,6 +158,11 @@
                       <Component id="txtContra" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel_contra1" min="-2" max="-2" attributes="0"/>
+                      <Component id="dtpFechaCumpleanos" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ddlTipoUser" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -297,6 +304,19 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel_contra1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fecha Cumplea&#xf1;os:"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="dtpFechaCumpleanos">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

@@ -8,6 +8,7 @@ import com.ulatina.grupo5.vista.Registro_Usuarios_Admin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 class RegistrarUsuariosController implements ActionListener {
@@ -42,6 +43,8 @@ class RegistrarUsuariosController implements ActionListener {
         vista.txtNombre.setText(user.getNombre());
         vista.txtPrimerApe.setText(user.getApellido1());
         vista.txtSegundoApe.setText(user.getAppellido2());
+        vista.dtpFechaCumpleanos.setDate(user.getFechaNacimiento());
+        vista.ddlTipoUser.setSelectedIndex(user.getTipoUsuario() - 1);
         dao.actualizar(user);
     }
 
@@ -52,9 +55,10 @@ class RegistrarUsuariosController implements ActionListener {
         String nombre = vista.txtNombre.getText();
         String apellido1 = vista.txtPrimerApe.getText();
         String appellido2 = vista.txtSegundoApe.getText();
+        Date fechaCumpleanos = vista.dtpFechaCumpleanos.getDate();
         int tipoUsuario = vista.ddlTipoUser.getSelectedIndex() + 1;
 
-        return user = new Usuarios(cedula, password, email, nombre, apellido1, appellido2, tipoUsuario);
+        return user = new Usuarios(cedula, password, email, nombre, apellido1, appellido2,fechaCumpleanos, tipoUsuario);
     }
 
     @Override
