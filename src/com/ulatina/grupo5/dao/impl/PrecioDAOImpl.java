@@ -93,11 +93,11 @@ public class PrecioDAOImpl implements BaseDAO {
     }
 
     /**
-     * Esta funcion retorna los precios por rango de edad para el cliente 
+     * Esta funcion retorna los precios por rango de edad de un cliente.
     */
     @Override
     public Object[] listarPor(Usuarios obj) {
-        p = (Usuarios) obj;
+        Usuarios usr = (Usuarios) obj;
         ArrayList<Precio> Precio = new ArrayList<Precio>();
         String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion";
         try {
@@ -105,7 +105,7 @@ public class PrecioDAOImpl implements BaseDAO {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, p.idPrecio);
+            ps.setInt(1, p.);
 
             while (rs.next()) {
                 Precio precio = new Precio();
