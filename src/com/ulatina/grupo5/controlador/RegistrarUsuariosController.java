@@ -46,7 +46,7 @@ class RegistrarUsuariosController implements ActionListener {
 
     public Usuarios devolverUsers() {
         int cedula = Integer.parseInt(vista.txtCed.getText());
-        String password = vista.txtContra.getText();
+        String password = vista.txtContra.getPassword();
         String email = vista.txtCorreo.getText();
         String nombre = vista.txtNombre.getText();
         String apellido1 = vista.txtPrimerApe.getText();

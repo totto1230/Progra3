@@ -4,6 +4,7 @@ import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.helpers.Conexion;
 import com.ulatina.grupo5.modelo.Atracciones;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
 
         p = (Atracciones) obj;
 
-        String sql = "INSERT INTO Atracciones (idAtracciones, nombreAtrac, fechaInsta, capacidad, seccion, edadMin, precioNormal,activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Atracciones (idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMin,edadMax, precioNormal,activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
         try {
 
             conectar.connectar();
@@ -34,13 +35,14 @@ public class AtraccionesDAOImpl implements BaseDAO{
             ps = con.prepareStatement(sql);
             
             ps.setInt(1,p.getIdAtracciones());
-            ps.setString(2, p.getNombreAtrac());
-            ps.setDate(3, p.getFechaInsta());
+            ps.setString(2, p.getNombreAtraccion());
+            ps.setDate(3, p.getFechaInstalacion());
             ps.setInt(4, p.getCapacidad());
             ps.setString(5, p.getSeccion());
             ps.setInt(6, p.getEdadMin());
-            ps.setFloat(7, p.getPrecioNormal());
-            ps.setBoolean(8, p.getActivo());
+            ps.setInt(7, p.getEdadMax());
+            ps.setFloat(8, p.getPrecioNormal());
+            ps.setBoolean(9, p.getActivo());
             
             int registros = ps.executeUpdate();
 
@@ -64,7 +66,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
         
         p = (Atracciones) obj;
         
-        String sql = "UPDATE SET Atracciones nombreAtrac = ?, fechaInsta = ?, capacidad = ?, seccion = ?, edadMin = ?, precioNormal = ?, activo = ? WHERE idAtracciones = ?";
+        String sql = "UPDATE SET Atracciones nombreAtraccion = ?, fechaInstalacion = ?, capacidad = ?, seccion = ?, edadMin = ?, edadMax = ? precioNormal = ?, activo = ? WHERE idAtracciones = ?";
         try {
             
             conectar.connectar();
@@ -73,13 +75,14 @@ public class AtraccionesDAOImpl implements BaseDAO{
             ps = con.prepareStatement(sql);
 
             ps.setInt(1,p.getIdAtracciones());
-            ps.setString(2, p.getNombreAtrac());
-            ps.setDate(3, p.getFechaInsta());
+            ps.setString(2, p.getNombreAtraccion());
+            ps.setDate(3, p.getFechaInstalacion());
             ps.setInt(4, p.getCapacidad());
             ps.setString(5, p.getSeccion());
             ps.setInt(6, p.getEdadMin());
-            ps.setFloat(7, p.getPrecioNormal());
-            ps.setBoolean(8, p.getActivo());
+            ps.setInt(7, p.getEdadMax());
+            ps.setFloat(8, p.getPrecioNormal());
+            ps.setBoolean(9, p.getActivo());
             
             int registros = ps.executeUpdate();
             
@@ -103,7 +106,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
         
         p = (Atracciones) obj;
         
-        String sql = "DELETE FROM persona WHERE idAtracciones = ?";
+        String sql = "DELETE FROM Atracciones WHERE idAtracciones = ?";
         
         try {
             
@@ -140,11 +143,11 @@ public class AtraccionesDAOImpl implements BaseDAO{
     @Override
     public void listar(JTable table) {
         
-        String[] titulos = {"Id de Atracción", "Nombre Atracción", "Fecha de Instalación" , "Capacidad" , "Sección", "Edad Mínima" , "Precio Normal", "Activo"};
+        String[] titulos = {"Id de Atracción", "Nombre Atracción", "Fecha de Instalación" , "Capacidad" , "Sección", "Edad Mínima" , "Edad Mínima" , "Precio Normal", "Activo"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         
-        String sql = "select * from Atracciones";
+        String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones";
         
         try {
             
@@ -155,14 +158,15 @@ public class AtraccionesDAOImpl implements BaseDAO{
             
             while (rs.next()){
             
-                registros[0] = rs.getString("Id de Atracción"); 
-                registros[1] = rs.getString("Nombre Atracción");
-                registros[2] = rs.getString("Fecha de Instalación");
-                registros[3] = rs.getString("Capacidad");
-                registros[4] = rs.getString("Sección");
-                registros[5] = rs.getString("Edad Mínima");
-                registros[6] = rs.getString("Precio Normal");
-                registros[7] = rs.getString("Activo");
+                registros[0] = rs.getString("idAtracciones"); 
+                registros[1] = rs.getString("nombreAtraccion");
+                registros[2] = rs.getString("fechaInstalacion");
+                registros[3] = rs.getString("capacidad");
+                registros[4] = rs.getString("seccion");
+                registros[5] = rs.getString("edadMinima");
+                registros[6] = rs.getString("edadMaxima");
+                registros[7] = rs.getString("precioNormal");
+                registros[7] = rs.getString("activo");
                 model.addRow(registros);
     
             }
@@ -180,7 +184,31 @@ public class AtraccionesDAOImpl implements BaseDAO{
     
     @Override
     public Object listarUno(Integer id) {
-        return null;
+        String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones where idAtracciones = ?";
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, p.getIdAtracciones());
+
+            while (rs.next()) {
+                p.setIdAtracciones(rs.getInt("idAtracciones")); 
+                p.setNombreAtraccion(rs.getString("nombreAtraccion"));
+                p.setFechaInstalacion(rs.getDate("fechaInstalacion"));
+                p.setCapacidad(rs.getInt("capacidad"));
+                p.setSeccion(rs.getString("seccion"));
+                p.setEdadMin(rs.getInt("edadMinima"));
+                p.setEdadMax(rs.getInt("edadMaxima"));
+                p.setPrecioNormal(rs.getInt("precioNormal"));
+                p.setActivo(rs.getBoolean("activo"));
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return p;
     }
 
     @Override

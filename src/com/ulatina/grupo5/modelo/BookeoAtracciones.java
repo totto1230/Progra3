@@ -13,20 +13,20 @@ package com.ulatina.grupo5.modelo;
 public class BookeoAtracciones {
     public Integer orderId;
     public Integer ticket;
-    public Integer idenAtrac;
+    public Integer idAtracciones;
 
     public BookeoAtracciones() {
     }
 
-    public BookeoAtracciones(Integer orderId, Integer ticket, Integer idenAtrac) {
+    public BookeoAtracciones(Integer orderId, Integer ticket, Integer idAtracciones) {
         this.orderId = orderId;
         this.ticket = ticket;
-        this.idenAtrac = idenAtrac;
+        this.idAtracciones = idAtracciones;
     }
 
     @Override
     public String toString() {
-        return "BookeoAtracciones{" + "orderId=" + orderId + ", ticket=" + ticket + ", idenAtrac=" + idenAtrac + '}';
+        return "BookeoAtracciones{" + "orderId=" + orderId + ", ticket=" + ticket + ", idAtracciones=" + idAtracciones + '}';
     }
 
     
@@ -46,12 +46,12 @@ public class BookeoAtracciones {
         this.ticket = ticket;
     }
 
-    public Integer getIdenAtrac() {
-        return idenAtrac;
+    public Integer getIdAtracciones() {
+        return idAtracciones;
     }
 
-    public void setIdenAtrac(Integer idenAtrac) {
-        this.idenAtrac = idenAtrac;
+    public void setIdAtracciones(Integer idAtracciones) {
+        this.idAtracciones = idAtracciones;
     }
     
     

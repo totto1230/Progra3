@@ -13,6 +13,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,7 +36,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
 
         p = (BookeoAtracciones) obj;
 
-        String sql = "INSERT INTO BookeoAtracciones (orderId,ticket,idenAtrac) VALUES(?,?,?)";
+        String sql = "INSERT INTO BookeoAtracciones (orderId,ticket,idAtracciones) VALUES(?,?,?)";
         try {
 
             conectar.connectar();
@@ -45,7 +46,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
 
             ps.setInt(1, p.getOrderId());
             ps.setInt(2, p.getTicket());
-            ps.setInt(3, p.getIdenAtrac());
+            ps.setInt(3, p.getIdAtracciones());
 
             int registros = ps.executeUpdate();
 
@@ -69,7 +70,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
 
         p = (BookeoAtracciones) obj;
 
-        String sql = "UPDATE BookeoAtracciones SET orderId = ?, ticket = ?, idenAtrac = ? WHERE orderId = ?";
+        String sql = "UPDATE BookeoAtracciones SET ticket = ?, idAtracciones = ? WHERE orderId = ?";
         try {
 
             conectar.connectar();
@@ -77,9 +78,9 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, p.getOrderId());
-            ps.setInt(2, p.getTicket());
-            ps.setInt(3, p.getIdenAtrac());
+            ps.setInt(1, p.getTicket());
+            ps.setInt(2, p.getIdAtracciones());
+            ps.setInt(3, p.getOrderId());
 
             int registros = ps.executeUpdate();
 
@@ -126,17 +127,40 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
 
     @Override
     public Boolean eliminarTodos(Integer id) {
-        return null;
+        String sql = "DELETE FROM BookeoAtracciones WHERE ticket = ?";
+
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            int registros = ps.executeUpdate();
+
+            if (registros > 0) {
+                con.close();
+                return true;
+            } else {
+                con.close();
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            return false;
+        }
     }
 
     @Override
     public void listar(JTable table) {
 
-        String[] titulos = {"Orden", "Ticket", "idenAtrac"};
+        String[] titulos = {"Orden", "Ticket", "idAtracciones"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
-        String sql = "SELECT orderId,ticket,idenAtrac FROM BookeoAtracciones";
+        String sql = "SELECT orderId,ticket,idAtracciones FROM BookeoAtracciones";
 
         try {
 
@@ -165,12 +189,52 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
 
     @Override
     public Object listarUno(Integer id) {
-        return null;
+        String sql = "SELECT orderId,ticket,idAtracciones FROM BookeoAtracciones where orderId = ?";
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            while (rs.next()) {
+                p.setOrderId(Integer.parseInt(rs.getString("orderId")));
+                p.setTicket(rs.getInt("ticket"));
+                p.setIdAtracciones(Integer.parseInt(rs.getString("idAtracciones")));
+
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return p;
     }
 
     @Override
-    public Object[] listarPor(Object obj) {
-        return null;
+    public BookeoAtracciones[] listarPor(Object obj) {
+        String sql = "SELECT orderId,ticket,idAtracciones FROM BookeoAtracciones where ticket = ?";
+        p = (BookeoAtracciones) obj;
+        ArrayList<BookeoAtracciones> bookeoAtracciones = new ArrayList<>();
+        try {
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, p.ticket);
+
+            while (rs.next()) {
+                BookeoAtracciones bookeoAtraccion = new BookeoAtracciones(); 
+                p.setOrderId(Integer.parseInt(rs.getString("orderId")));
+                p.setTicket(rs.getInt("ticket"));
+                p.setIdAtracciones(Integer.parseInt(rs.getString("idAtracciones")));
+                bookeoAtracciones.add(bookeoAtraccion);
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return (BookeoAtracciones[]) bookeoAtracciones.toArray();
     }
 
     @Override

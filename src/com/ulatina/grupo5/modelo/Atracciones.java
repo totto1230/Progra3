@@ -15,24 +15,27 @@ import java.sql.Date;
 public class Atracciones {
 
     public int idAtracciones;
-    public String nombreAtrac;
-    public Date fechaInsta;
+    public String nombreAtraccion;
+    public Date fechaInstalacion;
     public int capacidad;
     public String seccion;
     public int edadMin;
+    public int edadMax;
     public float precioNormal;
     public Boolean activo;
+
 
     public Atracciones() {
     }
 
-    public Atracciones(Integer idAtracciones, String nombreAtrac, Date fechaInsta, Integer capacidad, String seccion, Integer edadMin, Float precioNormal, Boolean activo) {
+    public Atracciones(int idAtracciones, String nombreAtraccion, Date fechaInstalacion, int capacidad, String seccion, int edadMin, int edadMax, float precioNormal, Boolean activo) {
         this.idAtracciones = idAtracciones;
-        this.nombreAtrac = nombreAtrac;
-        this.fechaInsta = fechaInsta;
+        this.nombreAtraccion = nombreAtraccion;
+        this.fechaInstalacion = fechaInstalacion;
         this.capacidad = capacidad;
         this.seccion = seccion;
         this.edadMin = edadMin;
+        this.edadMax = edadMax;
         this.precioNormal = precioNormal;
         this.activo = activo;
     }
@@ -45,20 +48,20 @@ public class Atracciones {
         this.idAtracciones = idAtracciones;
     }
 
-    public String getNombreAtrac() {
-        return nombreAtrac;
+    public String getNombreAtraccion() {
+        return nombreAtraccion;
     }
 
-    public void setNombreAtrac(String nombreAtrac) {
-        this.nombreAtrac = nombreAtrac;
+    public void setNombreAtraccion(String nombreAtraccion) {
+        this.nombreAtraccion = nombreAtraccion;
     }
 
-    public Date getFechaInsta() {
-        return fechaInsta;
+    public Date getFechaInstalacion() {
+        return fechaInstalacion;
     }
 
-    public void setFechaInsta(Date fechaInsta) {
-        this.fechaInsta = fechaInsta;
+    public void setFechaInstalacion(Date fechaInstalacion) {
+        this.fechaInstalacion = fechaInstalacion;
     }
 
     public int getCapacidad() {
@@ -85,6 +88,14 @@ public class Atracciones {
         this.edadMin = edadMin;
     }
 
+    public int getEdadMax() {
+        return edadMax;
+    }
+
+    public void setEdadMax(int edadMax) {
+        this.edadMax = edadMax;
+    }
+
     public float getPrecioNormal() {
         return precioNormal;
     }
@@ -101,12 +112,11 @@ public class Atracciones {
         this.activo = activo;
     }
 
-    
-    
-
     @Override
     public String toString() {
-        return "Atracciones{" + "idAtracciones=" + idAtracciones + ", nombreAtrac=" + nombreAtrac + ", fechaInsta=" + fechaInsta + ", capacidad=" + capacidad + ", seccion=" + seccion + ", edadMin=" + edadMin + ", precioNormal=" + precioNormal + ", activo=" + activo + '}';
+        return "Atracciones{" + "idAtracciones=" + idAtracciones + ", nombreAtraccion=" + nombreAtraccion + ", fechaInstalacion=" + fechaInstalacion + ", capacidad=" + capacidad + ", seccion=" + seccion + ", edadMin=" + edadMin + ", edadMax=" + edadMax + ", precioNormal=" + precioNormal + ", activo=" + activo + '}';
     }
+
+
 
 }
