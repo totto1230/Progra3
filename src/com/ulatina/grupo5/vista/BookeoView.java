@@ -104,7 +104,7 @@ public class BookeoView extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 32, Short.MAX_VALUE)))
+                        .addGap(0, 27, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnMasterLayout.setVerticalGroup(
@@ -128,7 +128,7 @@ public class BookeoView extends javax.swing.JFrame {
                 .addGroup(pnMasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(lblTotalVenta))
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/ganancias.png"))); // NOI18N
@@ -378,7 +378,7 @@ public class BookeoView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregarAtraccion;
-    private javax.swing.JButton btnAgregarUsuarioAtraccion;
+    public javax.swing.JButton btnAgregarUsuarioAtraccion;
     public javax.swing.JButton btnAtras;
     public javax.swing.JButton btnCrearTickete;
     public javax.swing.JButton btnUsuarios;

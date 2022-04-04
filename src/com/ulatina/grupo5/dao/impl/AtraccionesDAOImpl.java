@@ -3,11 +3,13 @@ package com.ulatina.grupo5.dao.impl;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.helpers.Conexion;
 import com.ulatina.grupo5.modelo.Atracciones;
+import com.ulatina.grupo5.modelo.BookeoAtracciones;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -211,9 +213,40 @@ public class AtraccionesDAOImpl implements BaseDAO{
         return p;
     }
 
+    /**
+     * Trae todas la atracciones por estado activo.
+     * El parametro es booleano
+     */
     @Override
     public Object[] listarPor(Object obj) {
-        return null;
+        String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones where activo = ?";
+        Boolean parameter = (Boolean)obj;
+        ArrayList<Atracciones> atracciones = new ArrayList<>();
+        try {
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setBoolean(1, parameter);
+
+            while (rs.next()) {
+                Atracciones atraccion = new Atracciones(); 
+                atraccion.setIdAtracciones(rs.getInt("idAtracciones")); 
+                atraccion.setNombreAtraccion(rs.getString("nombreAtraccion"));
+                atraccion.setFechaInstalacion(rs.getDate("fechaInstalacion"));
+                atraccion.setCapacidad(rs.getInt("capacidad"));
+                atraccion.setSeccion(rs.getString("seccion"));
+                atraccion.setEdadMin(rs.getInt("edadMinima"));
+                atraccion.setEdadMax(rs.getInt("edadMaxima"));
+                atraccion.setPrecioNormal(rs.getInt("precioNormal"));
+                atraccion.setActivo(rs.getBoolean("activo"));
+                atracciones.add(atraccion);
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return (Atracciones[]) atracciones.toArray();
     }
 
     @Override
