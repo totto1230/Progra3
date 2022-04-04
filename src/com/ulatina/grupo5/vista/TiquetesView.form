@@ -104,7 +104,7 @@
                               <Component id="lblFecha" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblFechaDeVisita" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="chkPaseEspecial" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnBackTiquetes" min="-2" max="-2" attributes="0"/>

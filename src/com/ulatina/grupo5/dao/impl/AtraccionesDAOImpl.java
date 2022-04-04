@@ -213,11 +213,12 @@ public class AtraccionesDAOImpl implements BaseDAO{
         return p;
     }
 
+    
+    @Override
     /**
      * Trae todas la atracciones por estado activo.
      * El parametro es booleano
      */
-    @Override
     public Object[] listarPor(Object obj) {
         String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones where activo = ?";
         Boolean parameter = (Boolean)obj;

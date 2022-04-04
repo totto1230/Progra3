@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -63,13 +64,23 @@ public class BookeoController implements ActionListener {
 
     private void loadComboBoxAtracciones()
     {
-        daoAtracciones.listar(table);
+        Atracciones[] atracciones = (Atracciones[])daoAtracciones.listarPor(true);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-        for (int i = 0; i < states.length; i++) {
-            model.addElement(new Clases.ComboItem(states[i].getStateName(), String.valueOf(states[i].getIdState())));
+        for (int i = 0; i < atracciones.length; i++) {
+            model.addElement(new ComboItem(atracciones[i].getNombreAtraccion(), String.valueOf(atracciones[i].getIdAtracciones())));
         }
-        
-        cmbProvinciaDirecc.setModel(model);
+        this.vista.ddlAtracciones.setModel(model);
+    }
+    
+    private void insertarAtraccionTable()
+    {
+        String[] titulos = {"Id de Atracción", "Nombre Atracción"};
+        String[] registros = new String[titulos.length];
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+        if(vista.tblAtracciones.getModel())
+        {
+            
+        }
     }
     
     public void volver() {
@@ -78,13 +89,17 @@ public class BookeoController implements ActionListener {
     }
 
     public void iniciar() {
-        
+        loadComboBoxAtracciones();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == vista.btnAtras) {
+        if(e.getSource() == vista.btnAgregarAtraccion)
+        {
+            vista.tblAtracciones.add
+        }
+        else if (e.getSource() == vista.btnAtras) {
             volver();
         }
     }

@@ -4,9 +4,6 @@
   <NonVisualComponents>
     <Component class="javax.swing.JButton" name="jButton_Buscar_Atraccio_Main_Admin">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\parque-de-atracciones.png"/>
-        </Property>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
@@ -15,9 +12,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Buscar_Atraccio_Main_Admin1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\parque-de-atracciones.png"/>
-        </Property>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
@@ -116,12 +110,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                              <Component id="jButton_mantenimiento_atracciones_main_empleado" min="-2" pref="93" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="jButton_mantenimiento_atracciones_main_empleado" min="-2" pref="93" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="113" max="32767" attributes="0"/>
@@ -193,9 +187,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton_Buscar_Atraccio_Main_Empleado">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\ULATINA\4 CUATRI\PROGRA 3\Proyecto\Images\parque-de-atracciones.png"/>
-                </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>

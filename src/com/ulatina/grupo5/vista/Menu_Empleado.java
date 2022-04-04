@@ -38,10 +38,8 @@ public class Menu_Empleado extends javax.swing.JFrame {
         jButton_Buscar_Atraccio_Main_Empleado = new javax.swing.JButton();
         jLabel_Buscar_Atracciones_Main_Empleado = new javax.swing.JLabel();
 
-        jButton_Buscar_Atraccio_Main_Admin.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\parque-de-atracciones.png")); // NOI18N
         jButton_Buscar_Atraccio_Main_Admin.setContentAreaFilled(false);
 
-        jButton_Buscar_Atraccio_Main_Admin1.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\parque-de-atracciones.png")); // NOI18N
         jButton_Buscar_Atraccio_Main_Admin1.setContentAreaFilled(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +68,6 @@ public class Menu_Empleado extends javax.swing.JFrame {
         jButton5_back_main_menu_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton5_back_main_menu_empleado.setContentAreaFilled(false);
 
-        jButton_Buscar_Atraccio_Main_Empleado.setIcon(new javax.swing.ImageIcon("D:\\ULATINA\\4 CUATRI\\PROGRA 3\\Proyecto\\Images\\parque-de-atracciones.png")); // NOI18N
         jButton_Buscar_Atraccio_Main_Empleado.setContentAreaFilled(false);
 
         jLabel_Buscar_Atracciones_Main_Empleado.setText("Buscar Atracciones");
@@ -82,11 +79,11 @@ public class Menu_Empleado extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jButton_mantenimiento_atracciones_main_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jButton_mantenimiento_atracciones_main_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_Buscar_Atraccio_Main_Empleado, javax.swing.GroupLayout.Alignment.TRAILING)

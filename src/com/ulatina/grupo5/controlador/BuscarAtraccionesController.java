@@ -46,6 +46,7 @@ public class BuscarAtraccionesController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+
         if (e.getSource() == vista.jButton_Back_Buscar_Atrac_Admin) {
             volver();
         }
