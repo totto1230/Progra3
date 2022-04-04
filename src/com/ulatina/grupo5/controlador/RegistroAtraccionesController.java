@@ -47,7 +47,7 @@ public class RegistroAtraccionesController implements ActionListener {
         java.sql.Date fechaInsta = java.sql.Date.valueOf(vista.dtpFechaInstalacion.getDate().toString());
         Integer capacidad = vista.sldCapacidad.getValue();
         String seccion = String.valueOf(vista.ddlSeccion.getSelectedItem().toString().charAt(0)).toUpperCase();// optiene la primer letra (I,A,F)
-        Integer edadMin = Integer.parseInt(vista.ddlRangoEdad.getSelectedItem().toString());
+        Integer edadMin = Integer.parseInt(vista.ddlRangoEdadMin.getSelectedItem().toString());
         Float precio = Float.parseFloat(vista.txtPrecio.getText());
         Boolean activo = true;
 
