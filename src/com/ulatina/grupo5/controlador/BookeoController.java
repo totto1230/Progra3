@@ -84,7 +84,7 @@ public class BookeoController implements ActionListener {
         {
             model = (DefaultTableModel)vista.tblAtracciones.getModel();
         }
-        ComboItem item = this.vista.ddlAtracciones.getSelectedItem();
+        ComboItem item = (ComboItem)this.vista.ddlAtracciones.getSelectedItem();
         registros[0] = item.getKey();
         registros[1] = item.getValue();
         model.addRow(registros); 
@@ -105,7 +105,7 @@ public class BookeoController implements ActionListener {
 
         if(e.getSource() == vista.btnAgregarAtraccion)
         {
-            vista.tblAtracciones.add
+            insertarAtraccionTable();
         }
         else if (e.getSource() == vista.btnAtras) {
             volver();
