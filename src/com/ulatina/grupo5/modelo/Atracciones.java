@@ -14,13 +14,13 @@ import java.sql.Date;
  */
 public class Atracciones {
 
-    public int idAtracciones;
+    public Integer idAtracciones;
     public String nombreAtraccion;
     public Date fechaInstalacion;
-    public int capacidad;
+    public Integer capacidad;
     public String seccion;
-    public int edadMin;
-    public int edadMax;
+    public Integer edadMin;
+    public Integer edadMax;
     public float precioNormal;
     public Boolean activo;
 
@@ -28,7 +28,7 @@ public class Atracciones {
     public Atracciones() {
     }
 
-    public Atracciones(int idAtracciones, String nombreAtraccion, Date fechaInstalacion, int capacidad, String seccion, int edadMin, float precioNormal, Boolean activo) {
+    public Atracciones(Integer idAtracciones, String nombreAtraccion, Date fechaInstalacion, Integer capacidad, String seccion, Integer edadMin, float precioNormal, Boolean activo) {
         this.idAtracciones = idAtracciones;
         this.nombreAtraccion = nombreAtraccion;
         this.fechaInstalacion = fechaInstalacion;
@@ -40,7 +40,7 @@ public class Atracciones {
     }
 
     
-    public Atracciones(int idAtracciones, String nombreAtraccion, Date fechaInstalacion, int capacidad, String seccion, int edadMin, int edadMax, float precioNormal, Boolean activo) {
+    public Atracciones(Integer idAtracciones, String nombreAtraccion, Date fechaInstalacion, Integer capacidad, String seccion, Integer edadMin, Integer edadMax, float precioNormal, Boolean activo) {
         this.idAtracciones = idAtracciones;
         this.nombreAtraccion = nombreAtraccion;
         this.fechaInstalacion = fechaInstalacion;
@@ -52,11 +52,11 @@ public class Atracciones {
         this.activo = activo;
     }
 
-    public int getIdAtracciones() {
+    public Integer getIdAtracciones() {
         return idAtracciones;
     }
 
-    public void setIdAtracciones(int idAtracciones) {
+    public void setIdAtracciones(Integer idAtracciones) {
         this.idAtracciones = idAtracciones;
     }
 
@@ -92,19 +92,19 @@ public class Atracciones {
         this.seccion = seccion;
     }
 
-    public int getEdadMin() {
+    public Integer getEdadMin() {
         return edadMin;
     }
 
-    public void setEdadMin(int edadMin) {
+    public void setEdadMin(Integer edadMin) {
         this.edadMin = edadMin;
     }
 
-    public int getEdadMax() {
+    public Integer getEdadMax() {
         return edadMax;
     }
 
-    public void setEdadMax(int edadMax) {
+    public void setEdadMax(Integer edadMax) {
         this.edadMax = edadMax;
     }
 

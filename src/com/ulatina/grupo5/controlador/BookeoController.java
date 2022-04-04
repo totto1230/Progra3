@@ -28,6 +28,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -69,7 +70,9 @@ public class BookeoController implements ActionListener {
         for (int i = 0; i < atracciones.length; i++) {
             model.addElement(new ComboItem(atracciones[i].getNombreAtraccion(), String.valueOf(atracciones[i].getIdAtracciones())));
         }
+
         this.vista.ddlAtracciones.setModel(model);
+
     }
     
     private void insertarAtraccionTable()
@@ -77,10 +80,13 @@ public class BookeoController implements ActionListener {
         String[] titulos = {"Id de Atracción", "Nombre Atracción"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        if(vista.tblAtracciones.getModel())
+        if(vista.tblAtracciones.getRowCount() > 0)
         {
-            
+            model = (DefaultTableModel)vista.tblAtracciones.getModel();
         }
+        
+        model.addRow(registros); 
+        vista.tblAtracciones.setModel(model);
     }
     
     public void volver() {
