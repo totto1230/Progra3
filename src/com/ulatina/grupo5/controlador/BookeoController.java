@@ -45,7 +45,7 @@ public class BookeoController implements ActionListener {
     Menu_Admin main = new Menu_Admin();
 
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
-    BaseDAO daoPrecios = new PrecioDAOImpl();
+    PrecioDAOImpl daoPrecios = new PrecioDAOImpl(); // para poder crear la subclase parametros
     BaseDAO daoBookeo = new BookeoDAOImpl();
     BaseDAO daoBookeoAtracciones = new BookeoAtraccionesDAOImpl();
     BaseDAO daoBookeoPersonas = new BookeoPersonaDAOImpl();
@@ -197,8 +197,7 @@ public class BookeoController implements ActionListener {
                 String str = vista.tblUsuarios.getModel().getValueAt(i, 3).toString();
                 Date fechaCumpleaños = new SimpleDateFormat("dd/MM/yyyy").parse(str);
                 Usuarios usr = new Usuarios(0, "", "", "", "", "", fechaCumpleaños, 0);
-                PrecioDAOImpl preciosDao = new PrecioDAOImpl();
-                PrecioDAOImpl.listarPorParametros parametros = preciosDao.new listarPorParametros(bookeoAtraccion.idAtracciones, usr);
+                PrecioDAOImpl.listarPorParametros parametros = daoPrecios.new listarPorParametros(bookeoAtraccion.idAtracciones, usr);
                 Precio[] precios = (Precio[]) daoPrecios.listarPor(parametros);
                 rtn += precios[0].getPrecio();
             }
