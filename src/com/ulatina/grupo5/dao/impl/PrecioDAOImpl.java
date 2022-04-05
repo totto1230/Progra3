@@ -247,15 +247,18 @@ public class PrecioDAOImpl implements BaseDAO {
      * parametro es un objeto tipo Usuarios, retorna una arreglo de precios.
     */
     public Object[] listarPor(Object obj) {
-        Usuarios usr = (Usuarios) obj;
+        listarPorParametros parametros = (listarPorParametros) obj;
         ArrayList<Precio> Precio = new ArrayList<Precio>();
-        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion";
+        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion = ? and edadMin >= ? and edadMax < ?";
         try {
             BaseController common = new BaseController();
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, common.CalcularEdad(usr));
+            int edad = common.CalcularEdad(parametros.getUsuario());
+            ps.setInt(1, parametros.getIdAtraccion()); 
+            ps.setInt(1, edad);
+            ps.setInt(2, edad);
 
             while (rs.next()) {
                 Precio precio = new Precio();
@@ -274,6 +277,37 @@ public class PrecioDAOImpl implements BaseDAO {
             System.out.println("Error");
         }
         return (Precio[]) Precio.toArray();
+    }
+    
+    public class listarPorParametros
+    {
+        Integer idAtraccion;
+        Usuarios usuario;
+
+        public listarPorParametros() {
+        }
+
+        public listarPorParametros(Integer idAtraccion, Usuarios usuario) {
+            this.idAtraccion = idAtraccion;
+            this.usuario = usuario;
+        }
+
+        public Integer getIdAtraccion() {
+            return idAtraccion;
+        }
+
+        public void setIdAtraccion(Integer idAtraccion) {
+            this.idAtraccion = idAtraccion;
+        }
+
+        public Usuarios getUsuario() {
+            return usuario;
+        }
+
+        public void setUsuario(Usuarios usuario) {
+            this.usuario = usuario;
+        }
+        
     }
 
     

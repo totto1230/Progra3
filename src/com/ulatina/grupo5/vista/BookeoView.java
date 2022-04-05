@@ -33,7 +33,7 @@ public class BookeoView extends javax.swing.JFrame {
         txtTicket = new javax.swing.JTextField();
         txtUsuarioTickete = new javax.swing.JTextField();
         chkPaseEspecial = new javax.swing.JCheckBox();
-        dtpFechaCompra = new com.toedter.calendar.JDateChooser();
+        dtpFechaVisita = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         lblTotalVenta = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -42,9 +42,14 @@ public class BookeoView extends javax.swing.JFrame {
         txtUsuarioAtraccion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnUsuarios = new javax.swing.JButton();
-        btnAgregarUsuarioAtraccion = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        tblUsuariosBusqueda = new javax.swing.JTable();
+        btnAgregarUsuarioAtraccion = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
         tblUsuarios = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        btnEliminarUsuarioAtraccion = new javax.swing.JButton();
         pnAtracciones = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -52,6 +57,7 @@ public class BookeoView extends javax.swing.JFrame {
         ddlAtracciones = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAtracciones = new javax.swing.JTable();
+        btnEliminarAtraccion = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         btnCrearTickete = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
@@ -95,7 +101,7 @@ public class BookeoView extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(20, 20, 20)))
                         .addGroup(pnMasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dtpFechaCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dtpFechaVisita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtUsuarioTickete, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)))
                     .addGroup(pnMasterLayout.createSequentialGroup()
                         .addGroup(pnMasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +129,7 @@ public class BookeoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnMasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(dtpFechaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dtpFechaVisita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkPaseEspecial)
                 .addGap(38, 38, 38)
@@ -139,7 +145,7 @@ public class BookeoView extends javax.swing.JFrame {
 
         btnUsuarios.setText("Usuarios");
 
-        btnAgregarUsuarioAtraccion.setText("Agregar");
+        btnBuscar.setText("Buscar");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -152,9 +158,8 @@ public class BookeoView extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnUsuarios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAgregarUsuarioAtraccion)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscar))
                     .addComponent(txtUsuarioAtraccion))
                 .addContainerGap())
         );
@@ -165,12 +170,27 @@ public class BookeoView extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtUsuarioAtraccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUsuarios)
-                    .addComponent(btnAgregarUsuarioAtraccion))
+                    .addComponent(btnBuscar))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
+
+        tblUsuariosBusqueda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Usuarios"
+            }
+        ));
+        jScrollPane1.setViewportView(tblUsuariosBusqueda);
+
+        btnAgregarUsuarioAtraccion.setText("Agregar");
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,26 +203,53 @@ public class BookeoView extends javax.swing.JFrame {
                 "Usuarios"
             }
         ));
-        jScrollPane1.setViewportView(tblUsuarios);
+        jScrollPane3.setViewportView(tblUsuarios);
+
+        btnEliminarUsuarioAtraccion.setText("Eliminar");
 
         javax.swing.GroupLayout pnUsuariosLayout = new javax.swing.GroupLayout(pnUsuarios);
         pnUsuarios.setLayout(pnUsuariosLayout);
         pnUsuariosLayout.setHorizontalGroup(
             pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnUsuariosLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnUsuariosLayout.createSequentialGroup()
+                        .addContainerGap(16, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnUsuariosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnUsuariosLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnUsuariosLayout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addComponent(btnAgregarUsuarioAtraccion)))))
                 .addContainerGap())
-            .addGroup(pnUsuariosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnUsuariosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnEliminarUsuarioAtraccion))
         );
         pnUsuariosLayout.setVerticalGroup(
             pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnUsuariosLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnAgregarUsuarioAtraccion)
+                .addGroup(pnUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnUsuariosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(230, 230, 230))
+                    .addGroup(pnUsuariosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarUsuarioAtraccion))))
         );
 
         jLabel7.setText("Atracción:");
@@ -257,6 +304,8 @@ public class BookeoView extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblAtracciones);
 
+        btnEliminarAtraccion.setText("Eliminar");
+
         javax.swing.GroupLayout pnAtraccionesLayout = new javax.swing.GroupLayout(pnAtracciones);
         pnAtracciones.setLayout(pnAtraccionesLayout);
         pnAtraccionesLayout.setHorizontalGroup(
@@ -266,7 +315,9 @@ public class BookeoView extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(pnAtraccionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnAtraccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEliminarAtraccion)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnAtraccionesLayout.setVerticalGroup(
@@ -274,7 +325,10 @@ public class BookeoView extends javax.swing.JFrame {
             .addGroup(pnAtraccionesLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEliminarAtraccion)
+                .addContainerGap())
         );
 
         btnCrearTickete.setText("Crear Tickete");
@@ -298,7 +352,7 @@ public class BookeoView extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearTickete)
                     .addComponent(btnAtras))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -326,10 +380,10 @@ public class BookeoView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnAtracciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnAtracciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -382,11 +436,14 @@ public class BookeoView extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarAtraccion;
     public javax.swing.JButton btnAgregarUsuarioAtraccion;
     public javax.swing.JButton btnAtras;
+    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnCrearTickete;
+    public javax.swing.JButton btnEliminarAtraccion;
+    public javax.swing.JButton btnEliminarUsuarioAtraccion;
     public javax.swing.JButton btnUsuarios;
     public javax.swing.JCheckBox chkPaseEspecial;
     public javax.swing.JComboBox<String> ddlAtracciones;
-    public com.toedter.calendar.JDateChooser dtpFechaCompra;
+    public com.toedter.calendar.JDateChooser dtpFechaVisita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -394,17 +451,20 @@ public class BookeoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JLabel lblTotalVenta;
     public javax.swing.JPanel pnAtracciones;
     public javax.swing.JPanel pnMaster;
     public javax.swing.JPanel pnUsuarios;
     public javax.swing.JTable tblAtracciones;
     public javax.swing.JTable tblUsuarios;
+    public javax.swing.JTable tblUsuariosBusqueda;
     public javax.swing.JTextField txtTicket;
     public javax.swing.JTextField txtUsuarioAtraccion;
     public javax.swing.JTextField txtUsuarioTickete;

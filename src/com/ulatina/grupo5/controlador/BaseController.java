@@ -19,7 +19,7 @@ public class BaseController {
     {
         Date currentDate = getCurrentDate();
         
-        Integer edad = Period.between(toLocalDate(currentDate), toLocalDate(currentDate)).getYears();
+        Integer edad = Period.between(toLocalDate(usr.getFechaNacimiento()), toLocalDate(currentDate)).getYears();
         return edad;
     }
     

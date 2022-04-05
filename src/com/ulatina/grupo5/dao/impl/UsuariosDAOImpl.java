@@ -196,13 +196,14 @@ public class UsuariosDAOImpl implements BaseDAO {
     public Object[] listarPor(Object obj) {
         p = (Usuarios) obj;
         ArrayList<Usuarios> Usuarios = new ArrayList<Usuarios>();
-        String sql = "select cedula, correo, password,nombre, apellido1,apellido2,fechaNacimiento, tipoUsuario from usuarios where cedula = ?";
+        String sql = "select cedula, correo, password,nombre, apellido1,apellido2,fechaNacimiento, tipoUsuario from usuarios where nombre like '%?%' or apellido1 like '%?%'";
         try {
 
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, p.cedula);
+            ps.setString(1, p.getNombre());
+            ps.setString(2, p.getApellido1());
 
             while (rs.next()) {
                 Usuarios Usuario = new Usuarios();
