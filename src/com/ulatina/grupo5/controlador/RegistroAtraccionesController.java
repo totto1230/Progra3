@@ -26,6 +26,35 @@ public class RegistroAtraccionesController implements ActionListener {
         this.vista.btnAgregar.addActionListener(this);
         this.vista.btnVolver.addActionListener(this);
     }
+    
+    public void iniciar(Atracciones atraccion) {
+        vista.txtCodigoAtraccion.setText(atraccion.getIdAtracciones().toString());
+        vista.txtNombreAtraccion.setText(atraccion.getNombreAtraccion());
+        vista.dtpFechaInstalacion.setDate(atraccion.getFechaInstalacion());
+        vista.sldCapacidad.setValue(atraccion.getCapacidad());
+        vista.ddlSeccion.setSelectedIndex(getSeccion(atraccion.getSeccion()));
+        vista.ddlRangoEdadMin.setSelectedIndex(atraccion.getEdadMin()-1);
+        vista.ddlRangoEdadMax.setSelectedIndex(atraccion.getEdadMax()-1);
+        vista.txtPrecio.setText(String.valueOf(atraccion.getPrecioNormal()));
+        
+    }
+
+    private int getSeccion(String seccion)
+    {
+        int rtn = 0;
+        switch (seccion) {
+            case "I":
+                rtn = 0;
+                break;
+            case "A":
+                rtn = 1;
+                break;
+            case "F":
+                rtn = 2;
+                break;
+        }
+        return rtn;
+    }
 
     public void listarTabla(JTable tabla) {
         dao.listar(tabla);
@@ -40,8 +69,8 @@ public class RegistroAtraccionesController implements ActionListener {
         limpiarCampos();
 
     }
-
-    public void agregar() {
+    
+    public Atracciones devolverUsers() {
         Integer idAtraccion = Integer.parseInt(vista.txtCodigoAtraccion.getText());
         String nombreAtraccion = vista.txtNombreAtraccion.getText();
         java.sql.Date fechaInsta = java.sql.Date.valueOf(vista.dtpFechaInstalacion.getDate().toString());
@@ -52,6 +81,11 @@ public class RegistroAtraccionesController implements ActionListener {
         Boolean activo = true;
 
         atraccion = new Atracciones(idAtraccion, nombreAtraccion, fechaInsta, capacidad, seccion, edadMin, precio, activo);
+        return atraccion;
+    }
+
+    public void agregar() {
+        
 
         boolean r = dao.insertar(atraccion);
 

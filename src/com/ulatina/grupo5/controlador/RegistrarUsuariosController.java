@@ -45,7 +45,7 @@ class RegistrarUsuariosController implements ActionListener {
         vista.txtSegundoApe.setText(user.getAppellido2());
         vista.dtpFechaCumpleanos.setDate(user.getFechaNacimiento());
         vista.ddlTipoUser.setSelectedIndex(user.getTipoUsuario() - 1);
-        dao.actualizar(user);
+        
     }
 
     public Usuarios devolverUsers() {

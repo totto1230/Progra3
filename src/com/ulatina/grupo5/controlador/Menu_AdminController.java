@@ -20,7 +20,7 @@ public class Menu_AdminController implements ActionListener {
     UsuariosController verUsuarios;
     RegistrarUsuariosController registrarUsuarios;
     RegistroAtraccionesController registroAtrac;
-    AgregarAtraccionController agregarAtrac;
+    RegistroAtraccionesController agregarAtrac;
     BuscarAtraccionesController buscarAtrac;
     SeguimientoController seguimiento;
     GananciasAdminEmpleadoController ganacias;
