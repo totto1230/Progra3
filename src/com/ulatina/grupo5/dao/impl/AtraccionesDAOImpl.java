@@ -28,7 +28,7 @@ public class AtraccionesDAOImpl implements BaseDAO {
 
         p = (Atracciones) obj;
 
-        String sql = "INSERT INTO Atracciones (idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMin,edadMax, precioNormal,activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO Atracciones (idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima,edadMaxima, precioNormal,activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
         try {
 
             conectar.connectar();
@@ -68,7 +68,7 @@ public class AtraccionesDAOImpl implements BaseDAO {
 
         p = (Atracciones) obj;
 
-        String sql = "UPDATE SET Atracciones nombreAtraccion = ?, fechaInstalacion = ?, capacidad = ?, seccion = ?, edadMin = ?, edadMax = ? precioNormal = ?, activo = ? WHERE idAtracciones = ?";
+        String sql = "UPDATE SET Atracciones nombreAtraccion = ?, fechaInstalacion = ?, capacidad = ?, seccion = ?, edadMinima = ?, edadMaxima = ? precioNormal = ?, activo = ? WHERE idAtracciones = ?";
         try {
 
             conectar.connectar();

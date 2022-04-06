@@ -41,14 +41,13 @@ public class LoginController implements ActionListener {
     }
 
     public boolean agregar(int usuario, String password) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-        Date date = new Date(System.currentTimeMillis());
+        Date date = new Date();
 
         login.setIdLogin(dao.nextID());
         login.setCedula(usuario);
         login.setNumTickets(0);
-        login.setFechaLogin(java.sql.Date.valueOf(date.toString()));
-        login.setFechaLogoff(java.sql.Date.valueOf(date.toString()));
+        login.setFechaLogin(new java.sql.Date(date.getTime()));
+        login.setFechaLogoff(new java.sql.Date(date.getTime()));
 
         boolean r = dao.insertar(login);
         if (r) {
@@ -64,14 +63,16 @@ public class LoginController implements ActionListener {
     private void cargarMenuAdmin() {
         Menu_Admin vistaMenuAdmin = new Menu_Admin();
         Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
+        //controller.init();
         vistaMenuAdmin.setVisible(true);
         vista.dispose();
     }
 
     private void cargarMenuEmpleado() {
-        Menu_Empleado vistaMenuAdmin = new Menu_Empleado();
-        MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);
-        vistaMenuAdmin.setVisible(true);
+        Menu_Empleado vistaMenu = new Menu_Empleado();
+        MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenu);
+        //controller.init();
+        vistaMenu.setVisible(true);
         vista.dispose();
     }
 
@@ -107,8 +108,6 @@ public class LoginController implements ActionListener {
                                     cargarMenuUsuario();
                                     break;
                             }
-
-                            cargarMenuEmpleado();
                         }
                     } else {
                         JOptionPane.showMessageDialog(vista, "Usuario o contraseña invalidos", "Error al autenticar", JOptionPane.INFORMATION_MESSAGE);

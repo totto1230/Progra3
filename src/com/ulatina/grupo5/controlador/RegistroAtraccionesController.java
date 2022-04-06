@@ -25,22 +25,23 @@ public class RegistroAtraccionesController implements ActionListener {
         this.vista = vista;
         this.vista.btnAgregar.addActionListener(this);
         this.vista.btnVolver.addActionListener(this);
+        this.vista.txtCodigoAtraccion.setEnabled(false);
+        this.vista.txtCodigoAtraccion.setVisible(false);
     }
-    
+
     public void iniciar(Atracciones atraccion) {
+        this.vista.txtCodigoAtraccion.setVisible(true);
         vista.txtCodigoAtraccion.setText(atraccion.getIdAtracciones().toString());
         vista.txtNombreAtraccion.setText(atraccion.getNombreAtraccion());
         vista.dtpFechaInstalacion.setDate(atraccion.getFechaInstalacion());
         vista.sldCapacidad.setValue(atraccion.getCapacidad());
         vista.ddlSeccion.setSelectedIndex(getSeccion(atraccion.getSeccion()));
-        vista.ddlRangoEdadMin.setSelectedIndex(atraccion.getEdadMin()-1);
-        vista.ddlRangoEdadMax.setSelectedIndex(atraccion.getEdadMax()-1);
+        vista.ddlRangoEdadMin.setSelectedIndex(atraccion.getEdadMin() - 1);
+        vista.ddlRangoEdadMax.setSelectedIndex(atraccion.getEdadMax() - 1);
         vista.txtPrecio.setText(String.valueOf(atraccion.getPrecioNormal()));
-        
     }
 
-    private int getSeccion(String seccion)
-    {
+    private int getSeccion(String seccion) {
         int rtn = 0;
         switch (seccion) {
             case "I":
@@ -69,26 +70,25 @@ public class RegistroAtraccionesController implements ActionListener {
         limpiarCampos();
 
     }
-    
-    public Atracciones devolverUsers() {
-        Integer idAtraccion = Integer.parseInt(vista.txtCodigoAtraccion.getText());
+
+    public Atracciones devolverAtraccion() {
+        Integer idAtraccion = vista.txtCodigoAtraccion.getText().isEmpty() ? dao.nextID() : Integer.parseInt(vista.txtCodigoAtraccion.getText());
         String nombreAtraccion = vista.txtNombreAtraccion.getText();
-        java.sql.Date fechaInsta = java.sql.Date.valueOf(vista.dtpFechaInstalacion.getDate().toString());
+        java.sql.Date fechaInsta =  new java.sql.Date(vista.dtpFechaInstalacion.getDate().getTime());
         Integer capacidad = vista.sldCapacidad.getValue();
         String seccion = String.valueOf(vista.ddlSeccion.getSelectedItem().toString().charAt(0)).toUpperCase();// optiene la primer letra (I,A,F)
         Integer edadMin = Integer.parseInt(vista.ddlRangoEdadMin.getSelectedItem().toString());
+        Integer edadMax = Integer.parseInt(vista.ddlRangoEdadMax.getSelectedItem().toString());
         Float precio = Float.parseFloat(vista.txtPrecio.getText());
         Boolean activo = true;
 
-        atraccion = new Atracciones(idAtraccion, nombreAtraccion, fechaInsta, capacidad, seccion, edadMin, precio, activo);
+        atraccion = new Atracciones(idAtraccion, nombreAtraccion, fechaInsta, capacidad, seccion, edadMin,edadMax, precio, activo);
         return atraccion;
     }
 
     public void agregar() {
-        
-
+        atraccion = devolverAtraccion();
         boolean r = dao.insertar(atraccion);
-
         if (r) {
             listarTabla(vista.tblAtracciones);
             limpiarCampos();
@@ -96,24 +96,36 @@ public class RegistroAtraccionesController implements ActionListener {
         } else {
             JOptionPane.showMessageDialog(vista, "La atraccion no fue agregada");
         }
+    }
 
+    public void actualizar() {
+        atraccion = devolverAtraccion();
+        boolean r = dao.actualizar(atraccion);
+        if (r) {
+            listarTabla(vista.tblAtracciones);
+            limpiarCampos();
+            JOptionPane.showMessageDialog(vista, "La atraccion fue agregado actualizada");
+        } else {
+            JOptionPane.showMessageDialog(vista, "La atraccion no fue actualizada");
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == vista.btnAgregar) {
-            if (vista.txtCodigoAtraccion.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(vista, "Debe ingresar el codgo de la atracción", "Error al Agregar", JOptionPane.INFORMATION_MESSAGE);
-                vista.txtCodigoAtraccion.requestFocus();
-            } else if (vista.txtNombreAtraccion.getText().isEmpty()) {
+            if (vista.txtNombreAtraccion.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "Debe ingresar el nombre de la atracción", "Error al Agregar", JOptionPane.INFORMATION_MESSAGE);
                 vista.txtNombreAtraccion.requestFocus();
             } else if (vista.txtPrecio.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "Debe ingresar el nombre de la atracción", "Error al Agregar", JOptionPane.INFORMATION_MESSAGE);
                 vista.txtPrecio.requestFocus();
             } else {
-                agregar();
+                if (vista.txtCodigoAtraccion.getText().isEmpty()) {
+                    agregar();
+                } else {
+                    actualizar();
+                }
             }
             listarTabla(vista.tblAtracciones);
         }

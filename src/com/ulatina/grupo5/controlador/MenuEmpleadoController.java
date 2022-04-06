@@ -26,6 +26,10 @@ public class MenuEmpleadoController implements ActionListener {
         this.vista.jButton_mantenimiento_atracciones_main_empleado.addActionListener(this);
         this.vista.jButton_Buscar_Atraccio_Main_Empleado.addActionListener(this);
     }
+    
+    public void init()
+    {
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
