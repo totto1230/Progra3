@@ -76,15 +76,16 @@ public class AtraccionesDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, p.getIdAtracciones());
-            ps.setString(2, p.getNombreAtraccion());
-            ps.setDate(3, p.getFechaInstalacion());
-            ps.setInt(4, p.getCapacidad());
-            ps.setString(5, p.getSeccion());
-            ps.setInt(6, p.getEdadMin());
-            ps.setInt(7, p.getEdadMax());
-            ps.setFloat(8, p.getPrecioNormal());
-            ps.setBoolean(9, p.getActivo());
+            
+            ps.setString(1, p.getNombreAtraccion());
+            ps.setDate(2, p.getFechaInstalacion());
+            ps.setInt(3, p.getCapacidad());
+            ps.setString(4, p.getSeccion());
+            ps.setInt(5, p.getEdadMin());
+            ps.setInt(6, p.getEdadMax());
+            ps.setFloat(7, p.getPrecioNormal());
+            ps.setBoolean(8, p.getActivo());
+            ps.setInt(9, p.getIdAtracciones());
 
             int registros = ps.executeUpdate();
 
@@ -186,7 +187,7 @@ public class AtraccionesDAOImpl implements BaseDAO {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, p.getIdAtracciones());
+            ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 p.setIdAtracciones(rs.getInt("idAtracciones"));

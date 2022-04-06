@@ -14,6 +14,8 @@ import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RegistroAtraccionesController implements ActionListener {
 
@@ -25,8 +27,16 @@ public class RegistroAtraccionesController implements ActionListener {
         this.vista = vista;
         this.vista.btnAgregar.addActionListener(this);
         this.vista.btnVolver.addActionListener(this);
-        this.vista.txtCodigoAtraccion.setEnabled(false);
-        this.vista.txtCodigoAtraccion.setVisible(false);
+        this.vista.tblAtracciones.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = vista.tblAtracciones.getSelectedRow();
+                //String test = vista.tblAtracciones.getModel().getValueAt(row, 0).toString();
+                int idAtraccion  = Integer.parseInt(vista.tblAtracciones.getModel().getValueAt(row, 0).toString());
+                atraccion = (Atracciones)dao.listarUno(idAtraccion);
+                iniciar(atraccion);
+            }
+        });
     }
 
     public void iniciar(Atracciones atraccion) {
@@ -39,6 +49,7 @@ public class RegistroAtraccionesController implements ActionListener {
         vista.ddlRangoEdadMin.setSelectedIndex(atraccion.getEdadMin() - 1);
         vista.ddlRangoEdadMax.setSelectedIndex(atraccion.getEdadMax() - 1);
         vista.txtPrecio.setText(String.valueOf(atraccion.getPrecioNormal()));
+        vista.btnPrecios.setVisible(true);
     }
 
     private int getSeccion(String seccion) {
@@ -68,13 +79,16 @@ public class RegistroAtraccionesController implements ActionListener {
     public void iniciar() {
         this.listarTabla(vista.tblAtracciones);
         limpiarCampos();
+        this.vista.txtCodigoAtraccion.setEnabled(false);
+        this.vista.txtCodigoAtraccion.setVisible(false);
+        vista.btnPrecios.setVisible(false);
 
     }
 
     public Atracciones devolverAtraccion() {
         Integer idAtraccion = vista.txtCodigoAtraccion.getText().isEmpty() ? dao.nextID() : Integer.parseInt(vista.txtCodigoAtraccion.getText());
         String nombreAtraccion = vista.txtNombreAtraccion.getText();
-        java.sql.Date fechaInsta =  new java.sql.Date(vista.dtpFechaInstalacion.getDate().getTime());
+        java.sql.Date fechaInsta = new java.sql.Date(vista.dtpFechaInstalacion.getDate().getTime());
         Integer capacidad = vista.sldCapacidad.getValue();
         String seccion = String.valueOf(vista.ddlSeccion.getSelectedItem().toString().charAt(0)).toUpperCase();// optiene la primer letra (I,A,F)
         Integer edadMin = Integer.parseInt(vista.ddlRangoEdadMin.getSelectedItem().toString());
@@ -82,7 +96,7 @@ public class RegistroAtraccionesController implements ActionListener {
         Float precio = Float.parseFloat(vista.txtPrecio.getText());
         Boolean activo = true;
 
-        atraccion = new Atracciones(idAtraccion, nombreAtraccion, fechaInsta, capacidad, seccion, edadMin,edadMax, precio, activo);
+        atraccion = new Atracciones(idAtraccion, nombreAtraccion, fechaInsta, capacidad, seccion, edadMin, edadMax, precio, activo);
         return atraccion;
     }
 
@@ -129,6 +143,8 @@ public class RegistroAtraccionesController implements ActionListener {
                 }
             }
             listarTabla(vista.tblAtracciones);
+        } else if (e.getSource() == vista.btnPrecios) {
+
         }
     }
 }
