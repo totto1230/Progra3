@@ -32,6 +32,7 @@ public class SeguimientoController implements ActionListener {
     }
 
     public void iniciar() {
+        dao.listar(vista.jTable_Seguimiento_Atracciones);
         vista.txtAtrac.setText("");
         vista.jTextField_Revisor_Segui_De_Atra_Admin.setText("");
         vista.jTextArea_Descrip_Error_Segui_Atra_Admi.setText("");

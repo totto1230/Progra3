@@ -3,47 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/vista/Registro_Atracciones_Admin.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/UsuariosDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/Precio.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/proyecto/recursos/SQLTemplate.sql</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/Login.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/BookeoAtraccionesDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/AtraccionesDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/BookeoDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/vista/Login.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/MantenimientoDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/LoginDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/MenuEmpleadoController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/Usuarios.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/helpers/Conexion.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/vista/Buscar_Atracciones_Admin.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/Menu_AdminController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/RegistroAtraccionesController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/vista/Registro_Usuarios_Admin.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/BaseController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/AgregarAtraccionController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/PrecioDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/Controlador_Admin.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/Atracciones.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/SeguimientoController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/GanaciasDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/BookeoPersona.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/BaseDAO.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/vista/Seguimiento_De_Atracciones_Admin.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/BookeoAtracciones.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/Mantenimiento.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/vista/Ganancias_Admin_Empleado.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/RegistrarUsuariosController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/GananciasAdminEmpleadoController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/dao/impl/BookeoPersonaDAOImpl.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/Bookeo.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/modelo/Ganancias.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/helpers/Database.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/UsuariosController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/BuscarAtraccionesController.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/vista/BookeoView.java</file>
-            <file>file:/Users/fernando/Desktop/NetBeansProjects/12.6/Progra3/src/com/ulatina/grupo5/controlador/LoginController.java</file>
+            <file>file:/C:/Users/josep/Documents/NetBeansProjects/Progra3-Final/src/com/ulatina/grupo5/vista/Registro_Atracciones_Admin.java</file>
         </group>
     </open-files>
 </project-private>
