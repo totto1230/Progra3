@@ -93,6 +93,7 @@ public class RegistroAtraccionesController implements ActionListener {
             listarTabla(vista.tblAtracciones);
             limpiarCampos();
             JOptionPane.showMessageDialog(vista, "La atraccion fue agregado correctamente");
+            iniciar(atraccion);
         } else {
             JOptionPane.showMessageDialog(vista, "La atraccion no fue agregada");
         }

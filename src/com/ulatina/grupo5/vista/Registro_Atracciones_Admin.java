@@ -50,6 +50,7 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
         sldCapacidad = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
         ddlRangoEdadMax = new javax.swing.JComboBox<>();
+        btnPrecios = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -105,6 +106,9 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
 
         ddlRangoEdadMax.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100" }));
 
+        btnPrecios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/precio.png"))); // NOI18N
+        btnPrecios.setContentAreaFilled(false);
+
         javax.swing.GroupLayout jPane_Regist_Atra_AdminLayout = new javax.swing.GroupLayout(jPane_Regist_Atra_Admin);
         jPane_Regist_Atra_Admin.setLayout(jPane_Regist_Atra_AdminLayout);
         jPane_Regist_Atra_AdminLayout.setHorizontalGroup(
@@ -130,7 +134,7 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                                .addComponent(sldCapacidad, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                                .addComponent(sldCapacidad, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                                 .addContainerGap())
                             .addComponent(txtNombreAtraccion)
                             .addComponent(txtCodigoAtraccion)
@@ -148,7 +152,9 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
                     .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(btnAgregar)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPrecios)
+                        .addGap(16, 16, 16))))
         );
         jPane_Regist_Atra_AdminLayout.setVerticalGroup(
             jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,14 +196,19 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4_Simbolo_Colones_Regist_Atra_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_Precio_Por_Persona))
-                .addGap(37, 37, 37)
                 .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                        .addComponent(btnVolver)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                        .addComponent(btnAgregar)
-                        .addGap(39, 39, 39))))
+                    .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
+                                .addComponent(btnVolver)
+                                .addGap(17, 17, 17))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
+                                .addComponent(btnAgregar)
+                                .addGap(39, 39, 39))))
+                    .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPrecios))))
         );
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/registrodeatrac.png"))); // NOI18N
@@ -323,6 +334,7 @@ public class Registro_Atracciones_Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnPrecios;
     public javax.swing.JButton btnVolver;
     public javax.swing.JComboBox<String> ddlRangoEdadMax;
     public javax.swing.JComboBox<String> ddlRangoEdadMin;
