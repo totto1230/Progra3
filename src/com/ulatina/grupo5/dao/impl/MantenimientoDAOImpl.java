@@ -117,7 +117,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 //            ps.setInt(1, p.idPrecio);
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 Mantenimiento precio = new Mantenimiento();
 //                precio.setIdPrecio(Integer.parseInt(rs.getString("orderId")));
@@ -211,7 +211,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 p.setIdMantenimiento(rs.getInt("idMantenimiento"));
                 p.setIdAtracciones(rs.getInt("idAtracciones"));

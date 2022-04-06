@@ -70,6 +70,7 @@ public class GanaciasDAOImpl {
             ps.setDate(1, dateFrom);
             ps.setDate(1, dateTo);
 
+            rs = ps.executeQuery();
             while (rs.next()) {
                 registros[0] = rs.getString("orden");
                 registros[1] = rs.getString("nombreAtrac");

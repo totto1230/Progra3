@@ -222,7 +222,7 @@ public class PrecioDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 p.setIdPrecio(Integer.parseInt(rs.getString("idPrecio")));
                 p.setIdAtraccion(rs.getInt("idAtraccion"));
@@ -259,7 +259,7 @@ public class PrecioDAOImpl implements BaseDAO {
             ps.setInt(1, parametros.getIdAtraccion()); 
             ps.setInt(1, edad);
             ps.setInt(2, edad);
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 Precio precio = new Precio();
                 precio.setIdPrecio(Integer.parseInt(rs.getString("idPrecio")));

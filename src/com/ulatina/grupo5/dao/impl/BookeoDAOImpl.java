@@ -176,7 +176,7 @@ public class BookeoDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, p.getTicket());
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 p.setTicket(Integer.parseInt(rs.getString("ticket")));
                 p.setCedula(rs.getInt("cedula"));

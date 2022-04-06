@@ -193,7 +193,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, p.getIdAtracciones());
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 p.setIdAtracciones(rs.getInt("idAtracciones")); 
                 p.setNombreAtraccion(rs.getString("nombreAtraccion"));
@@ -228,7 +228,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             ps.setBoolean(1, parameter);
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 Atracciones atraccion = new Atracciones(); 
                 atraccion.setIdAtracciones(rs.getInt("idAtracciones")); 

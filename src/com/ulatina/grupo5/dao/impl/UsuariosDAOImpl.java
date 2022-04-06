@@ -173,6 +173,8 @@ public class UsuariosDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
 
+            rs = ps.executeQuery();
+            
             while (rs.next()) {
                 
                 p.setCedula(Integer.parseInt(rs.getString("Cedula")));
@@ -205,6 +207,7 @@ public class UsuariosDAOImpl implements BaseDAO {
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getApellido1());
 
+            rs = ps.executeQuery();
             while (rs.next()) {
                 Usuarios Usuario = new Usuarios();
                 Usuario.setCedula(Integer.parseInt(rs.getString("Cedula")));
@@ -233,7 +236,6 @@ public class UsuariosDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-
             while (rs.next()) {
                 nextCode = Integer.parseInt(rs.getString("nextCode"));
             }

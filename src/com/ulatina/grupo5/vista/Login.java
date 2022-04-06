@@ -95,8 +95,10 @@ public class Login extends javax.swing.JFrame {
 
         jLabel_person.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/Person.png"))); // NOI18N
 
+        btnCancel.setText("Cancel");
         btnCancel.setContentAreaFilled(false);
 
+        btnLogin.setText("Login");
         btnLogin.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -129,7 +131,7 @@ public class Login extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jScrollPane2)
                                         .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))))))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

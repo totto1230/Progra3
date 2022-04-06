@@ -196,7 +196,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 p.setOrderId(Integer.parseInt(rs.getString("orderId")));
                 p.setTicket(rs.getInt("ticket"));
@@ -221,7 +221,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, p.ticket);
-
+            rs = ps.executeQuery();
             while (rs.next()) {
                 BookeoAtracciones bookeoAtraccion = new BookeoAtracciones(); 
                 p.setOrderId(Integer.parseInt(rs.getString("orderId")));
