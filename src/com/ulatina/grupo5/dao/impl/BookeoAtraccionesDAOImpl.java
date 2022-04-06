@@ -163,7 +163,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
         String sql = "SELECT orderId,ticket,idAtracciones FROM BookeoAtracciones";
 
         try {
-
+            conectar.connectar();
             con = conectar.getConnection();
 
             ps = con.prepareStatement(sql);
@@ -223,7 +223,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
             ps.setInt(1, p.ticket);
             rs = ps.executeQuery();
             while (rs.next()) {
-                BookeoAtracciones bookeoAtraccion = new BookeoAtracciones(); 
+                BookeoAtracciones bookeoAtraccion = new BookeoAtracciones();
                 p.setOrderId(Integer.parseInt(rs.getString("orderId")));
                 p.setTicket(rs.getInt("ticket"));
                 p.setIdAtracciones(Integer.parseInt(rs.getString("idAtracciones")));
@@ -242,6 +242,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
         String sql = "select COALESCE(max(orderId),0) + 1 as nextCode from BookeoAtracciones";
         Integer nextCode = 0;
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();

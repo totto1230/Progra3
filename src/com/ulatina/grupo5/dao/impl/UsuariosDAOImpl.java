@@ -136,7 +136,7 @@ public class UsuariosDAOImpl implements BaseDAO {
         String sql = "SELECT cedula, '****' as [password], correo, nombre, apellido1, appellido2,fechaNacimiento, tipoUsuario FROM Usuarios";
 
         try {
-
+            conectar.connectar();
             con = conectar.getConnection();
 
             ps = con.prepareStatement(sql);
@@ -148,7 +148,7 @@ public class UsuariosDAOImpl implements BaseDAO {
                 registros[2] = rs.getString("correo");
                 registros[3] = rs.getString("nombre");
                 registros[4] = rs.getString("apellido1");
-                registros[5] = rs.getString("apellido2");
+                registros[5] = rs.getString("appellido2");
                 registros[6] = rs.getString("fechaNacimiento");
                 registros[7] = rs.getString("tipoUsuario");
                 model.addRow(registros);
@@ -182,7 +182,7 @@ public class UsuariosDAOImpl implements BaseDAO {
                 p.setPassword(rs.getString("Password"));
                 p.setNombre(rs.getString("Nombre"));
                 p.setApellido1(rs.getString("Apellido1"));
-                p.setAppellido2(rs.getString("Apellido2"));
+                p.setAppellido2(rs.getString("appellido2"));
                 p.setFechaNacimiento(rs.getDate("fechaNacimiento"));
                 p.setTipoUsuario(Integer.parseInt(rs.getString("TipoUsuario")));
             }
@@ -215,7 +215,7 @@ public class UsuariosDAOImpl implements BaseDAO {
                 Usuario.setPassword(rs.getString("Password"));
                 Usuario.setNombre(rs.getString("Nombre"));
                 Usuario.setApellido1(rs.getString("Apellido1"));
-                Usuario.setAppellido2(rs.getString("Apellido2"));
+                Usuario.setAppellido2(rs.getString("appellido2"));
                 Usuario.setFechaNacimiento(rs.getDate("fechaNacimiento"));
                 Usuario.setTipoUsuario(Integer.parseInt(rs.getString("TipoUsuario")));
                 Usuarios.add(Usuario);
@@ -233,6 +233,7 @@ public class UsuariosDAOImpl implements BaseDAO {
         String sql = "select COALESCE(max(cedula),0) + 1 as nextCode from usuarios";
         Integer nextCode = 0;
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();

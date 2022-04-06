@@ -181,6 +181,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
         String sql = "SELECT idMantenimiento,idAtracciones, cedula ,fechaRevision, error, descripcion, solucion FROM Mantenimiento";
 
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -234,6 +235,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
         String sql = "select COALESCE(max(idMantenimiento),0) + 1 as nextCode from Mantenimiento";
         Integer nextCode = 0;
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
