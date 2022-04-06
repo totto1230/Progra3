@@ -56,10 +56,9 @@
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtIdPrecio" min="-2" pref="227" max="-2" attributes="0"/>
-                              <Component id="txtIdAtrac" min="-2" pref="227" max="-2" attributes="0"/>
-                              <Component id="txtDescrip" min="-2" pref="227" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtIdPrecio" max="32767" attributes="0"/>
+                              <Component id="txtDescrip" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel5" min="-2" pref="12" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -80,6 +79,7 @@
                                       </Group>
                                   </Group>
                               </Group>
+                              <Component id="ddlAtracciones" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -107,10 +107,10 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtIdAtrac" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblIdAtrac" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ddlAtracciones" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtDescrip" min="-2" pref="108" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -137,7 +137,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="btnAgregarPrecio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
@@ -192,13 +192,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblIdAtrac">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Id Atracci&#xf3;n:"/>
+            <Property name="text" type="java.lang.String" value="Atracci&#xf3;n:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtIdAtrac">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDescrip">
           <AuxValues>
@@ -474,6 +469,17 @@
             <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="ddlAtracciones">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>

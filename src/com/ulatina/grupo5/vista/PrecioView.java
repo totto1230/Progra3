@@ -32,7 +32,6 @@ public class PrecioView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtIdPrecio = new javax.swing.JTextField();
         lblIdAtrac = new javax.swing.JLabel();
-        txtIdAtrac = new javax.swing.JTextField();
         txtDescrip = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -47,6 +46,7 @@ public class PrecioView extends javax.swing.JFrame {
         tblPrecios = new javax.swing.JTable();
         btnAgregarPrecio = new javax.swing.JButton();
         btnActualizarPrecio = new javax.swing.JButton();
+        ddlAtracciones = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +63,7 @@ public class PrecioView extends javax.swing.JFrame {
             }
         });
 
-        lblIdAtrac.setText("Id Atracción:");
+        lblIdAtrac.setText("Atracción:");
 
         jLabel3.setText("Descripción:");
 
@@ -130,10 +130,9 @@ public class PrecioView extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdAtrac, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIdPrecio)
+                            .addComponent(txtDescrip)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -148,7 +147,8 @@ public class PrecioView extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnAgregarPrecio)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnActualizarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(btnActualizarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ddlAtracciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -169,9 +169,9 @@ public class PrecioView extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIdAtrac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIdAtrac))
-                        .addGap(8, 8, 8)
+                            .addComponent(lblIdAtrac)
+                            .addComponent(ddlAtracciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
@@ -194,7 +194,7 @@ public class PrecioView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
                                 .addComponent(btnAgregarPrecio)
-                                .addGap(0, 44, Short.MAX_VALUE))
+                                .addGap(0, 45, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,6 +270,7 @@ public class PrecioView extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarPrecio;
     public javax.swing.JButton btnBackPrecios;
     public javax.swing.JCheckBox chboxActivo;
+    public javax.swing.JComboBox<String> ddlAtracciones;
     public javax.swing.JComboBox<String> ddlEdadMaxPrecio;
     public javax.swing.JComboBox<String> ddlEdadMinPrecio;
     private javax.swing.JLabel jLabel1;
@@ -284,7 +285,6 @@ public class PrecioView extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdAtrac;
     public javax.swing.JTable tblPrecios;
     public javax.swing.JTextField txtDescrip;
-    public javax.swing.JTextField txtIdAtrac;
     public javax.swing.JTextField txtIdPrecio;
     public javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

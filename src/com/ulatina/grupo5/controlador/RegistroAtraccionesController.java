@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
+import com.ulatina.grupo5.vista.PrecioView;
 import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -27,6 +28,7 @@ public class RegistroAtraccionesController implements ActionListener {
         this.vista = vista;
         this.vista.btnAgregar.addActionListener(this);
         this.vista.btnVolver.addActionListener(this);
+        this.vista.btnPrecios.addActionListener(this);
         this.vista.tblAtracciones.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -144,7 +146,11 @@ public class RegistroAtraccionesController implements ActionListener {
             }
             listarTabla(vista.tblAtracciones);
         } else if (e.getSource() == vista.btnPrecios) {
-
+            PrecioView preciosView = new PrecioView();
+            PrecioController precios = new PrecioController(preciosView);
+            precios.iniciar();
+            preciosView.setVisible(true);
+            vista.dispose();
         }
     }
 }

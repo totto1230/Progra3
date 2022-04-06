@@ -33,13 +33,13 @@ public class PrecioController implements ActionListener {
         dao.listar(vista.tblPrecios);
         vista.txtPrecio.setText("");
         vista.txtIdPrecio.setText("");
-        vista.txtIdAtrac.setText("");
+        //vista.txtIdAtrac.setText("");
         vista.txtDescrip.setText("");
     }
 
     public Precio devolverPrecio() {
         Integer idPrecio = Integer.parseInt(vista.txtIdPrecio.getText());
-        Integer idAtraccion = Integer.parseInt(vista.txtIdAtrac.getText());
+        Integer idAtraccion = vista.ddlAtracciones.getSelectedIndex();
         String descripcion = vista.txtDescrip.getText();
         Integer precio = Integer.parseInt(vista.txtPrecio.getText());
         boolean activo = vista.chboxActivo.isSelected();
