@@ -31,13 +31,13 @@ public class LoginDAOImpl implements BaseDAO{
 
     @Override
     public int nextID() {
-       String sql = "select COALESCE(max(id),0) + 1 as nextCode from Login";
+       String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
        Integer nextCode = 0;
        try {
+           conectar.connectar();
            con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            
+            rs = ps.executeQuery();   
             while (rs.next()){
                 nextCode = Integer.parseInt(rs.getString("nextCode"));
             }
@@ -166,6 +166,7 @@ public class LoginDAOImpl implements BaseDAO{
         String sql = "SELECT idLogin, cedula, numTickets, fechaLogin, fechaLogoff FROM Login";
         
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();

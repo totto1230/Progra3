@@ -23,12 +23,13 @@ public class PrecioDAOImpl implements BaseDAO {
     Connection con;
 
     Precio p = new Precio();
-    
+
     @Override
     public int nextID() {
         String sql = "select COALESCE(max(idPrecio),0) + 1 as nextCode from Precio";
         Integer nextCode = 0;
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -64,7 +65,6 @@ public class PrecioDAOImpl implements BaseDAO {
             ps.setBoolean(4, p.isActivo());
             ps.setInt(5, p.getEdadMin());
             ps.setInt(6, p.getEdadMax());
-            
 
             int registros = ps.executeUpdate();
 
@@ -154,7 +154,7 @@ public class PrecioDAOImpl implements BaseDAO {
 
     @Override
     public Boolean eliminarTodos(Integer id) {
-        
+
         String sql = "DELETE FROM Precio WHERE idAtraccion = ?";
 
         try {
@@ -180,17 +180,18 @@ public class PrecioDAOImpl implements BaseDAO {
             return false;
         }
     }
-    
+
     @Override
     public void listar(JTable table) {
 
-        String[] titulos = {"ID de Precio", "idAtraccion", "Descripción", "Precio","Activo","Edad Minima","Edad Maxima"};
+        String[] titulos = {"ID de Precio", "idAtraccion", "Descripción", "Precio", "Activo", "Edad Minima", "Edad Maxima"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio";
 
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -212,7 +213,7 @@ public class PrecioDAOImpl implements BaseDAO {
         }
 
     }
-   
+
     @Override
     public Object listarUno(Integer id) {
         String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idPrecio = ?";
@@ -239,13 +240,12 @@ public class PrecioDAOImpl implements BaseDAO {
         }
         return p;
     }
-    
-     
+
     @Override
     /**
      * Esta funcion retorna los precios por rango de edad de un cliente.
      * parametro es un objeto tipo Usuarios, retorna una arreglo de precios.
-    */
+     */
     public Object[] listarPor(Object obj) {
         listarPorParametros parametros = (listarPorParametros) obj;
         ArrayList<Precio> Precio = new ArrayList<Precio>();
@@ -256,7 +256,7 @@ public class PrecioDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             int edad = common.CalcularEdad(parametros.getUsuario());
-            ps.setInt(1, parametros.getIdAtraccion()); 
+            ps.setInt(1, parametros.getIdAtraccion());
             ps.setInt(1, edad);
             ps.setInt(2, edad);
             rs = ps.executeQuery();
@@ -278,9 +278,9 @@ public class PrecioDAOImpl implements BaseDAO {
         }
         return (Precio[]) Precio.toArray();
     }
-    
-    public class listarPorParametros
-    {
+
+    public class listarPorParametros {
+
         Integer idAtraccion;
         Usuarios usuario;
 
@@ -307,8 +307,7 @@ public class PrecioDAOImpl implements BaseDAO {
         public void setUsuario(Usuarios usuario) {
             this.usuario = usuario;
         }
-        
+
     }
 
-    
 }

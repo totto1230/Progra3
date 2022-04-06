@@ -13,15 +13,15 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class AtraccionesDAOImpl implements BaseDAO{
+public class AtraccionesDAOImpl implements BaseDAO {
 
     Conexion conectar = new Conexion();
 
     PreparedStatement ps;
     ResultSet rs;
     Connection con;
-    
-    Atracciones p = new Atracciones ();
+
+    Atracciones p = new Atracciones();
 
     @Override
     public Boolean insertar(Object obj) {
@@ -35,8 +35,8 @@ public class AtraccionesDAOImpl implements BaseDAO{
 
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,p.getIdAtracciones());
+
+            ps.setInt(1, p.getIdAtracciones());
             ps.setString(2, p.getNombreAtraccion());
             ps.setDate(3, p.getFechaInstalacion());
             ps.setInt(4, p.getCapacidad());
@@ -45,7 +45,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
             ps.setInt(7, p.getEdadMax());
             ps.setFloat(8, p.getPrecioNormal());
             ps.setBoolean(9, p.getActivo());
-            
+
             int registros = ps.executeUpdate();
 
             if (registros > 0) {
@@ -63,20 +63,20 @@ public class AtraccionesDAOImpl implements BaseDAO{
 
     }
 
-   @Override
+    @Override
     public Boolean actualizar(Object obj) {
-        
+
         p = (Atracciones) obj;
-        
+
         String sql = "UPDATE SET Atracciones nombreAtraccion = ?, fechaInstalacion = ?, capacidad = ?, seccion = ?, edadMin = ?, edadMax = ? precioNormal = ?, activo = ? WHERE idAtracciones = ?";
         try {
-            
+
             conectar.connectar();
-            
+
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1,p.getIdAtracciones());
+            ps.setInt(1, p.getIdAtracciones());
             ps.setString(2, p.getNombreAtraccion());
             ps.setDate(3, p.getFechaInstalacion());
             ps.setInt(4, p.getCapacidad());
@@ -85,18 +85,17 @@ public class AtraccionesDAOImpl implements BaseDAO{
             ps.setInt(7, p.getEdadMax());
             ps.setFloat(8, p.getPrecioNormal());
             ps.setBoolean(9, p.getActivo());
-            
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
             System.out.println("Error");
             return false;
@@ -105,62 +104,59 @@ public class AtraccionesDAOImpl implements BaseDAO{
 
     @Override
     public Boolean eliminar(Object obj) {
-        
+
         p = (Atracciones) obj;
-        
+
         String sql = "DELETE FROM Atracciones WHERE idAtracciones = ?";
-        
+
         try {
-            
+
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,p.getIdAtracciones());
-            
+
+            ps.setInt(1, p.getIdAtracciones());
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
-            
+
             return false;
         }
-       
+
     }
-    
+
     @Override
-    public Boolean eliminarTodos(Integer id)
-    {
+    public Boolean eliminarTodos(Integer id) {
         return null;
     }
 
     @Override
     public void listar(JTable table) {
-        
-        String[] titulos = {"Id de Atracción", "Nombre Atracción", "Fecha de Instalación" , "Capacidad" , "Sección", "Edad Mínima" , "Edad Mínima" , "Precio Normal", "Activo"};
+
+        String[] titulos = {"Id de Atracción", "Nombre Atracción", "Fecha de Instalación", "Capacidad", "Sección", "Edad Mínima", "Edad Mínima", "Precio Normal", "Activo"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones";
-        
+
         try {
-            
+            conectar.connectar();
             con = conectar.getConnection();
-            
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            
-            while (rs.next()){
-            
-                registros[0] = rs.getString("idAtracciones"); 
+
+            while (rs.next()) {
+
+                registros[0] = rs.getString("idAtracciones");
                 registros[1] = rs.getString("nombreAtraccion");
                 registros[2] = rs.getString("fechaInstalacion");
                 registros[3] = rs.getString("capacidad");
@@ -170,20 +166,18 @@ public class AtraccionesDAOImpl implements BaseDAO{
                 registros[7] = rs.getString("precioNormal");
                 registros[7] = rs.getString("activo");
                 model.addRow(registros);
-    
+
             }
             table.setModel(model);
-            
+
             con.close();
-            
-        }
-        
-        catch (Exception ex){
+
+        } catch (Exception ex) {
             System.out.println("Error");
         }
-        
+
     }
-    
+
     @Override
     public Object listarUno(Integer id) {
         String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones where idAtracciones = ?";
@@ -195,7 +189,7 @@ public class AtraccionesDAOImpl implements BaseDAO{
             ps.setInt(1, p.getIdAtracciones());
             rs = ps.executeQuery();
             while (rs.next()) {
-                p.setIdAtracciones(rs.getInt("idAtracciones")); 
+                p.setIdAtracciones(rs.getInt("idAtracciones"));
                 p.setNombreAtraccion(rs.getString("nombreAtraccion"));
                 p.setFechaInstalacion(rs.getDate("fechaInstalacion"));
                 p.setCapacidad(rs.getInt("capacidad"));
@@ -213,15 +207,13 @@ public class AtraccionesDAOImpl implements BaseDAO{
         return p;
     }
 
-    
     @Override
     /**
-     * Trae todas la atracciones por estado activo.
-     * El parametro es booleano
+     * Trae todas la atracciones por estado activo. El parametro es booleano
      */
     public Object[] listarPor(Object obj) {
         String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones where activo = ?";
-        Boolean parameter = (Boolean)obj;
+        Boolean parameter = (Boolean) obj;
         ArrayList<Atracciones> atracciones = new ArrayList<>();
         try {
             conectar.connectar();
@@ -230,8 +222,8 @@ public class AtraccionesDAOImpl implements BaseDAO{
             ps.setBoolean(1, parameter);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Atracciones atraccion = new Atracciones(); 
-                atraccion.setIdAtracciones(rs.getInt("idAtracciones")); 
+                Atracciones atraccion = new Atracciones();
+                atraccion.setIdAtracciones(rs.getInt("idAtracciones"));
                 atraccion.setNombreAtraccion(rs.getString("nombreAtraccion"));
                 atraccion.setFechaInstalacion(rs.getDate("fechaInstalacion"));
                 atraccion.setCapacidad(rs.getInt("capacidad"));
@@ -253,21 +245,21 @@ public class AtraccionesDAOImpl implements BaseDAO{
     @Override
     public int nextID() {
         String sql = "select COALESCE(max(idAtracciones),0) + 1 as nextCode from Atracciones";
-       Integer nextCode = 0;
-       try {
-           con = conectar.getConnection();
+        Integer nextCode = 0;
+        try {
+            conectar.connectar();
+            con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            
-            while (rs.next()){
+
+            while (rs.next()) {
                 nextCode = Integer.parseInt(rs.getString("nextCode"));
             }
-            con.close(); 
-       }
-       catch (SQLException e) {
+            con.close();
+        } catch (SQLException e) {
             System.out.println("Error");
             return -1;
         }
-       return nextCode;  
+        return nextCode;
     }
 }

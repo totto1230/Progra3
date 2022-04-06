@@ -141,6 +141,7 @@ public class BookeoDAOImpl implements BaseDAO {
 
         try {
 
+            conectar.connectar();
             con = conectar.getConnection();
 
             ps = con.prepareStatement(sql);
@@ -204,6 +205,7 @@ public class BookeoDAOImpl implements BaseDAO {
         String sql = "select COALESCE(max(ticket),0) + 1 as nextCode from bookeo";
         Integer nextCode = 0;
         try {
+            conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
