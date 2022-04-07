@@ -70,14 +70,15 @@ public class BookeoController implements ActionListener {
 
     public void iniciar() {
         vista.pnAtracciones.setVisible(false);
+        vista.chkPaseEspecial.setSelected(true);
         loadComboBoxAtracciones();
     }
 
     private void loadComboBoxAtracciones() {
-        Atracciones[] atracciones = (Atracciones[]) daoAtracciones.listarPor(true);
+        Object[] atracciones = daoAtracciones.listarPor(true);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for (int i = 0; i < atracciones.length; i++) {
-            model.addElement(new ComboItem(atracciones[i].getNombreAtraccion(), String.valueOf(atracciones[i].getIdAtracciones())));
+            model.addElement(new ComboItem(((Atracciones)atracciones[i]).getNombreAtraccion(), String.valueOf(((Atracciones)atracciones[i]).getIdAtracciones())));
         }
 
         this.vista.ddlAtracciones.setModel(model);
@@ -218,7 +219,7 @@ public class BookeoController implements ActionListener {
         if (e.getSource() == vista.btnAgregarAtraccion) {
             insertarAtraccionJTable();
         } else if (e.getSource() == vista.chkPaseEspecial) {
-            vista.pnAtracciones.setVisible(vista.chkPaseEspecial.isSelected());
+            vista.pnAtracciones.setVisible(!vista.chkPaseEspecial.isSelected());
         } else if (e.getSource() == vista.btnBuscar) {
             buscarUsuarios();
         } else if (e.getSource() == vista.btnUsuarios) {

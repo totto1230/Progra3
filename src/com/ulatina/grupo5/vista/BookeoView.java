@@ -194,10 +194,7 @@ public class BookeoView extends javax.swing.JFrame {
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "Usuarios"
@@ -293,10 +290,7 @@ public class BookeoView extends javax.swing.JFrame {
 
         tblAtracciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "Atracciones"
