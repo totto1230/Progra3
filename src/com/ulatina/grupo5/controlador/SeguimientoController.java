@@ -1,7 +1,9 @@
 package com.ulatina.grupo5.controlador;
 
 import com.ulatina.grupo5.dao.BaseDAO;
+import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.dao.impl.MantenimientoDAOImpl;
+import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Mantenimiento;
 import com.ulatina.grupo5.vista.Seguimiento_De_Atracciones_Admin;
@@ -11,6 +13,7 @@ import com.ulatina.grupo5.vista.Menu_Empleado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class SeguimientoController implements ActionListener {
@@ -19,6 +22,8 @@ public class SeguimientoController implements ActionListener {
     Mantenimiento seguimiento = new Mantenimiento();
     Atracciones atraccion = new Atracciones();
     BaseDAO dao = new MantenimientoDAOImpl();
+    BaseDAO daoAtracciones = new AtraccionesDAOImpl();
+    UsuariosDAOImpl daoUsuarios = new UsuariosDAOImpl();
 
     Seguimiento_De_Atracciones_Admin vista = new Seguimiento_De_Atracciones_Admin();
     Menu_Admin vistaAdmin = new Menu_Admin();
@@ -29,31 +34,39 @@ public class SeguimientoController implements ActionListener {
         this.vista.jButton_Agregar_Seguimiento_Atra_Admin.addActionListener(this);
         this.vista.jButton_volver_seguimiento_atracciones_admin.addActionListener(this);
         this.vista.btnActualizar.addActionListener(this);
+        vista.Date_Fecha_Revi_Seguimiento.setMaxSelectableDate(new Date());
     }
 
     public void iniciar() {
         dao.listar(vista.jTable_Seguimiento_Atracciones);
-        vista.txtAtrac.setText("");
-        vista.jTextField_Revisor_Segui_De_Atra_Admin.setText("");
+        loadComboBoxAtracciones();
+        loadComboBoxUsuarios();
+        vista.Date_Fecha_Revi_Seguimiento.setDate(new Date());
         vista.jTextArea_Descrip_Error_Segui_Atra_Admi.setText("");
         vista.jTextArea_Solc_Comenta_Segui_De_Atrac_Admin.setText("");
+        vista.btnActualizar.setVisible(false);
     }
+    
 
     public void iniciar(Mantenimiento seguimiento) {
-
-        vista.txtAtrac.setText(seguimiento.getIdAtracciones().toString());
-        vista.jTextField_Revisor_Segui_De_Atra_Admin.setText(seguimiento.getCedula().toString());
+        dao.listar(vista.jTable_Seguimiento_Atracciones);
+        ComboItem itemAtracciones = new ComboItem("", String.valueOf(seguimiento.idAtracciones));
+        ComboItem itemUsuarios = new ComboItem("", String.valueOf(seguimiento.cedula));       
+        selectComboBoxAtracciones(itemAtracciones);
+        selectComboBoxUsuarios(itemUsuarios);
         vista.Date_Fecha_Revi_Seguimiento.setDate(seguimiento.getFechaRevision());
         vista.jCheckBox_Error.setText(seguimiento.getError().toString());
         vista.jTextArea_Descrip_Error_Segui_Atra_Admi.setText(seguimiento.getDescripcion());
         vista.jTextArea_Solc_Comenta_Segui_De_Atrac_Admin.setText(seguimiento.getSolucion());
-        dao.actualizar(seguimiento);
+        vista.btnActualizar.setVisible(true);
+        vista.jButton_Agregar_Seguimiento_Atra_Admin.setVisible(false);
+       
     }
 
     public Mantenimiento devolverSeguimiento() {
         Integer idMantenimiento = dao.nextID();
-        Integer idenAtrac = Integer.parseInt(vista.txtAtrac.getText());
-        Integer cedula = Integer.parseInt(vista.jTextField_Revisor_Segui_De_Atra_Admin.getText());
+        Integer idenAtrac = Integer.parseInt(((ComboItem)vista.ddlAtracciones.getSelectedItem()).getValue());
+        Integer cedula = Integer.parseInt(((ComboItem)vista.ddlUsuario.getSelectedItem()).getValue());
         Date fechaRevi = vista.Date_Fecha_Revi_Seguimiento.getDate();
         Boolean error = vista.jCheckBox_Error.isSelected();
         String descripcion = vista.jTextArea_Descrip_Error_Segui_Atra_Admi.getText();
@@ -76,15 +89,53 @@ public class SeguimientoController implements ActionListener {
         vista.dispose();
     }
 
-    @Override
+    private void loadComboBoxAtracciones() {
+        Object[] atracciones = daoAtracciones.listarPor(true);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < atracciones.length; i++) {
+            model.addElement(new ComboItem(((Atracciones)atracciones[i]).getNombreAtraccion(), String.valueOf(((Atracciones)atracciones[i]).getIdAtracciones())));
+        }
 
+        this.vista.ddlAtracciones.setModel(model);
+    }
+    
+    private void selectComboBoxAtracciones(ComboItem item)
+    {
+        for (int i = 0; i < vista.ddlAtracciones.getItemCount();  i++) {
+            Object ddlItem = vista.ddlAtracciones.getItemAt(i);
+            if (((ComboItem)ddlItem).getValue().equals(item.getValue())) {
+                vista.ddlAtracciones.setSelectedIndex(i);
+            }
+        }
+    }
+    
+    private void loadComboBoxUsuarios() {
+        Object[] usuarios = daoUsuarios.listarPor();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < usuarios.length; i++) {
+            model.addElement(new ComboItem(((Usuarios)usuarios[i]).email, String.valueOf(((Usuarios)usuarios[i]).getCedula())));
+        }
+
+        this.vista.ddlUsuario.setModel(model);
+    }
+    
+    private void selectComboBoxUsuarios(ComboItem item)
+    {
+        for (int i = 0; i < vista.ddlUsuario.getItemCount();  i++) {
+            Object ddlItem = vista.ddlUsuario.getItemAt(i);
+            if (((ComboItem)ddlItem).getValue().equals(item.getValue())) {
+                vista.ddlUsuario.setSelectedIndex(i);
+            }
+        }
+    }
+    
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.jButton_Agregar_Seguimiento_Atra_Admin) {
             Mantenimiento seguemi = devolverSeguimiento();
-
             boolean resultado = dao.insertar(seguemi);
-
             if (resultado) {
+                iniciar(seguemi);
                 JOptionPane.showMessageDialog(vista, "Agregado Correctamente");
             } else {
                 JOptionPane.showMessageDialog(vista, "Error al ingresar, por favor intente de nuevo");
@@ -104,7 +155,6 @@ public class SeguimientoController implements ActionListener {
         } else if (e.getSource() == vista.btnActualizar) {
             seguimiento = devolverSeguimiento();
             boolean resultado = dao.actualizar(seguimiento);
-
             if (resultado) {
                 JOptionPane.showMessageDialog(vista, "Actualizado Correctamente");
             } else {

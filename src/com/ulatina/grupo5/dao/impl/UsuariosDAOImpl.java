@@ -39,9 +39,9 @@ public class UsuariosDAOImpl implements BaseDAO {
             ps.setString(3, p.getEmail());
             ps.setString(4, p.getNombre());
             ps.setString(5, p.getApellido1());
-            ps.setString(5, p.getAppellido2());
-            ps.setDate(5, (Date)p.getFechaNacimiento());
-            ps.setInt(7, p.getTipoUsuario());
+            ps.setString(6, p.getAppellido2());
+            ps.setDate(7, new java.sql.Date(p.getFechaNacimiento().getTime()));
+            ps.setInt(8, p.getTipoUsuario());
 
             int registros = ps.executeUpdate();
 
@@ -74,9 +74,9 @@ public class UsuariosDAOImpl implements BaseDAO {
             ps.setString(3, p.getNombre());
             ps.setString(4, p.getApellido1());
             ps.setString(5, p.getAppellido2());
-            ps.setDate(5, (Date)p.getFechaNacimiento());
-            ps.setInt(6, p.getTipoUsuario());
-            ps.setInt(7, p.getCedula());
+            ps.setDate(6,  new java.sql.Date(p.getFechaNacimiento().getTime()));
+            ps.setInt(7, p.getTipoUsuario());
+            ps.setInt(8, p.getCedula());
 
             int registros = ps.executeUpdate();
             if (registros > 0) {
@@ -133,7 +133,7 @@ public class UsuariosDAOImpl implements BaseDAO {
         String[] registros = new String[users.length];
         DefaultTableModel model = new DefaultTableModel(null, users);
 
-        String sql = "SELECT cedula, '****' as [password], correo, nombre, apellido1, appellido2,fechaNacimiento, tipoUsuario FROM Usuarios";
+        String sql = "SELECT cedula, '****' password, correo, nombre, apellido1, appellido2,fechaNacimiento, tipoUsuario FROM Usuarios";
 
         try {
             conectar.connectar();
@@ -226,6 +226,36 @@ public class UsuariosDAOImpl implements BaseDAO {
             System.out.println("Error");
         }
         return (Usuarios[]) Usuarios.toArray();
+    }
+
+     public Object[] listarPor() {
+        ArrayList<Usuarios> Usuarios = new ArrayList<Usuarios>();
+        String sql = "select cedula, correo, password,nombre, apellido1,appellido2,fechaNacimiento, tipoUsuario from usuarios where tipoUsuario in (1,2) ";
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Usuarios Usuario = new Usuarios();
+                Usuario.setCedula(Integer.parseInt(rs.getString("Cedula")));
+                Usuario.setEmail(rs.getString("correo"));
+                Usuario.setPassword(rs.getString("Password"));
+                Usuario.setNombre(rs.getString("Nombre"));
+                Usuario.setApellido1(rs.getString("Apellido1"));
+                Usuario.setAppellido2(rs.getString("appellido2"));
+                Usuario.setFechaNacimiento(rs.getDate("fechaNacimiento"));
+                Usuario.setTipoUsuario(Integer.parseInt(rs.getString("TipoUsuario")));
+                Usuarios.add(Usuario);
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return (Object[])Usuarios.toArray();
     }
 
     @Override

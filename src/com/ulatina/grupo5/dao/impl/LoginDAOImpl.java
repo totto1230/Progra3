@@ -19,37 +19,36 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author fernando
  */
-public class LoginDAOImpl implements BaseDAO{
+public class LoginDAOImpl implements BaseDAO {
 
     Conexion conectar = new Conexion();
 
     PreparedStatement ps;
     ResultSet rs;
     Connection con;
-    
+
     Login p = new Login();
 
     @Override
     public int nextID() {
-       String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
-       Integer nextCode = 0;
-       try {
-           conectar.connectar();
-           con = conectar.getConnection();
+        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        Integer nextCode = 0;
+        try {
+            conectar.connectar();
+            con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();   
-            while (rs.next()){
+            rs = ps.executeQuery();
+            while (rs.next()) {
                 nextCode = Integer.parseInt(rs.getString("nextCode"));
             }
-            con.close(); 
-       }
-       catch (SQLException e) {
+            con.close();
+        } catch (SQLException e) {
             System.out.println("Error");
             return -1;
         }
-       return nextCode;  
+        return nextCode;
     }
-    
+
     @Override
     public Boolean insertar(Object obj) {
         p = (Login) obj;
@@ -58,12 +57,12 @@ public class LoginDAOImpl implements BaseDAO{
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
+
             ps.setInt(1, p.getIdLogin());
             ps.setInt(2, p.getNumTickets());
             ps.setInt(3, p.getCedula());
-            ps.setDate(4, (Date)p.getFechaLogoff());
-            ps.setDate(5, (Date)p.getFechaLogoff());
+            ps.setDate(4, new java.sql.Date(p.getFechaLogin().getTime()));
+            ps.setDate(5, new java.sql.Date(p.getFechaLogoff().getTime()));
 
             int registros = ps.executeUpdate();
 
@@ -81,114 +80,108 @@ public class LoginDAOImpl implements BaseDAO{
         }
     }
 
-   @Override
+    @Override
     public Boolean actualizar(Object obj) {
-        
+
         p = (Login) obj;
-        
+
         String sql = "UPDATE Login SET numTickets = ?, numTickets = ?, fechaLogin= ?, fechaLogoff = ? WHERE id= ?";
         try {
-            
+
             conectar.connectar();
-            
+
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1,p.getNumTickets());
-            ps.setDate(2, (Date)p.getFechaLogin());
-            ps.setDate(3, (Date)p.getFechaLogoff());
+            ps.setInt(1, p.getNumTickets());
+            ps.setDate(2, new java.sql.Date(p.getFechaLogin().getTime()));
+            ps.setDate(3, new java.sql.Date(p.getFechaLogoff().getTime()));
             ps.setInt(4, p.getIdLogin());
 
-           
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
             System.out.println("Error");
             return false;
         }
     }
 
-
     @Override
     public Boolean eliminar(Object obj) {
-        
+
         p = (Login) obj;
-        
+
         String sql = "DELETE FROM Login WHERE WHERE id= ?";
-        
+
         try {
-            
+
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setInt(1,p.getIdLogin());
-            
+
+            ps.setInt(1, p.getIdLogin());
+
             int registros = ps.executeUpdate();
-            
-            if(registros > 0){
+
+            if (registros > 0) {
                 con.close();
                 return true;
-            }
-            else {
+            } else {
                 con.close();
                 return false;
             }
-            
+
         } catch (SQLException e) {
-            
+
             return false;
         }
-       
+
     }
-    
+
     @Override
     public Boolean eliminarTodos(Integer id) {
         return null;
     }
-    
+
     @Override
     public void listar(JTable table) {
-        
-        String[] titulos = {"ID", "cedula", "Ticketes", "Fecha Login" , "Fecha Logogg"};
+
+        String[] titulos = {"ID", "cedula", "Ticketes", "Fecha Login", "Fecha Logogg"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         String sql = "SELECT idLogin, cedula, numTickets, fechaLogin, fechaLogoff FROM Login";
-        
+
         try {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            
-            while (rs.next()){
-            
+
+            while (rs.next()) {
+
                 registros[1] = rs.getString("idLogin");
                 registros[2] = rs.getString("cedula");
                 registros[3] = rs.getString("numTickets");
                 registros[4] = rs.getString("fechaLogin");
                 registros[5] = rs.getString("fechaLogoff");
                 model.addRow(registros);
-    
+
             }
             table.setModel(model);
-            con.close();   
-        }
-        catch (Exception ex){
+            con.close();
+        } catch (Exception ex) {
             System.out.println("Error");
         }
     }
-   
 
     @Override
     public Object listarUno(Integer id) {
@@ -199,7 +192,5 @@ public class LoginDAOImpl implements BaseDAO{
     public Object[] listarPor(Object obj) {
         return null;
     }
-    
-    
-}
 
+}

@@ -276,7 +276,7 @@ public class PrecioDAOImpl implements BaseDAO {
         } catch (Exception ex) {
             System.out.println("Error");
         }
-        return (Precio[]) Precio.toArray();
+        return (Object[]) Precio.toArray();
     }
 
     public class listarPorParametros {

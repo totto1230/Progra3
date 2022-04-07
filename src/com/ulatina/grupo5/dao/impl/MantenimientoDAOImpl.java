@@ -46,7 +46,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
             ps.setInt(1, p.getIdMantenimiento());
             ps.setInt(2, p.getIdAtracciones());
             ps.setInt(3, p.getCedula());
-            ps.setDate(4, (Date)p.getFechaRevision());
+            ps.setDate(4, new java.sql.Date(p.getFechaRevision().getTime()));
             ps.setBoolean(5, p.getError());
             ps.setString(6, p.getDescripcion());
             ps.setString(7, p.getSolucion());
@@ -82,7 +82,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
 
             ps.setInt(1, p.getIdAtracciones());
-            ps.setDate(2, (Date)p.getFechaRevision());
+            ps.setDate(2, new java.sql.Date(p.getFechaRevision().getTime()));
             ps.setInt(3, p.getCedula());
             ps.setBoolean(4, p.getError());
             ps.setString(5, p.getDescripcion());
@@ -131,7 +131,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
         } catch (Exception ex) {
             System.out.println("Error");
         }
-        return (Mantenimiento[]) Precio.toArray();
+        return (Object[]) Precio.toArray();
     }
 
     @Override
@@ -178,7 +178,11 @@ public class MantenimientoDAOImpl implements BaseDAO {
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
-        String sql = "SELECT idMantenimiento,idAtracciones, cedula ,fechaRevision, error, descripcion, solucion FROM Mantenimiento";
+        String sql =    "SELECT idMantenimiento,a.idAtracciones,a.nombreAtraccion, m.cedula,u.nombre + ' ' + apellido1 nombreUsuario,fechaRevision, error, descripcion, solucion FROM Mantenimiento m\n" +
+                        "inner join Atracciones a on\n" +
+                        "m.idAtracciones = a.idAtracciones\n" +
+                        "inner join Usuarios u on\n" +
+                        "m.cedula = u.cedula";
 
         try {
             conectar.connectar();
@@ -188,11 +192,13 @@ public class MantenimientoDAOImpl implements BaseDAO {
             while (rs.next()) {
                 registros[0] = rs.getString("idMantenimiento");
                 registros[1] = rs.getString("idAtracciones");
-                registros[2] = rs.getString("cedula");
-                registros[3] = rs.getString("fechaRevision");
-                registros[4] = rs.getString("error");
-                registros[5] = rs.getString("descripcion");
-                registros[6] = rs.getString("solucion");
+                registros[2] = rs.getString("nombreAtraccion");
+                registros[3] = rs.getString("cedula");
+                registros[4] = rs.getString("nombreUsuario");
+                registros[5] = rs.getString("fechaRevision");
+                registros[6] = rs.getString("error");
+                registros[7] = rs.getString("descripcion");
+                registros[8] = rs.getString("solucion");
                 model.addRow(registros);
             }
             table.setModel(model);
@@ -241,7 +247,7 @@ public class MantenimientoDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                nextCode = Integer.parseInt(rs.getString("nextCode"));
+                nextCode = rs.getInt("nextCode");
             }
             con.close();
         } catch (SQLException e) {

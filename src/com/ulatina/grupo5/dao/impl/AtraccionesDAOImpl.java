@@ -142,7 +142,6 @@ public class AtraccionesDAOImpl implements BaseDAO {
 
     @Override
     public void listar(JTable table) {
-
         String[] titulos = {"Id de Atracción", "Nombre Atracción", "Fecha de Instalación", "Capacidad", "Sección", "Edad Mínima", "Edad Mínima", "Precio Normal", "Activo"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
@@ -165,7 +164,7 @@ public class AtraccionesDAOImpl implements BaseDAO {
                 registros[5] = rs.getString("edadMinima");
                 registros[6] = rs.getString("edadMaxima");
                 registros[7] = rs.getString("precioNormal");
-                registros[7] = rs.getString("activo");
+                registros[8] = rs.getString("activo");
                 model.addRow(registros);
 
             }
@@ -215,7 +214,7 @@ public class AtraccionesDAOImpl implements BaseDAO {
     public Object[] listarPor(Object obj) {
         String sql = "SELECT idAtracciones, nombreAtraccion, fechaInstalacion, capacidad, seccion, edadMinima, edadMaxima, precioNormal, activo FROM Atracciones where activo = ?";
         Boolean parameter = (Boolean) obj;
-        ArrayList<Atracciones> atracciones = new ArrayList<>();
+        ArrayList<Atracciones> atracciones = new ArrayList<Atracciones>();
         try {
             conectar.connectar();
             con = conectar.getConnection();
@@ -240,7 +239,7 @@ public class AtraccionesDAOImpl implements BaseDAO {
         } catch (Exception ex) {
             System.out.println("Error");
         }
-        return (Atracciones[]) atracciones.toArray();
+        return (Object[])atracciones.toArray();
     }
 
     @Override

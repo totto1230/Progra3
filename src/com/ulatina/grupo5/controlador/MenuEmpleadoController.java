@@ -23,8 +23,8 @@ public class MenuEmpleadoController implements ActionListener {
     public MenuEmpleadoController(Menu_Empleado vista) {
         this.vista = vista;
         this.vista.jButton5_back_main_menu_empleado.addActionListener(this);
-        this.vista.jButton_mantenimiento_atracciones_main_empleado.addActionListener(this);
-        this.vista.jButton_Buscar_Atraccio_Main_Empleado.addActionListener(this);
+        this.vista.btnSeguimiento.addActionListener(this);
+        this.vista.btnBuscar.addActionListener(this);
     }
     
     public void init()
@@ -34,13 +34,12 @@ public class MenuEmpleadoController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == vista.jButton_mantenimiento_atracciones_main_empleado) {
-            buscarAtrac = new BuscarAtraccionesController(buscarAtracVista);
-            buscarAtrac.iniciar();
-            buscarAtracVista.setVisible(true);
+        if (e.getSource() == vista.btnSeguimiento) {
+            seguimiento = new SeguimientoController(seguimientoAtraVist);
+            seguimiento.iniciar();
+            seguimientoAtraVist.setVisible(true);
             vista.dispose();
-            vista.dispose();
-        } else if (e.getSource() == vista.jButton_Buscar_Atraccio_Main_Empleado) {
+        } else if (e.getSource() == vista.btnBuscar) {
             buscarAtrac = new BuscarAtraccionesController(buscarAtracVista);
             buscarAtrac.iniciar();
             buscarAtracVista.setVisible(true);

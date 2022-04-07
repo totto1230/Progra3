@@ -29,8 +29,7 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_Buscar_Atracciones_Admin = new javax.swing.JTable();
-        jButton_Back_Buscar_Atrac_Admin = new javax.swing.JButton();
-        BtnBackAtracAdmin = new javax.swing.JButton();
+        btnBackAtracAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,22 +54,18 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable_Buscar_Atracciones_Admin);
 
-        jButton_Back_Buscar_Atrac_Admin.setContentAreaFilled(false);
-
-        BtnBackAtracAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
-        BtnBackAtracAdmin.setContentAreaFilled(false);
+        btnBackAtracAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
+        btnBackAtracAdmin.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_Back_Buscar_Atrac_Admin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnBackAtracAdmin)
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(btnBackAtracAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -78,9 +73,7 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtnBackAtracAdmin)
-                    .addComponent(jButton_Back_Buscar_Atrac_Admin))
+                .addComponent(btnBackAtracAdmin)
                 .addGap(20, 20, 20))
         );
 
@@ -136,8 +129,7 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton BtnBackAtracAdmin;
-    public javax.swing.JButton jButton_Back_Buscar_Atrac_Admin;
+    public javax.swing.JButton btnBackAtracAdmin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable_Buscar_Atracciones_Admin;

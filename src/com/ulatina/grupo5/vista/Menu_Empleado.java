@@ -32,10 +32,10 @@ public class Menu_Empleado extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel_menu_empleadp = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton_mantenimiento_atracciones_main_empleado = new javax.swing.JButton();
+        btnSeguimiento = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton5_back_main_menu_empleado = new javax.swing.JButton();
-        jButton_Buscar_Atraccio_Main_Empleado = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jLabel_Buscar_Atracciones_Main_Empleado = new javax.swing.JLabel();
 
         jButton_Buscar_Atraccio_Main_Admin.setContentAreaFilled(false);
@@ -60,15 +60,15 @@ public class Menu_Empleado extends javax.swing.JFrame {
             .addComponent(jLabel_menu_empleadp, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        jButton_mantenimiento_atracciones_main_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/mantenimiento atra.png"))); // NOI18N
-        jButton_mantenimiento_atracciones_main_empleado.setContentAreaFilled(false);
+        btnSeguimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/mantenimiento atra.png"))); // NOI18N
+        btnSeguimiento.setContentAreaFilled(false);
 
         jLabel2.setText("Seguimiento de Atracciones");
 
         jButton5_back_main_menu_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton5_back_main_menu_empleado.setContentAreaFilled(false);
 
-        jButton_Buscar_Atraccio_Main_Empleado.setContentAreaFilled(false);
+        btnBuscar.setContentAreaFilled(false);
 
         jLabel_Buscar_Atracciones_Main_Empleado.setText("Buscar Atracciones");
 
@@ -83,10 +83,10 @@ public class Menu_Empleado extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(111, 111, 111)
-                        .addComponent(jButton_mantenimiento_atracciones_main_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSeguimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_Buscar_Atraccio_Main_Empleado, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel_Buscar_Atracciones_Main_Empleado, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(143, 143, 143))
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -100,10 +100,10 @@ public class Menu_Empleado extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jButton_mantenimiento_atracciones_main_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSeguimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton_Buscar_Atraccio_Main_Empleado)))
+                        .addComponent(btnBuscar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -180,11 +180,11 @@ public class Menu_Empleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnSeguimiento;
     public javax.swing.JButton jButton5_back_main_menu_empleado;
     public javax.swing.JButton jButton_Buscar_Atraccio_Main_Admin;
     public javax.swing.JButton jButton_Buscar_Atraccio_Main_Admin1;
-    public javax.swing.JButton jButton_Buscar_Atraccio_Main_Empleado;
-    public javax.swing.JButton jButton_mantenimiento_atracciones_main_empleado;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_Buscar_Atracciones_Main_Empleado;
     private javax.swing.JLabel jLabel_menu_empleadp;

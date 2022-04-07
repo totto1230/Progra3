@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
+import com.ulatina.grupo5.vista.Menu_Admin;
 import com.ulatina.grupo5.vista.PrecioView;
 import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
 import java.awt.event.MouseAdapter;
@@ -34,14 +35,24 @@ public class RegistroAtraccionesController implements ActionListener {
             public void mouseClicked(MouseEvent e) {
                 int row = vista.tblAtracciones.getSelectedRow();
                 //String test = vista.tblAtracciones.getModel().getValueAt(row, 0).toString();
-                int idAtraccion  = Integer.parseInt(vista.tblAtracciones.getModel().getValueAt(row, 0).toString());
-                atraccion = (Atracciones)dao.listarUno(idAtraccion);
+                int idAtraccion = Integer.parseInt(vista.tblAtracciones.getModel().getValueAt(row, 0).toString());
+                atraccion = (Atracciones) dao.listarUno(idAtraccion);
                 iniciar(atraccion);
             }
         });
     }
 
+    public void iniciar() {
+        this.listarTabla(vista.tblAtracciones);
+        limpiarCampos();
+        this.vista.txtCodigoAtraccion.setEnabled(false);
+        this.vista.txtCodigoAtraccion.setVisible(false);
+        vista.btnPrecios.setVisible(false);
+    }
+
     public void iniciar(Atracciones atraccion) {
+        this.listarTabla(vista.tblAtracciones);
+        this.vista.txtCodigoAtraccion.setEnabled(false);
         this.vista.txtCodigoAtraccion.setVisible(true);
         vista.txtCodigoAtraccion.setText(atraccion.getIdAtracciones().toString());
         vista.txtNombreAtraccion.setText(atraccion.getNombreAtraccion());
@@ -76,15 +87,6 @@ public class RegistroAtraccionesController implements ActionListener {
 
     public void limpiarCampos() {
         //vista..setText("");        
-    }
-
-    public void iniciar() {
-        this.listarTabla(vista.tblAtracciones);
-        limpiarCampos();
-        this.vista.txtCodigoAtraccion.setEnabled(false);
-        this.vista.txtCodigoAtraccion.setVisible(false);
-        vista.btnPrecios.setVisible(false);
-
     }
 
     public Atracciones devolverAtraccion() {
@@ -150,6 +152,11 @@ public class RegistroAtraccionesController implements ActionListener {
             PrecioController precios = new PrecioController(preciosView);
             precios.iniciar();
             preciosView.setVisible(true);
+            vista.dispose();
+        } else if (e.getSource() == vista.btnVolver) {
+            Menu_Admin vistaMenuAdmin = new Menu_Admin();
+            Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
+            vistaMenuAdmin.setVisible(true);
             vista.dispose();
         }
     }

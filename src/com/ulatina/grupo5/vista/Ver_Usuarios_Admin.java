@@ -30,6 +30,7 @@ public class Ver_Usuarios_Admin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Ver_Usuarios_Admin = new javax.swing.JTable();
         jButton_Back_Ver_Usuarios_Admin = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1_Users = new javax.swing.JLabel();
 
@@ -59,6 +60,8 @@ public class Ver_Usuarios_Admin extends javax.swing.JFrame {
         jButton_Back_Ver_Usuarios_Admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton_Back_Ver_Usuarios_Admin.setContentAreaFilled(false);
 
+        btnConsultar.setText("Consultar Usuario");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -67,16 +70,22 @@ public class Ver_Usuarios_Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton_Back_Ver_Usuarios_Admin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnConsultar)
+                        .addGap(38, 38, 38))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(501, Short.MAX_VALUE)
                 .addComponent(jButton_Back_Ver_Usuarios_Admin)
                 .addGap(18, 18, 18))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnConsultar)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -152,6 +161,7 @@ public class Ver_Usuarios_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnConsultar;
     public javax.swing.JButton jButton_Back_Ver_Usuarios_Admin;
     private javax.swing.JLabel jLabel1_Users;
     private javax.swing.JPanel jPanel1;

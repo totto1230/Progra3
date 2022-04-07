@@ -47,6 +47,7 @@ public class Menu_AdminController implements ActionListener {
         this.vista.jButton_ganancias_main_menu.addActionListener(this);
         this.vista.jButton_mantenimiento_atracciones_main_admin.addActionListener(this);
         this.vista.jButton5_back_main_menu_admin.addActionListener(this);
+        this.vista.jButton_ganancias_main_menu.addActionListener(this);
     }
 
   
@@ -75,7 +76,7 @@ public class Menu_AdminController implements ActionListener {
             vista.dispose();
         } else if (e.getSource() == vista.jButton_mantenimiento_atracciones_main_admin) {
             seguimiento = new SeguimientoController(seguimientoAtraVist);
-            //seguimiento.iniciar();
+            seguimiento.iniciar();
             seguimientoAtraVist.setVisible(true);
             vista.dispose();
         } else if (e.getSource() == vista.jButton_ganancias_main_menu) {

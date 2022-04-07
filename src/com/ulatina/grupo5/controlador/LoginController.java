@@ -60,7 +60,7 @@ public class LoginController implements ActionListener {
 
     }
 
-    private void cargarMenuAdmin() {
+    public void cargarMenuAdmin() {
         Menu_Admin vistaMenuAdmin = new Menu_Admin();
         Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
         //controller.init();
@@ -68,7 +68,7 @@ public class LoginController implements ActionListener {
         vista.dispose();
     }
 
-    private void cargarMenuEmpleado() {
+    public void cargarMenuEmpleado() {
         Menu_Empleado vistaMenu = new Menu_Empleado();
         MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenu);
         //controller.init();
