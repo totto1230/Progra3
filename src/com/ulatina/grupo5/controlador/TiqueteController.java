@@ -18,66 +18,70 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
-public class TiqueteController implements ActionListener{
-    
+public class TiqueteController implements ActionListener {
+
     TiquetesView vista = new TiquetesView();
     BookeoView main = new BookeoView();
-    
+
     Bookeo bookeo = new Bookeo();
-    
+
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
     PrecioDAOImpl daoPrecios = new PrecioDAOImpl(); // para poder crear la subclase parametros
     BaseDAO daoBookeo = new BookeoDAOImpl();
     BaseDAO daoBookeoAtracciones = new BookeoAtraccionesDAOImpl();
     BaseDAO daoBookeoPersonas = new BookeoPersonaDAOImpl();
     BaseDAO daoUsuarios = new UsuariosDAOImpl();
-    
+
     public TiqueteController(TiquetesView vista) {
         this.vista = vista;
         this.vista.btnBackTiquetes.addActionListener(this);
         this.vista.chkPaseEspecial.addActionListener(this);
         iniciar(bookeo);
-        
+        atracciones();
     }
-    
-    public void iniciar(Bookeo bookeo){
-        this.bookeo= bookeo;
+
+    public void iniciar(Bookeo bookeo) {
+        this.bookeo = bookeo;
         int tiquete = bookeo.getTicket();
-        int usuario= bookeo.getCedula();
-        String fechaVisita= bookeo.getFechaVisita().toString();
-        boolean paseEspe= bookeo.isPaseEspecial();
+        int usuario = bookeo.getCedula();
+        String fechaVisita = bookeo.getFechaVisita().toString();
+        boolean paseEspe = bookeo.isPaseEspecial();
         vista.lblTiquete.setText(String.valueOf(tiquete));
         vista.lblUsuario.setText(String.valueOf(usuario));
         vista.lblFechaDeVisita.setText(fechaVisita);
         vista.chkPaseEspecial.setText(String.valueOf(paseEspe));
     }
-    
-    
-    public void personas(Bookeo bookeo){
-       Usuarios usrSearch = new Usuarios(vista.lblUsuario.getText(), "", "", vista.txtUsuarioAtraccion.getText(), vista.txtUsuarioAtraccion.getText(), vista.txtUsuarioAtraccion.getText(), null, 0);
-       Usuarios[] usuarios = (Usuarios[]) daoUsuarios.listarPor(usrSearch);
-        
-       
-        
+
+    public void personas(Bookeo bookeo) {
+
     }
-    
-    
-     public void volver() {
+
+    private void atracciones() {
+        String[] titulos = {"Id de Atracción", "Nombre Atracción"};
+        String[] registros = new String[titulos.length];
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+        if (vista.tblAtraccion.getRowCount() > 0) {
+            model = (DefaultTableModel) vista.tblAtraccion.getModel();
+        }
+        model.addRow(registros);
+        vista.tblAtraccion.setModel(model);
+    }
+
+    public void volver() {
         main.setVisible(true);
         vista.dispose();
     }
-    
-   
-            
+
     @Override
     public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == vista.btnBackTiquetes) {
-           volver();
+        if (e.getSource() == vista.btnBackTiquetes) {
+            volver();
         } else if (e.getSource() == vista.chkPaseEspecial) {
             vista.tblAtraccion.setVisible(!vista.chkPaseEspecial.isSelected());
-        }    
-        
+        }
+
     }
-    
+
 }
