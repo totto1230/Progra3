@@ -70,11 +70,12 @@ public class Menu_Empleado extends javax.swing.JFrame {
         jButton5_back_main_menu_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton5_back_main_menu_empleado.setContentAreaFilled(false);
 
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/add-attraction.png"))); // NOI18N
         btnBuscar.setContentAreaFilled(false);
 
         jLabel_Buscar_Atracciones_Main_Empleado.setText("Buscar Atracciones");
 
-        btnBookeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/add-attraction.png"))); // NOI18N
+        btnBookeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/parque-de-atracciones.png"))); // NOI18N
         btnBookeo.setContentAreaFilled(false);
 
         jLabel_Buscar_Atracciones_Main_Empleado1.setText("Reservaciones");

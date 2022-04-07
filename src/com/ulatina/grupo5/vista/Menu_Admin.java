@@ -61,6 +61,7 @@ public class Menu_Admin extends javax.swing.JFrame {
         jButton_ganancias_main_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/money.png"))); // NOI18N
         jButton_ganancias_main_menu.setContentAreaFilled(false);
 
+        jButton5_back_main_menu_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         jButton5_back_main_menu_admin.setContentAreaFilled(false);
 
         jLabel1.setText("Seguimiento de Atracciones");
@@ -111,7 +112,6 @@ public class Menu_Admin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton_add_atraccion_main_admin))
                     .addGroup(jPanel_Menu_AdminLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(125, 125, 125)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))

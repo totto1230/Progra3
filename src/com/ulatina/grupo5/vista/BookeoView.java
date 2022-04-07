@@ -139,7 +139,7 @@ public class BookeoView extends javax.swing.JFrame {
                 .addContainerGap(313, Short.MAX_VALUE))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/ganancias.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/parque-de-atracciones.png"))); // NOI18N
 
         jLabel6.setText("Usuario:");
 
