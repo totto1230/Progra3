@@ -242,7 +242,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
 
     @Override
     public int nextID() {
-        String sql = "select COALESCE(max(idLogin),0) + 1 as nextCode from Login";
+        String sql = "select COALESCE(max(orderId),0) + 1 as nextCode from BookeoPersona";
         Integer nextCode = 0;
         try {
             conectar.connectar();
@@ -251,7 +251,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                nextCode = Integer.parseInt(rs.getString("nextCode"));
+                nextCode = rs.getInt("nextCode");
             }
             con.close();
         } catch (SQLException e) {

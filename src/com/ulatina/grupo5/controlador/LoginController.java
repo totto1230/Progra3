@@ -14,9 +14,9 @@ import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.LoginDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Usuarios;
-import com.ulatina.grupo5.vista.Login;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Menu_Empleado;
+import com.ulatina.grupo5.vista.LoginView;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -25,15 +25,16 @@ public class LoginController implements ActionListener {
     com.ulatina.grupo5.modelo.Login login = new com.ulatina.grupo5.modelo.Login();
     BaseDAO daoUsuario = new UsuariosDAOImpl();
     BaseDAO dao = new LoginDAOImpl();
-    Login vista = new Login();
-    Menu_Admin menu = new Menu_Admin();
+    LoginView vista = new LoginView();
+    MenuAdminView menu = new MenuAdminView();
     public static com.ulatina.grupo5.modelo.Login session = new com.ulatina.grupo5.modelo.Login();
     public static com.ulatina.grupo5.modelo.Usuarios sessionUsr = new com.ulatina.grupo5.modelo.Usuarios();
 
-    public LoginController(Login vista) {
+    public LoginController(LoginView vista) {
         this.vista = vista;
         this.vista.btnLogin.addActionListener(this);
         this.vista.btnCancel.addActionListener(this);
+        this.vista.txtUsername.setText("111112222");
     }
 
     public void iniciar() {
@@ -52,7 +53,7 @@ public class LoginController implements ActionListener {
         boolean r = dao.insertar(login);
         if (r) {
             session = login;
-            JOptionPane.showMessageDialog(vista, "Ingreso con exito");
+            //JOptionPane.showMessageDialog(vista, "Ingreso con exito");
         } else {
             JOptionPane.showMessageDialog(vista, "Error al ingresar, por favor intente de nuevo");
         }
@@ -61,7 +62,7 @@ public class LoginController implements ActionListener {
     }
 
     public void cargarMenuAdmin() {
-        Menu_Admin vistaMenuAdmin = new Menu_Admin();
+        MenuAdminView vistaMenuAdmin = new MenuAdminView();
         Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
         //controller.init();
         vistaMenuAdmin.setVisible(true);
@@ -69,7 +70,7 @@ public class LoginController implements ActionListener {
     }
 
     public void cargarMenuEmpleado() {
-        Menu_Empleado vistaMenu = new Menu_Empleado();
+        MenuEmpleadoView vistaMenu = new MenuEmpleadoView();
         MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenu);
         //controller.init();
         vistaMenu.setVisible(true);

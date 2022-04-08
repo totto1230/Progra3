@@ -3,9 +3,9 @@ package com.ulatina.grupo5.controlador;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Usuarios;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Registro_Usuarios_Admin;
-import com.ulatina.grupo5.vista.Ver_Usuarios_Admin;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.UsuariosView;
+import com.ulatina.grupo5.vista.UsuariosListadoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -15,18 +15,18 @@ import javax.swing.JOptionPane;
 class RegistrarUsuariosController implements ActionListener {
 
     BaseDAO dao = new UsuariosDAOImpl();
-    Registro_Usuarios_Admin vista = new Registro_Usuarios_Admin();
+    UsuariosView vista = new UsuariosView();
     Usuarios user = new Usuarios();
 
     Menu_AdminController menuAdminCtrl;
     UsuariosController verUsuarios;
     
-    Menu_Admin menuVista = new Menu_Admin();
-    Ver_Usuarios_Admin verUsuarioVista = new Ver_Usuarios_Admin();
+    MenuAdminView menuVista = new MenuAdminView();
+    UsuariosListadoView verUsuarioVista = new UsuariosListadoView();
     
     int sender = 0;
 
-    public RegistrarUsuariosController(Registro_Usuarios_Admin vista) {
+    public RegistrarUsuariosController(UsuariosView vista) {
         this.vista = vista;
         this.vista.jButton_create_user.addActionListener(this);
         this.vista.jButton_previous_register.addActionListener(this);

@@ -198,7 +198,7 @@ public class UsuariosDAOImpl implements BaseDAO {
     public Object[] listarPor(Object obj) {
         p = (Usuarios) obj;
         ArrayList<Usuarios> Usuarios = new ArrayList<Usuarios>();
-        String sql = "select cedula, correo, password,nombre, apellido1,apellido2,fechaNacimiento, tipoUsuario from usuarios where nombre like '%?%' or apellido1 like '%?%'";
+        String sql = "select cedula, correo, password,nombre, apellido1,appellido2,fechaNacimiento, tipoUsuario from usuarios where nombre like CONCAT('%',?,'%') or apellido1 like CONCAT('%',?,'%')";
         try {
 
             conectar.connectar();
@@ -225,7 +225,7 @@ public class UsuariosDAOImpl implements BaseDAO {
         } catch (Exception ex) {
             System.out.println("Error");
         }
-        return (Usuarios[]) Usuarios.toArray();
+        return (Object[]) Usuarios.toArray();
     }
 
      public Object[] listarPor() {
@@ -268,7 +268,7 @@ public class UsuariosDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                nextCode = Integer.parseInt(rs.getString("nextCode"));
+                nextCode = rs.getInt("nextCode");
             }
             con.close();
         } catch (SQLException e) {

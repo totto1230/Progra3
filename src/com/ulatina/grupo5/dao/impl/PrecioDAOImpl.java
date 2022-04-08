@@ -35,7 +35,7 @@ public class PrecioDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                nextCode = Integer.parseInt(rs.getString("nextCode"));
+                nextCode = rs.getInt("nextCode");
             }
             con.close();
         } catch (SQLException e) {
@@ -249,7 +249,7 @@ public class PrecioDAOImpl implements BaseDAO {
     public Object[] listarPor(Object obj) {
         listarPorParametros parametros = (listarPorParametros) obj;
         ArrayList<Precio> Precio = new ArrayList<Precio>();
-        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion = ? and edadMin >= ? and edadMax < ?";
+        String sql = "SELECT idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax FROM Precio where idAtraccion = ? and edadMin <= ? and edadMax >= ?";
         try {
             BaseController common = new BaseController();
             conectar.connectar();
@@ -257,8 +257,8 @@ public class PrecioDAOImpl implements BaseDAO {
             ps = con.prepareStatement(sql);
             int edad = common.CalcularEdad(parametros.getUsuario());
             ps.setInt(1, parametros.getIdAtraccion());
-            ps.setInt(1, edad);
             ps.setInt(2, edad);
+            ps.setInt(3, edad);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Precio precio = new Precio();

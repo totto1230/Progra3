@@ -4,8 +4,8 @@ import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.PrecioDAOImpl;
 import com.ulatina.grupo5.modelo.Precio;
 import com.ulatina.grupo5.modelo.Usuarios;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Menu_Empleado;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import com.ulatina.grupo5.vista.PrecioView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,8 +19,8 @@ public class PrecioController implements ActionListener {
     Precio precios = new Precio();
 
     Menu_AdminController menuAdminCtrl;
-    Menu_Admin menuVistaAdmin = new Menu_Admin();
-    Menu_Empleado menuVistaEmpleado = new Menu_Empleado();
+    MenuAdminView menuVistaAdmin = new MenuAdminView();
+    MenuEmpleadoView menuVistaEmpleado = new MenuEmpleadoView();
 
     public PrecioController(PrecioView vista) {
         this.vista = vista;
@@ -50,7 +50,7 @@ public class PrecioController implements ActionListener {
     }
 
     private void cargarMenuAdmin() {
-        Menu_Admin vistaMenuAdmin = new Menu_Admin();
+        MenuAdminView vistaMenuAdmin = new MenuAdminView();
         Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
         vistaMenuAdmin.setVisible(true);
         vista.dispose();
@@ -58,7 +58,7 @@ public class PrecioController implements ActionListener {
     }
 
     private void cargarMenuEmpleado() {
-        Menu_Empleado vistaMenuAdmin = new Menu_Empleado();
+        MenuEmpleadoView vistaMenuAdmin = new MenuEmpleadoView();
         MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);
         vistaMenuAdmin.setVisible(true);
         vista.dispose();

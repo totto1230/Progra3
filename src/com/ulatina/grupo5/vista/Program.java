@@ -13,7 +13,7 @@ import com.ulatina.grupo5.controlador.LoginController;
 public class Program {
 
     public static void main(String args[]) {
-        Login vistaLogin = new Login();
+        LoginView vistaLogin = new LoginView();
         LoginController login = new LoginController(vistaLogin);
         login.iniciar();
         vistaLogin.setVisible(true);

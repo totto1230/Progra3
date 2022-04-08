@@ -13,9 +13,9 @@ import javax.swing.JTable;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
-import com.ulatina.grupo5.vista.Menu_Admin;
+import com.ulatina.grupo5.vista.MenuAdminView;
 import com.ulatina.grupo5.vista.PrecioView;
-import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
+import com.ulatina.grupo5.vista.AtraccionesView;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -23,9 +23,9 @@ public class RegistroAtraccionesController implements ActionListener {
 
     Atracciones atraccion = new Atracciones();
     BaseDAO dao = new AtraccionesDAOImpl();
-    Registro_Atracciones_Admin vista = new Registro_Atracciones_Admin();
+    AtraccionesView vista = new AtraccionesView();
 
-    public RegistroAtraccionesController(Registro_Atracciones_Admin vista) {
+    public RegistroAtraccionesController(AtraccionesView vista) {
         this.vista = vista;
         this.vista.btnAgregar.addActionListener(this);
         this.vista.btnVolver.addActionListener(this);
@@ -154,7 +154,7 @@ public class RegistroAtraccionesController implements ActionListener {
             preciosView.setVisible(true);
             vista.dispose();
         } else if (e.getSource() == vista.btnVolver) {
-            Menu_Admin vistaMenuAdmin = new Menu_Admin();
+            MenuAdminView vistaMenuAdmin = new MenuAdminView();
             Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
             vistaMenuAdmin.setVisible(true);
             vista.dispose();

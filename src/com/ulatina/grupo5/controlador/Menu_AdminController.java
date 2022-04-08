@@ -6,14 +6,14 @@ import java.awt.event.ActionListener;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
-import com.ulatina.grupo5.vista.Buscar_Atracciones_Admin;
-import com.ulatina.grupo5.vista.Ganancias_Admin_Empleado;
-import com.ulatina.grupo5.vista.Login;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
-import com.ulatina.grupo5.vista.Registro_Usuarios_Admin;
-import com.ulatina.grupo5.vista.Seguimiento_De_Atracciones_Admin;
-import com.ulatina.grupo5.vista.Ver_Usuarios_Admin;
+import com.ulatina.grupo5.vista.AtraccionesListadoView;
+import com.ulatina.grupo5.vista.GananciasListadoView;
+import com.ulatina.grupo5.vista.LoginView;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.AtraccionesView;
+import com.ulatina.grupo5.vista.UsuariosView;
+import com.ulatina.grupo5.vista.MantenimientoView;
+import com.ulatina.grupo5.vista.UsuariosListadoView;
 
 public class Menu_AdminController implements ActionListener {
 
@@ -28,17 +28,17 @@ public class Menu_AdminController implements ActionListener {
 
     //Atracciones atraccion = new Atracciones();
     //BaseDAO dao = new AtraccionesDAOImpl();
-    Menu_Admin vista = new Menu_Admin();
+    MenuAdminView vista = new MenuAdminView();
 
-    Registro_Usuarios_Admin registroUsuariosVista = new Registro_Usuarios_Admin();
-    Ver_Usuarios_Admin verUsuarioVista = new Ver_Usuarios_Admin();
-    Registro_Atracciones_Admin registroAtraccVista = new Registro_Atracciones_Admin();
-    Buscar_Atracciones_Admin buscarAtracVista = new Buscar_Atracciones_Admin();
-    Seguimiento_De_Atracciones_Admin seguimientoAtraVist = new Seguimiento_De_Atracciones_Admin();
-    Ganancias_Admin_Empleado ganaciaVista = new Ganancias_Admin_Empleado();
-    Login loginVista = new Login();
+    UsuariosView registroUsuariosVista = new UsuariosView();
+    UsuariosListadoView verUsuarioVista = new UsuariosListadoView();
+    AtraccionesView registroAtraccVista = new AtraccionesView();
+    AtraccionesListadoView buscarAtracVista = new AtraccionesListadoView();
+    MantenimientoView seguimientoAtraVist = new MantenimientoView();
+    GananciasListadoView ganaciaVista = new GananciasListadoView();
+    LoginView loginVista = new LoginView();
 
-    public Menu_AdminController(Menu_Admin vista) {
+    public Menu_AdminController(MenuAdminView vista) {
         this.vista = vista;
         this.vista.jButton_Buscar_Atraccio_Main_Admin.addActionListener(this);
         this.vista.jButton_Registrar_Usuarios_Main_admin.addActionListener(this);

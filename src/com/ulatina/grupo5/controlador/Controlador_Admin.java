@@ -4,22 +4,22 @@ package com.ulatina.grupo5.controlador;
 
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Usuarios;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Registro_Usuarios_Admin;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.UsuariosView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
 
-public class Controlador_Admin extends Menu_Admin implements ActionListener{
+public class Controlador_Admin extends MenuAdminView implements ActionListener{
     
-    Menu_Admin ui;
-    Registro_Usuarios_Admin ui2;
+    MenuAdminView ui;
+    UsuariosView ui2;
     Usuarios mod;
     UsuariosDAOImpl impl;
 
-    public Controlador_Admin(Menu_Admin ui, Registro_Usuarios_Admin ui2, Usuarios mod, UsuariosDAOImpl impl) {
+    public Controlador_Admin(MenuAdminView ui, UsuariosView ui2, Usuarios mod, UsuariosDAOImpl impl) {
         this.ui = ui;
         this.ui2= ui2;
         this.mod = mod;

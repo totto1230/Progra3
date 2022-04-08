@@ -248,7 +248,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                nextCode = Integer.parseInt(rs.getString("nextCode"));
+                nextCode = rs.getInt("nextCode");
             }
             con.close();
         } catch (SQLException e) {

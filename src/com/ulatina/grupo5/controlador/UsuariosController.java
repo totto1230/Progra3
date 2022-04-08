@@ -3,9 +3,9 @@ package com.ulatina.grupo5.controlador;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Usuarios;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Registro_Usuarios_Admin;
-import com.ulatina.grupo5.vista.Ver_Usuarios_Admin;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.UsuariosView;
+import com.ulatina.grupo5.vista.UsuariosListadoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,10 +16,10 @@ public class UsuariosController implements ActionListener {
 
     Usuarios usuario = new Usuarios();
     BaseDAO dao = new UsuariosDAOImpl();
-    Ver_Usuarios_Admin vista = new Ver_Usuarios_Admin();
-    Menu_Admin main = new Menu_Admin();
+    UsuariosListadoView vista = new UsuariosListadoView();
+    MenuAdminView main = new MenuAdminView();
 
-    public UsuariosController(Ver_Usuarios_Admin vista) {
+    public UsuariosController(UsuariosListadoView vista) {
         this.vista = vista;
         this.vista.jButton_Back_Ver_Usuarios_Admin.addActionListener(this);
         this.vista.jTable_Ver_Usuarios_Admin.addMouseListener(new MouseAdapter() {
@@ -28,7 +28,7 @@ public class UsuariosController implements ActionListener {
                 int row = vista.jTable_Ver_Usuarios_Admin.getSelectedRow();
                 int cedula  = Integer.parseInt(vista.jTable_Ver_Usuarios_Admin.getModel().getValueAt(row, 0).toString());
                 usuario = (Usuarios)dao.listarUno(cedula);
-                Registro_Usuarios_Admin registroUsuariosVista = new Registro_Usuarios_Admin();
+                UsuariosView registroUsuariosVista = new UsuariosView();
                 RegistrarUsuariosController registrarUsuarios = new RegistrarUsuariosController(registroUsuariosVista);
                 registrarUsuarios.iniciar(usuario);
                 registroUsuariosVista.setVisible(true);

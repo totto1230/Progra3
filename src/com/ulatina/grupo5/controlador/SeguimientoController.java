@@ -6,10 +6,10 @@ import com.ulatina.grupo5.dao.impl.MantenimientoDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Mantenimiento;
-import com.ulatina.grupo5.vista.Seguimiento_De_Atracciones_Admin;
+import com.ulatina.grupo5.vista.MantenimientoView;
 import com.ulatina.grupo5.modelo.Usuarios;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Menu_Empleado;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -25,11 +25,11 @@ public class SeguimientoController implements ActionListener {
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
     UsuariosDAOImpl daoUsuarios = new UsuariosDAOImpl();
 
-    Seguimiento_De_Atracciones_Admin vista = new Seguimiento_De_Atracciones_Admin();
-    Menu_Admin vistaAdmin = new Menu_Admin();
-    Menu_Empleado vistaEmpl = new Menu_Empleado();
+    MantenimientoView vista = new MantenimientoView();
+    MenuAdminView vistaAdmin = new MenuAdminView();
+    MenuEmpleadoView vistaEmpl = new MenuEmpleadoView();
 
-    public SeguimientoController(Seguimiento_De_Atracciones_Admin vista) {
+    public SeguimientoController(MantenimientoView vista) {
         this.vista = vista;
         this.vista.jButton_Agregar_Seguimiento_Atra_Admin.addActionListener(this);
         this.vista.jButton_volver_seguimiento_atracciones_admin.addActionListener(this);
@@ -75,7 +75,7 @@ public class SeguimientoController implements ActionListener {
     }
 
     private void cargarMenuAdmin() {
-        Menu_Admin vistaMenuAdmin = new Menu_Admin();
+        MenuAdminView vistaMenuAdmin = new MenuAdminView();
         Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
         vistaMenuAdmin.setVisible(true);
         vista.dispose();
@@ -83,7 +83,7 @@ public class SeguimientoController implements ActionListener {
     }
 
     private void cargarMenuEmpleado() {
-        Menu_Empleado vistaMenuAdmin = new Menu_Empleado();
+        MenuEmpleadoView vistaMenuAdmin = new MenuEmpleadoView();
         MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);
         vistaMenuAdmin.setVisible(true);
         vista.dispose();

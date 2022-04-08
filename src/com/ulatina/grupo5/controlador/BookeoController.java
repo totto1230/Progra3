@@ -21,8 +21,8 @@ import com.ulatina.grupo5.dao.impl.PrecioDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 
 import com.ulatina.grupo5.vista.BookeoView;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Registro_Usuarios_Admin;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.UsuariosView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +42,7 @@ import javax.swing.table.TableModel;
 public class BookeoController implements ActionListener {
 
     BookeoView vista = new BookeoView();
-    Menu_Admin main = new Menu_Admin();
+    MenuAdminView main = new MenuAdminView();
 
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
     PrecioDAOImpl daoPrecios = new PrecioDAOImpl(); // para poder crear la subclase parametros
@@ -72,6 +72,10 @@ public class BookeoController implements ActionListener {
         vista.pnAtracciones.setVisible(false);
         vista.chkPaseEspecial.setSelected(true);
         loadComboBoxAtracciones();
+        vista.txtUsuarioTickete.setText(LoginController.sessionUsr.email);
+        vista.txtUsuarioTickete.setEnabled(false);
+        Date date = new Date();
+        vista.dtpFechaVisita.setDate(date);
     }
 
     private void loadComboBoxAtracciones() {
@@ -87,15 +91,15 @@ public class BookeoController implements ActionListener {
 
     private void buscarUsuarios() {
         Usuarios usrSearch = new Usuarios(0, "", "", vista.txtUsuarioAtraccion.getText(), vista.txtUsuarioAtraccion.getText(), vista.txtUsuarioAtraccion.getText(), null, 0);
-        Usuarios[] usuarios = (Usuarios[]) daoUsuarios.listarPor(usrSearch);
-
+        Object[] usuarios = daoUsuarios.listarPor(usrSearch);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         String[] titulos = {"Cedula", "Nombre", "Apellidos", "Fecha Nacimiento"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
-        for (Usuarios usr : usuarios) {
+        for (Object o : usuarios) {
+            Usuarios usr = (Usuarios)o;
             registros[0] = usr.getCedula().toString();
             registros[1] = usr.getNombre();
             registros[2] = usr.getApellido1() + " " + usr.getAppellido2();
@@ -133,7 +137,9 @@ public class BookeoController implements ActionListener {
             registros[2] = vista.tblUsuariosBusqueda.getModel().getValueAt(row, 2).toString();
             registros[3] = vista.tblUsuariosBusqueda.getModel().getValueAt(row, 3).toString();
             model.addRow(registros);
+            vista.tblUsuarios.setModel(model);
         }
+        
     }
 
     private void borrarLineaJTable(JTable table) {
@@ -157,7 +163,7 @@ public class BookeoController implements ActionListener {
         if (rtn) {
             for (int i = 0; i < vista.tblUsuarios.getRowCount(); i++) {
                 BookeoPersona bookeoPersona = new BookeoPersona();
-                bookeoPersona.setOrderId(i);
+                bookeoPersona.setOrderId(daoBookeoPersonas.nextID());
                 bookeoPersona.setTicket(numeroTickete);
                 bookeoPersona.setCedula(Integer.parseInt(vista.tblUsuarios.getModel().getValueAt(i, 0).toString()));
                 rtn = daoBookeoPersonas.insertar(bookeoPersona);
@@ -170,7 +176,7 @@ public class BookeoController implements ActionListener {
         if (rtn && !esPaseEspecial) {
             for (int i = 0; i < vista.tblAtracciones.getRowCount(); i++) {
                 BookeoAtracciones bookeoAtraccion = new BookeoAtracciones();
-                bookeoAtraccion.setOrderId(i);
+                bookeoAtraccion.setOrderId(daoBookeoAtracciones.nextID());
                 bookeoAtraccion.setTicket(numeroTickete);
                 bookeoAtraccion.setIdAtracciones(Integer.parseInt(vista.tblUsuarios.getModel().getValueAt(i, 0).toString()));
                 rtn = daoBookeoAtracciones.insertar(bookeoAtraccion);
@@ -199,8 +205,8 @@ public class BookeoController implements ActionListener {
                 Date fechaCumpleaños = new SimpleDateFormat("dd/MM/yyyy").parse(str);
                 Usuarios usr = new Usuarios(0, "", "", "", "", "", fechaCumpleaños, 0);
                 PrecioDAOImpl.listarPorParametros parametros = daoPrecios.new listarPorParametros(bookeoAtraccion.idAtracciones, usr);
-                Precio[] precios = (Precio[]) daoPrecios.listarPor(parametros);
-                rtn += precios[0].getPrecio();
+                Object[] precios = daoPrecios.listarPor(parametros);
+                rtn += ((Precio)precios[0]).getPrecio();
             }
         } catch (Exception e) {
             rtn = -1;
@@ -223,7 +229,7 @@ public class BookeoController implements ActionListener {
         } else if (e.getSource() == vista.btnBuscar) {
             buscarUsuarios();
         } else if (e.getSource() == vista.btnUsuarios) {
-            Registro_Usuarios_Admin registroUsuariosVista = new Registro_Usuarios_Admin();
+            UsuariosView registroUsuariosVista = new UsuariosView();
             RegistrarUsuariosController registrarUsuarios = new RegistrarUsuariosController(registroUsuariosVista);
             registrarUsuarios.iniciar();
             registroUsuariosVista.setVisible(true);
@@ -231,7 +237,7 @@ public class BookeoController implements ActionListener {
             insertarUsuarioJTable();
         } else if (e.getSource() == vista.btnEliminarUsuarioAtraccion) {
             borrarLineaJTable(vista.tblUsuarios);
-        } else if (e.getSource() == vista.btnEliminarUsuarioAtraccion) {
+        } else if (e.getSource() == vista.btnEliminarAtraccion) {
             borrarLineaJTable(vista.tblAtracciones);
         } else if (e.getSource() == vista.btnCrearTickete) {
             crearTickete();

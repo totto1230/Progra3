@@ -35,10 +35,11 @@ public class BookeoDAOImpl implements BaseDAO {
 
             ps.setInt(1, p.getTicket());
             ps.setInt(2, p.getCedula());
-            ps.setDate(3, (Date) p.getFechaCompra());
-            ps.setDate(4, (Date) p.getFechaVisita());
+            ps.setDate(3, new java.sql.Date(p.getFechaCompra().getTime()));
+            ps.setDate(4, new java.sql.Date(p.getFechaVisita().getTime()));
             ps.setDouble(5, p.getTotalVenta());
             ps.setBoolean(6, p.isPaseEspecial());
+
 
             int registros = ps.executeUpdate();
 
@@ -62,7 +63,7 @@ public class BookeoDAOImpl implements BaseDAO {
 
         p = (Bookeo) obj;
 
-        String sql = "UPDATE bookeo SET ticket = ?, cedula = ?, fechaCompra = ?, fechaVisita = ?, totalVenta = ?, paseEspecial = ? WHERE ticket = ?";
+        String sql = "UPDATE bookeo SET cedula = ?, fechaCompra = ?, fechaVisita = ?, totalVenta = ?, paseEspecial = ? WHERE ticket = ?";
         try {
 
             conectar.connectar();
@@ -70,12 +71,13 @@ public class BookeoDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, p.getTicket());
-            ps.setInt(2, p.getCedula());
-            ps.setDate(3, (Date) p.getFechaCompra());
-            ps.setDate(4, (Date) p.getFechaVisita());
-            ps.setDouble(5, p.getTicket());
-            ps.setBoolean(6, p.isPaseEspecial());
+            
+            ps.setInt(1, p.getCedula());
+            ps.setDate(2, new java.sql.Date(p.getFechaCompra().getTime()));
+            ps.setDate(3, new java.sql.Date(p.getFechaVisita().getTime()));
+            ps.setDouble(4, p.getTotalVenta());
+            ps.setBoolean(5, p.isPaseEspecial());
+            ps.setInt(6, p.getTicket());
 
             int registros = ps.executeUpdate();
 
@@ -211,7 +213,7 @@ public class BookeoDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                nextCode = Integer.parseInt(rs.getString("nextCode"));
+                nextCode = rs.getInt("nextCode");
             }
             con.close();
         } catch (SQLException e) {

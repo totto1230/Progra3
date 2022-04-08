@@ -9,8 +9,8 @@ import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.GanaciasDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Ganancias;
-import com.ulatina.grupo5.vista.Ganancias_Admin_Empleado;
-import com.ulatina.grupo5.vista.Menu_Admin;
+import com.ulatina.grupo5.vista.GananciasListadoView;
+import com.ulatina.grupo5.vista.MenuAdminView;
 import java.sql.Date;
 import javax.swing.JTable;
 
@@ -19,13 +19,13 @@ public class GananciasAdminEmpleadoController implements ActionListener {
     Atracciones atraccion = new Atracciones();
     Ganancias ganacia = new Ganancias();
     GanaciasDAOImpl dao = new GanaciasDAOImpl();
-    Ganancias_Admin_Empleado vista = new Ganancias_Admin_Empleado();
+    GananciasListadoView vista = new GananciasListadoView();
 
     Menu_AdminController menuAdminCtrl;
-    Menu_Admin menuVista = new Menu_Admin();
+    MenuAdminView menuVista = new MenuAdminView();
     Ganancias ganancia = new Ganancias();
 
-    public GananciasAdminEmpleadoController(Ganancias_Admin_Empleado vista) {
+    public GananciasAdminEmpleadoController(GananciasListadoView vista) {
         this.vista = vista;
         this.vista.btnPreviousGanacias.addActionListener(this);
         this.vista.btnFiltrar.addActionListener(this);

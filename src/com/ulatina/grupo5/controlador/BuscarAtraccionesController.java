@@ -14,10 +14,10 @@ import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Usuarios;
-import com.ulatina.grupo5.vista.Buscar_Atracciones_Admin;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.Menu_Empleado;
-import com.ulatina.grupo5.vista.Registro_Atracciones_Admin;
+import com.ulatina.grupo5.vista.AtraccionesListadoView;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.MenuEmpleadoView;
+import com.ulatina.grupo5.vista.AtraccionesView;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -27,10 +27,10 @@ public class BuscarAtraccionesController implements ActionListener {
     Usuarios currentUser = LoginController.sessionUsr;
     Atracciones atraccion = new Atracciones();
     BaseDAO dao = new AtraccionesDAOImpl();
-    Buscar_Atracciones_Admin vista = new Buscar_Atracciones_Admin();
-    Menu_Admin main = new Menu_Admin();
+    AtraccionesListadoView vista = new AtraccionesListadoView();
+    MenuAdminView main = new MenuAdminView();
 
-    public BuscarAtraccionesController(Buscar_Atracciones_Admin vista) {
+    public BuscarAtraccionesController(AtraccionesListadoView vista) {
         this.vista = vista;
         this.vista.btnBackAtracAdmin.addActionListener(this);
         this.vista.jTable_Buscar_Atracciones_Admin.addMouseListener(new MouseAdapter() {
@@ -39,7 +39,7 @@ public class BuscarAtraccionesController implements ActionListener {
                 int row = vista.jTable_Buscar_Atracciones_Admin.getSelectedRow();
                 int idAtraccion  = Integer.parseInt(vista.jTable_Buscar_Atracciones_Admin.getModel().getValueAt(row, 0).toString());
                 atraccion = (Atracciones)dao.listarUno(idAtraccion);
-                Registro_Atracciones_Admin registroAtraccionesAdmin = new Registro_Atracciones_Admin();
+                AtraccionesView registroAtraccionesAdmin = new AtraccionesView();
                 RegistroAtraccionesController registrarAtracciones = new RegistroAtraccionesController(registroAtraccionesAdmin);
                 registrarAtracciones.iniciar(atraccion);
                 registroAtraccionesAdmin.setVisible(true);
@@ -53,7 +53,7 @@ public class BuscarAtraccionesController implements ActionListener {
     }
 
     private void cargarMenuAdmin() {
-        Menu_Admin vistaMenuAdmin = new Menu_Admin();
+        MenuAdminView vistaMenuAdmin = new MenuAdminView();
         Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
         vistaMenuAdmin.setVisible(true);
         vista.dispose();
@@ -61,7 +61,7 @@ public class BuscarAtraccionesController implements ActionListener {
     }
 
     private void cargarMenuEmpleado() {
-        Menu_Empleado vistaMenuAdmin = new Menu_Empleado();
+        MenuEmpleadoView vistaMenuAdmin = new MenuEmpleadoView();
         MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);
         vistaMenuAdmin.setVisible(true);
         vista.dispose();

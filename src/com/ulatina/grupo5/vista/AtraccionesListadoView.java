@@ -8,12 +8,12 @@ package com.ulatina.grupo5.vista;
  *
  * @author josep
  */
-public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
+public class AtraccionesListadoView extends javax.swing.JFrame {
 
     /**
      * Creates new form Buscar_Atracciones_Admin
      */
-    public Buscar_Atracciones_Admin() {
+    public AtraccionesListadoView() {
         initComponents();
     }
 
@@ -110,20 +110,21 @@ public class Buscar_Atracciones_Admin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Atracciones_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtraccionesListadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Atracciones_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtraccionesListadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Atracciones_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtraccionesListadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Atracciones_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtraccionesListadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Buscar_Atracciones_Admin().setVisible(true);
+                new AtraccionesListadoView().setVisible(true);
             }
         });
     }

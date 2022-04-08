@@ -11,8 +11,8 @@ import com.ulatina.grupo5.modelo.Bookeo;
 import com.ulatina.grupo5.modelo.BookeoPersona;
 import com.ulatina.grupo5.modelo.Usuarios;
 import com.ulatina.grupo5.vista.BookeoView;
-import com.ulatina.grupo5.vista.Menu_Admin;
-import com.ulatina.grupo5.vista.TiquetesView;
+import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.BookeoListadoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class TiqueteController implements ActionListener {
 
-    TiquetesView vista = new TiquetesView();
+    BookeoListadoView vista = new BookeoListadoView();
     BookeoView main = new BookeoView();
 
     Bookeo bookeo = new Bookeo();
@@ -34,7 +34,7 @@ public class TiqueteController implements ActionListener {
     BaseDAO daoBookeoPersonas = new BookeoPersonaDAOImpl();
     BaseDAO daoUsuarios = new UsuariosDAOImpl();
 
-    public TiqueteController(TiquetesView vista) {
+    public TiqueteController(BookeoListadoView vista) {
         this.vista = vista;
         this.vista.btnBackTiquetes.addActionListener(this);
         this.vista.chkPaseEspecial.addActionListener(this);

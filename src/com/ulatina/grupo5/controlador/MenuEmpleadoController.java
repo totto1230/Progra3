@@ -1,10 +1,10 @@
 package com.ulatina.grupo5.controlador;
 
 import com.ulatina.grupo5.vista.BookeoView;
-import com.ulatina.grupo5.vista.Buscar_Atracciones_Admin;
-import com.ulatina.grupo5.vista.Login;
-import com.ulatina.grupo5.vista.Menu_Empleado;
-import com.ulatina.grupo5.vista.Seguimiento_De_Atracciones_Admin;
+import com.ulatina.grupo5.vista.AtraccionesListadoView;
+import com.ulatina.grupo5.vista.LoginView;
+import com.ulatina.grupo5.vista.MenuEmpleadoView;
+import com.ulatina.grupo5.vista.MantenimientoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,14 +16,14 @@ public class MenuEmpleadoController implements ActionListener {
     BookeoController bookeoC;
 
     //BaseDAO dao = new AtraccionesDAOImpl();
-    Menu_Empleado vista = new Menu_Empleado();
+    MenuEmpleadoView vista = new MenuEmpleadoView();
     BookeoView bookeoView = new BookeoView();
 
-    Buscar_Atracciones_Admin buscarAtracVista = new Buscar_Atracciones_Admin();
-    Seguimiento_De_Atracciones_Admin seguimientoAtraVist = new Seguimiento_De_Atracciones_Admin();
-    Login loginVista = new Login();
+    AtraccionesListadoView buscarAtracVista = new AtraccionesListadoView();
+    MantenimientoView seguimientoAtraVist = new MantenimientoView();
+    LoginView loginVista = new LoginView();
 
-    public MenuEmpleadoController(Menu_Empleado vista) {
+    public MenuEmpleadoController(MenuEmpleadoView vista) {
         this.vista = vista;
         this.vista.jButton5_back_main_menu_empleado.addActionListener(this);
         this.vista.btnSeguimiento.addActionListener(this);
