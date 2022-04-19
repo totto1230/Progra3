@@ -10,16 +10,10 @@ import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Bookeo;
 import com.ulatina.grupo5.modelo.BookeoAtracciones;
 import com.ulatina.grupo5.modelo.BookeoPersona;
-import com.ulatina.grupo5.modelo.Usuarios;
 import com.ulatina.grupo5.vista.BookeoView;
-import com.ulatina.grupo5.vista.MenuAdminView;
 import com.ulatina.grupo5.vista.BookeoListadoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class TiqueteController implements ActionListener {
