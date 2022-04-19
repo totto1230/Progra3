@@ -21,7 +21,6 @@ import com.ulatina.grupo5.vista.AtraccionesView;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
 public class BuscarAtraccionesController implements ActionListener {
 
     Usuarios currentUser = LoginController.sessionUsr;
@@ -34,11 +33,11 @@ public class BuscarAtraccionesController implements ActionListener {
         this.vista = vista;
         this.vista.btnBackAtracAdmin.addActionListener(this);
         this.vista.jTable_Buscar_Atracciones_Admin.addMouseListener(new MouseAdapter() {
-        @Override
+            @Override
             public void mouseClicked(MouseEvent e) {
                 int row = vista.jTable_Buscar_Atracciones_Admin.getSelectedRow();
-                int idAtraccion  = Integer.parseInt(vista.jTable_Buscar_Atracciones_Admin.getModel().getValueAt(row, 0).toString());
-                atraccion = (Atracciones)dao.listarUno(idAtraccion);
+                int idAtraccion = Integer.parseInt(vista.jTable_Buscar_Atracciones_Admin.getModel().getValueAt(row, 0).toString());
+                atraccion = (Atracciones) dao.listarUno(idAtraccion);
                 AtraccionesView registroAtraccionesAdmin = new AtraccionesView();
                 RegistroAtraccionesController registrarAtracciones = new RegistroAtraccionesController(registroAtraccionesAdmin);
                 registrarAtracciones.iniciar(atraccion);
@@ -57,7 +56,6 @@ public class BuscarAtraccionesController implements ActionListener {
         Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
         vistaMenuAdmin.setVisible(true);
         vista.dispose();
-
     }
 
     private void cargarMenuEmpleado() {
@@ -66,15 +64,16 @@ public class BuscarAtraccionesController implements ActionListener {
         vistaMenuAdmin.setVisible(true);
         vista.dispose();
     }
+
     public void volver() {
         switch (currentUser.getTipoUsuario()) {
-                case 1:
-                    cargarMenuAdmin();
-                    break;
-                case 2:
-                    cargarMenuEmpleado();
-                    break;
-            }
+            case 1:
+                cargarMenuAdmin();
+                break;
+            case 2:
+                cargarMenuEmpleado();
+                break;
+        }
     }
 
     public void iniciar() {
