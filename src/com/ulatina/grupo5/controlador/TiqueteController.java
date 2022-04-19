@@ -8,6 +8,7 @@ import com.ulatina.grupo5.dao.impl.BookeoPersonaDAOImpl;
 import com.ulatina.grupo5.dao.impl.PrecioDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 import com.ulatina.grupo5.modelo.Bookeo;
+import com.ulatina.grupo5.modelo.BookeoAtracciones;
 import com.ulatina.grupo5.modelo.BookeoPersona;
 import com.ulatina.grupo5.modelo.Usuarios;
 import com.ulatina.grupo5.vista.BookeoView;
@@ -18,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class TiqueteController implements ActionListener {
@@ -39,7 +41,6 @@ public class TiqueteController implements ActionListener {
         this.vista.btnBackTiquetes.addActionListener(this);
         this.vista.chkPaseEspecial.addActionListener(this);
         iniciar(bookeo);
-        atracciones();
     }
 
     public void iniciar(Bookeo bookeo) {
@@ -52,21 +53,42 @@ public class TiqueteController implements ActionListener {
         vista.lblUsuario.setText(String.valueOf(usuario));
         vista.lblFechaDeVisita.setText(fechaVisita);
         vista.chkPaseEspecial.setText(String.valueOf(paseEspe));
+        atracciones(bookeo);
+        personas(bookeo);
     }
-
+    
     public void personas(Bookeo bookeo) {
-
-    }
-
-    private void atracciones() {
-        String[] titulos = {"Id de Atracción", "Nombre Atracción"};
+        Object[] personas = daoBookeoPersonas.listarPor(bookeo);
+        
+        String[] titulos = {"OrderId", "Cedula", "Ticket"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        if (vista.tblAtraccion.getRowCount() > 0) {
-            model = (DefaultTableModel) vista.tblAtraccion.getModel();
+
+        for (Object o : personas) {
+            BookeoPersona b = (BookeoPersona) o;
+            registros[0] = b.getOrderId().toString();
+            registros[1] = b.getCedula().toString();
+            registros[2] = b.getTicket().toString();
+            model.addRow(registros);
         }
-        model.addRow(registros);
-        vista.tblAtraccion.setModel(model);
+        vista.tblUsuario.setModel(model);
+    }
+
+    public void atracciones(Bookeo bookeo) {
+        Object[] atracciones = daoBookeoAtracciones.listarPor(bookeo);
+        
+        String[] titulos = {"OrderId", "Ticket", "idAtracciones"};
+        String[] registros = new String[titulos.length];
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        for (Object o : atracciones) {
+            BookeoAtracciones b = (BookeoAtracciones) o;
+            registros[0] = b.getOrderId().toString();
+            registros[1] = b.getTicket().toString();
+            registros[2] = b.getIdAtracciones().toString();
+            model.addRow(registros);
+        }
+        vista.tblUsuario.setModel(model);
     }
 
     public void volver() {
@@ -79,7 +101,10 @@ public class TiqueteController implements ActionListener {
         if (e.getSource() == vista.btnBackTiquetes) {
             volver();
         } else if (e.getSource() == vista.chkPaseEspecial) {
-            vista.tblAtraccion.setVisible(!vista.chkPaseEspecial.isSelected());
+            vista.tblAtraccion.setVisible(true);
+        }
+        else{
+            vista.tblAtraccion.setVisible(false);
         }
 
     }

@@ -213,10 +213,10 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
     }
 
     @Override
-    public BookeoPersona[] listarPor(Object obj) {
+    public Object[] listarPor(Object obj) {
         b = (BookeoPersona) obj;
         ArrayList<BookeoPersona> bookeoPersonas = new ArrayList<BookeoPersona>();
-        String sql = "select orderId, cedula, ticket from BookeoPersona where ticket = ?";
+        String sql = "select orderId, b.cedula , u.nombre+' '+u.apellido1+' '+u.appellido2 , ticket from BookeoPersona b inner join usuarios u on b.cedula = u.cedula where ticket = ?";
         try {
 
             conectar.connectar();
@@ -236,7 +236,9 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
         } catch (Exception ex) {
             System.out.println("Error");
         }
-        return (BookeoPersona[]) bookeoPersonas.toArray();
+        
+        
+        return (Object[]) bookeoPersonas.toArray();
 
     }
 
