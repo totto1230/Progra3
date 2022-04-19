@@ -253,7 +253,7 @@
             <Component class="javax.swing.JTable" name="tblPrecios">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="7" rowCount="4">
+                  <Table columnCount="7" rowCount="0">
                     <Column editable="true" title="idPrecio" type="java.lang.Integer"/>
                     <Column editable="true" title="idAtraccion" type="java.lang.Integer"/>
                     <Column editable="true" title="descripcion" type="java.lang.String"/>

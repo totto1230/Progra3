@@ -83,10 +83,7 @@ public class PrecioView extends javax.swing.JFrame {
 
         tblPrecios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "idPrecio", "idAtraccion", "descripcion", "precio", "activo", "edadMin", "edadMax"
