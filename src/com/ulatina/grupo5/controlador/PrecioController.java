@@ -49,6 +49,7 @@ public class PrecioController implements ActionListener {
 
     public void iniciar() {
         loadComboBoxAtracciones();
+        vista.txtIdPrecio.setEnabled(false);
         dao.listar(vista.tblPrecios);
         vista.txtPrecio.setText("");
         vista.txtIdPrecio.setText("");
@@ -58,25 +59,26 @@ public class PrecioController implements ActionListener {
 
     public void iniciar(Precio precio) {
         dao.listar(vista.tblPrecios);
+        loadComboBoxAtracciones();
         vista.txtIdPrecio.setText(precio.getIdPrecio().toString());
         vista.txtIdPrecio.setEnabled(false);
-
-        vista.txtPrecio.setText("");
-        vista.txtIdPrecio.setText("");
-        //vista.txtIdAtrac.setText("");
-        vista.txtDescrip.setText("");
-        loadComboBoxAtracciones();
+        selectComboBox(precio.getIdAtraccion());
+        vista.txtDescrip.setText(precio.getDescripcion());
+        vista.txtPrecio.setText(precio.getPrecio().toString());
+        vista.chboxActivo.setSelected(precio.isActivo());   
+        setEdadMinima(precio.edadMin);
+        setEdadMinima(precio.edadMin);
     }
 
     public Precio devolverPrecio() {
-        Integer idPrecio = Integer.parseInt(vista.txtIdPrecio.getText());
-        Integer idAtraccion = vista.ddlAtracciones.getSelectedIndex();
+        Integer idPrecio = vista.txtIdPrecio.getText().isEmpty() ? dao.nextID() : Integer.parseInt(vista.txtIdPrecio.getText());
+        Integer idAtraccion = Integer.parseInt(((ComboItem)vista.ddlAtracciones.getSelectedItem()).getValue());
         String descripcion = vista.txtDescrip.getText();
         Integer precio = Integer.parseInt(vista.txtPrecio.getText());
         boolean activo = vista.chboxActivo.isSelected();
         Integer edadMin = getEdadMinima(vista.ddlEdadMinPrecio.getSelectedIndex());
         Integer edadMax = getEdadMax(vista.ddlEdadMaxPrecio.getSelectedIndex());
-
+        
         return precios = new Precio(idPrecio, idAtraccion, descripcion, precio, activo, edadMin, edadMax);
     }
 
@@ -121,7 +123,7 @@ public class PrecioController implements ActionListener {
             case 3:
                 rtn = 1;
                 break;
-            case 18:
+            default:
                 rtn = 2;
                 break;
         }
@@ -137,7 +139,7 @@ public class PrecioController implements ActionListener {
             case 18:
                 rtn = 1;
                 break;
-            case 120:
+            default:
                 rtn = 2;
                 break;
         }
@@ -182,11 +184,10 @@ public class PrecioController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnAgregarPrecio) {
             precios = devolverPrecio();
-
             boolean resultado = dao.insertar(precios);
-
             if (resultado) {
                 JOptionPane.showMessageDialog(vista, "Agregado Correctamente");
+                dao.listar(vista.tblPrecios);
             } else {
                 JOptionPane.showMessageDialog(vista, "Error al ingresar, por favor intente de nuevo");
             }
