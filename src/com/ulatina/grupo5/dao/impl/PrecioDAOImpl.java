@@ -58,13 +58,13 @@ public class PrecioDAOImpl implements BaseDAO {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
 
-            ps.setInt(7, p.getIdPrecio());
-            ps.setInt(1, p.getIdAtraccion());
-            ps.setString(2, p.getDescripcion());
-            ps.setInt(3, p.getPrecio());
-            ps.setBoolean(4, p.isActivo());
-            ps.setInt(5, p.getEdadMin());
-            ps.setInt(6, p.getEdadMax());
+            ps.setInt(1, p.getIdPrecio());
+            ps.setInt(2, p.getIdAtraccion());
+            ps.setString(3, p.getDescripcion());
+            ps.setInt(4, p.getPrecio());
+            ps.setBoolean(5, p.isActivo());
+            ps.setInt(6, p.getEdadMin());
+            ps.setInt(7, p.getEdadMax());
 
             int registros = ps.executeUpdate();
 
