@@ -32,13 +32,9 @@ public class MenuClienteView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel_menu_empleadp = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnSeguimiento = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton5_back_main_menu_empleado = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        jLabel_Buscar_Atracciones_Main_Empleado = new javax.swing.JLabel();
-        btnBookeo = new javax.swing.JButton();
-        jLabel_Buscar_Atracciones_Main_Empleado1 = new javax.swing.JLabel();
+        btnVerTiquete = new javax.swing.JButton();
+        jLabelVerTiquetes = new javax.swing.JLabel();
+        btnMenuCliente = new javax.swing.JButton();
 
         jButton_Buscar_Atraccio_Main_Admin.setContentAreaFilled(false);
 
@@ -53,7 +49,7 @@ public class MenuClienteView extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(jLabel_menu_empleadp, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
         );
@@ -62,71 +58,40 @@ public class MenuClienteView extends javax.swing.JFrame {
             .addComponent(jLabel_menu_empleadp, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        btnSeguimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/mantenimiento atra.png"))); // NOI18N
-        btnSeguimiento.setContentAreaFilled(false);
+        btnVerTiquete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/tiqueteActvio (1).png"))); // NOI18N
+        btnVerTiquete.setContentAreaFilled(false);
 
-        jLabel2.setText("Seguimiento de Atracciones");
+        jLabelVerTiquetes.setText("Ver Tiquetes");
 
-        jButton5_back_main_menu_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
-        jButton5_back_main_menu_empleado.setContentAreaFilled(false);
-
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/add-attraction.png"))); // NOI18N
-        btnBuscar.setContentAreaFilled(false);
-
-        jLabel_Buscar_Atracciones_Main_Empleado.setText("Buscar Atracciones");
-
-        btnBookeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/parque-de-atracciones.png"))); // NOI18N
-        btnBookeo.setContentAreaFilled(false);
-
-        jLabel_Buscar_Atracciones_Main_Empleado1.setText("Reservaciones");
+        btnMenuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
+        btnMenuCliente.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabelVerTiquetes)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(btnMenuCliente)
+                            .addGap(241, 241, 241)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnSeguimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
-                        .addComponent(btnBookeo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar)
-                        .addGap(60, 60, 60))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel_Buscar_Atracciones_Main_Empleado1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                        .addComponent(jLabel_Buscar_Atracciones_Main_Empleado)
-                        .addGap(35, 35, 35))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton5_back_main_menu_empleado)
+                        .addGap(240, 240, 240)
+                        .addComponent(btnVerTiquete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnSeguimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBookeo, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_Buscar_Atracciones_Main_Empleado)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel_Buscar_Atracciones_Main_Empleado1)))
-                .addGap(47, 47, 47)
-                .addComponent(jButton5_back_main_menu_empleado)
+                .addGap(31, 31, 31)
+                .addComponent(btnVerTiquete, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelVerTiquetes)
+                .addGap(49, 49, 49)
+                .addComponent(btnMenuCliente)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -200,15 +165,11 @@ public class MenuClienteView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnBookeo;
-    public javax.swing.JButton btnBuscar;
-    public javax.swing.JButton btnSeguimiento;
-    public javax.swing.JButton jButton5_back_main_menu_empleado;
+    public javax.swing.JButton btnMenuCliente;
+    public javax.swing.JButton btnVerTiquete;
     public javax.swing.JButton jButton_Buscar_Atraccio_Main_Admin;
     public javax.swing.JButton jButton_Buscar_Atraccio_Main_Admin1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel_Buscar_Atracciones_Main_Empleado;
-    private javax.swing.JLabel jLabel_Buscar_Atracciones_Main_Empleado1;
+    private javax.swing.JLabel jLabelVerTiquetes;
     private javax.swing.JLabel jLabel_menu_empleadp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
