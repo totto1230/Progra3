@@ -92,7 +92,6 @@
                               <Component id="jLabel_Capacidad" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel_Sección" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel_Rango_de_Edad_Permitido" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_Precio_Por_Persona" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -114,18 +113,11 @@
                               <Component id="dtpFechaInstalacion" alignment="0" max="32767" attributes="0"/>
                               <Component id="ddlSeccion" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel4_Simbolo_Colones_Regist_Atra_Admin" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtPrecio" min="-2" pref="141" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="ddlRangoEdadMin" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ddlRangoEdadMax" alignment="0" pref="95" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="ddlRangoEdadMin" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ddlRangoEdadMax" alignment="0" pref="95" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="229" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -185,14 +177,9 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4_Simbolo_Colones_Regist_Atra_Admin" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jLabel_Precio_Por_Persona" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
@@ -205,7 +192,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="btnPrecios" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -265,11 +252,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel_Precio_Por_Persona">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Precio por persona"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombreAtraccion">
           <AuxValues>
@@ -334,16 +316,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtPrecio">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4_Simbolo_Colones_Regist_Atra_Admin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&#x20a1;"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JSlider" name="sldCapacidad">
           <Properties>
@@ -501,7 +473,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel2" pref="69" max="32767" attributes="0"/>
+                  <Component id="jLabel2" pref="87" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>

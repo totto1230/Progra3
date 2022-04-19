@@ -39,14 +39,11 @@ public class AtraccionesView extends javax.swing.JFrame {
         jLabel_Rango_de_Edad_Permitido = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jLabel_Precio_Por_Persona = new javax.swing.JLabel();
         txtNombreAtraccion = new javax.swing.JTextField();
         txtCodigoAtraccion = new javax.swing.JTextField();
         dtpFechaInstalacion = new com.toedter.calendar.JDateChooser();
         ddlSeccion = new javax.swing.JComboBox<>();
         ddlRangoEdadMin = new javax.swing.JComboBox<>();
-        txtPrecio = new javax.swing.JTextField();
-        jLabel4_Simbolo_Colones_Regist_Atra_Admin = new javax.swing.JLabel();
         sldCapacidad = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
         ddlRangoEdadMax = new javax.swing.JComboBox<>();
@@ -85,8 +82,6 @@ public class AtraccionesView extends javax.swing.JFrame {
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
         btnVolver.setContentAreaFilled(false);
 
-        jLabel_Precio_Por_Persona.setText("Precio por persona");
-
         ddlSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Infantil", "Adultos", "Familiar" }));
 
         ddlRangoEdadMin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18" }));
@@ -95,8 +90,6 @@ public class AtraccionesView extends javax.swing.JFrame {
                 ddlRangoEdadMinActionPerformed(evt);
             }
         });
-
-        jLabel4_Simbolo_Colones_Regist_Atra_Admin.setText("₡");
 
         sldCapacidad.setMajorTickSpacing(20);
         sldCapacidad.setPaintLabels(true);
@@ -124,7 +117,6 @@ public class AtraccionesView extends javax.swing.JFrame {
                             .addComponent(jLabel_Capacidad)
                             .addComponent(jLabel_Sección)
                             .addComponent(jLabel_Rango_de_Edad_Permitido)
-                            .addComponent(jLabel_Precio_Por_Persona)
                             .addComponent(jLabel4)))
                     .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
                         .addContainerGap()
@@ -141,15 +133,10 @@ public class AtraccionesView extends javax.swing.JFrame {
                             .addComponent(dtpFechaInstalacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ddlSeccion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                                .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                                        .addComponent(jLabel4_Simbolo_Colones_Regist_Atra_Admin)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(ddlRangoEdadMin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(ddlRangoEdadMax, javax.swing.GroupLayout.Alignment.LEADING, 0, 95, Short.MAX_VALUE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ddlRangoEdadMin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ddlRangoEdadMax, javax.swing.GroupLayout.Alignment.LEADING, 0, 95, Short.MAX_VALUE))
+                                .addGap(0, 229, Short.MAX_VALUE))))
                     .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(btnAgregar)
@@ -193,13 +180,9 @@ public class AtraccionesView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ddlRangoEdadMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4_Simbolo_Colones_Regist_Atra_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_Precio_Por_Persona))
                 .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(53, 53, 53)
                         .addGroup(jPane_Regist_Atra_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPane_Regist_Atra_AdminLayout.createSequentialGroup()
                                 .addComponent(btnVolver)
@@ -208,7 +191,7 @@ public class AtraccionesView extends javax.swing.JFrame {
                                 .addComponent(btnAgregar)
                                 .addGap(39, 39, 39))))
                     .addGroup(jPane_Regist_Atra_AdminLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(34, 34, 34)
                         .addComponent(btnPrecios))))
         );
 
@@ -227,7 +210,7 @@ public class AtraccionesView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -348,12 +331,10 @@ public class AtraccionesView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel4_Simbolo_Colones_Regist_Atra_Admin;
     private javax.swing.JLabel jLabel_Capacidad;
     private javax.swing.JLabel jLabel_Fecha_de_Instalacion;
     private javax.swing.JLabel jLabel_Identificador_Atraccion;
     private javax.swing.JLabel jLabel_Nombre_Atraccion;
-    private javax.swing.JLabel jLabel_Precio_Por_Persona;
     private javax.swing.JLabel jLabel_Rango_de_Edad_Permitido;
     private javax.swing.JLabel jLabel_Sección;
     private javax.swing.JPanel jPane_Regist_Atra_Admin;
@@ -366,6 +347,5 @@ public class AtraccionesView extends javax.swing.JFrame {
     public javax.swing.JTable tblAtracciones;
     public javax.swing.JTextField txtCodigoAtraccion;
     public javax.swing.JTextField txtNombreAtraccion;
-    public javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

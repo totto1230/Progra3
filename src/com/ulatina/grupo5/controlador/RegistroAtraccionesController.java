@@ -61,7 +61,7 @@ public class RegistroAtraccionesController implements ActionListener {
         vista.ddlSeccion.setSelectedIndex(getSeccion(atraccion.getSeccion()));
         vista.ddlRangoEdadMin.setSelectedIndex(atraccion.getEdadMin() - 1);
         vista.ddlRangoEdadMax.setSelectedIndex(atraccion.getEdadMax() - 1);
-        vista.txtPrecio.setText(String.valueOf(atraccion.getPrecioNormal()));
+        //vista.txtPrecio.setText(String.valueOf(atraccion.getPrecioNormal()));
         vista.btnPrecios.setVisible(true);
     }
 
@@ -97,7 +97,7 @@ public class RegistroAtraccionesController implements ActionListener {
         String seccion = String.valueOf(vista.ddlSeccion.getSelectedItem().toString().charAt(0)).toUpperCase();// optiene la primer letra (I,A,F)
         Integer edadMin = Integer.parseInt(vista.ddlRangoEdadMin.getSelectedItem().toString());
         Integer edadMax = Integer.parseInt(vista.ddlRangoEdadMax.getSelectedItem().toString());
-        Float precio = Float.parseFloat(vista.txtPrecio.getText());
+        Float precio = Float.parseFloat("0");
         Boolean activo = true;
 
         atraccion = new Atracciones(idAtraccion, nombreAtraccion, fechaInsta, capacidad, seccion, edadMin, edadMax, precio, activo);
@@ -136,9 +136,6 @@ public class RegistroAtraccionesController implements ActionListener {
             if (vista.txtNombreAtraccion.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "Debe ingresar el nombre de la atracción", "Error al Agregar", JOptionPane.INFORMATION_MESSAGE);
                 vista.txtNombreAtraccion.requestFocus();
-            } else if (vista.txtPrecio.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(vista, "Debe ingresar el nombre de la atracción", "Error al Agregar", JOptionPane.INFORMATION_MESSAGE);
-                vista.txtPrecio.requestFocus();
             } else {
                 if (vista.txtCodigoAtraccion.getText().isEmpty()) {
                     agregar();
