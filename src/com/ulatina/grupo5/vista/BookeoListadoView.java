@@ -29,7 +29,7 @@ public class BookeoListadoView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblUsuario = new javax.swing.JTable();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        pnAtracciones = new javax.swing.JScrollPane();
         tblAtraccion = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -68,7 +68,7 @@ public class BookeoListadoView extends javax.swing.JFrame {
                 "Atracciones"
             }
         ));
-        jScrollPane1.setViewportView(tblAtraccion);
+        pnAtracciones.setViewportView(tblAtraccion);
 
         jLabel2.setText("Tiquete:");
 
@@ -113,7 +113,7 @@ public class BookeoListadoView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnAtracciones, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,7 +141,7 @@ public class BookeoListadoView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))))
+                            .addComponent(pnAtracciones))))
                 .addGap(16, 16, 16))
         );
 
@@ -223,12 +223,12 @@ public class BookeoListadoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblFechaDeVisita;
     public javax.swing.JLabel lblTiquete;
     public javax.swing.JLabel lblUsuario;
+    public javax.swing.JScrollPane pnAtracciones;
     public javax.swing.JTable tblAtraccion;
     public javax.swing.JTable tblUsuario;
     // End of variables declaration//GEN-END:variables

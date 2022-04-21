@@ -212,7 +212,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
     }
 
     @Override
-    public BookeoAtracciones[] listarPor(Object obj) {
+    public Object[] listarPor(Object obj) {
         String sql = "SELECT orderId,ticket,idAtracciones FROM BookeoAtracciones where ticket = ?";
         p = (BookeoAtracciones) obj;
         ArrayList<BookeoAtracciones> bookeoAtracciones = new ArrayList<>();
@@ -220,7 +220,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, p.ticket);
+            ps.setInt(1, p.getTicket());
             rs = ps.executeQuery();
             while (rs.next()) {
                 BookeoAtracciones bookeoAtraccion = new BookeoAtracciones();
@@ -234,7 +234,7 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
         } catch (Exception ex) {
             System.out.println("Error");
         }
-        return (BookeoAtracciones[]) bookeoAtracciones.toArray();
+        return bookeoAtracciones.toArray();
     }
 
     @Override

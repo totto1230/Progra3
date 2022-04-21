@@ -7,9 +7,11 @@ import com.ulatina.grupo5.dao.impl.BookeoDAOImpl;
 import com.ulatina.grupo5.dao.impl.BookeoPersonaDAOImpl;
 import com.ulatina.grupo5.dao.impl.PrecioDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
+import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Bookeo;
 import com.ulatina.grupo5.modelo.BookeoAtracciones;
 import com.ulatina.grupo5.modelo.BookeoPersona;
+import com.ulatina.grupo5.modelo.Usuarios;
 import com.ulatina.grupo5.vista.BookeoView;
 import com.ulatina.grupo5.vista.BookeoListadoView;
 import java.awt.event.ActionEvent;
@@ -34,59 +36,72 @@ public class TiqueteController implements ActionListener {
         this.vista = vista;
         this.vista.btnBackTiquetes.addActionListener(this);
         this.vista.chkPaseEspecial.addActionListener(this);
-        iniciar(bookeo);
     }
 
     public void iniciar(Bookeo bookeo) {
         this.bookeo = bookeo;
         int tiquete = bookeo.getTicket();
-        int usuario = bookeo.getCedula();
+        Object persona = daoUsuarios.listarUno(bookeo.getCedula());
+
+        String usuario = ((Usuarios) persona).getNombre() + " " + ((Usuarios) persona).getApellido1() + " " + ((Usuarios) persona).getAppellido2();
+
         String fechaVisita = bookeo.getFechaVisita().toString();
         boolean paseEspe = bookeo.isPaseEspecial();
         vista.lblTiquete.setText(String.valueOf(tiquete));
-        vista.lblUsuario.setText(String.valueOf(usuario));
+        vista.lblUsuario.setText(usuario);
+        vista.chkPaseEspecial.setVisible(false);
         vista.lblFechaDeVisita.setText(fechaVisita);
         vista.chkPaseEspecial.setText(String.valueOf(paseEspe));
-        atracciones(bookeo);
+        if (!bookeo.isPaseEspecial()) {
+            atracciones(bookeo);
+            vista.pnAtracciones.setVisible(true);
+        } else {
+            vista.pnAtracciones.setVisible(false);
+        }
         personas(bookeo);
     }
-    
+
     public void personas(Bookeo bookeo) {
-        Object[] personas = daoBookeoPersonas.listarPor(bookeo);
-        
-        String[] titulos = {"OrderId", "Cedula", "Ticket"};
+        BookeoPersona bookeoPersona = new BookeoPersona(1, -1, bookeo.getTicket());
+        Object[] personas = daoBookeoPersonas.listarPor(bookeoPersona);
+
+        String[] titulos = {"Cedula", "Nombre", "Apellidos"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         for (Object o : personas) {
             BookeoPersona b = (BookeoPersona) o;
-            registros[0] = b.getOrderId().toString();
-            registros[1] = b.getCedula().toString();
-            registros[2] = b.getTicket().toString();
+            Object persona = daoUsuarios.listarUno(b.getCedula());
+            registros[0] = b.getCedula().toString();
+            registros[1] = ((Usuarios) persona).getNombre();
+            registros[2] = ((Usuarios) persona).getApellido1() + " " + ((Usuarios) persona).getAppellido2();
             model.addRow(registros);
         }
         vista.tblUsuario.setModel(model);
     }
 
     public void atracciones(Bookeo bookeo) {
-        Object[] atracciones = daoBookeoAtracciones.listarPor(bookeo);
-        
-        String[] titulos = {"OrderId", "Ticket", "idAtracciones"};
+        BookeoAtracciones bookeoAtraccion = new BookeoAtracciones(-1, bookeo.getTicket(), -1);
+        Object[] atracciones = daoBookeoAtracciones.listarPor(bookeoAtraccion);
+
+        String[] titulos = {"Nombre Atraccion"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         for (Object o : atracciones) {
             BookeoAtracciones b = (BookeoAtracciones) o;
-            registros[0] = b.getOrderId().toString();
-            registros[1] = b.getTicket().toString();
-            registros[2] = b.getIdAtracciones().toString();
+            Object atraccion = daoAtracciones.listarUno(b.getIdAtracciones());
+            registros[0] = ((Atracciones) atraccion).getNombreAtraccion();
             model.addRow(registros);
         }
-        vista.tblUsuario.setModel(model);
+        vista.tblAtraccion.setModel(model);
     }
 
     public void volver() {
-        main.setVisible(true);
+        BookeoView bookeoView = new BookeoView();
+        BookeoController bookeoC = new BookeoController(bookeoView);
+        bookeoC.iniciar();
+        bookeoView.setVisible(true);
         vista.dispose();
     }
 
@@ -96,8 +111,7 @@ public class TiqueteController implements ActionListener {
             volver();
         } else if (e.getSource() == vista.chkPaseEspecial) {
             vista.tblAtraccion.setVisible(true);
-        }
-        else{
+        } else {
             vista.tblAtraccion.setVisible(false);
         }
 

@@ -19,6 +19,7 @@ import com.ulatina.grupo5.dao.impl.BookeoDAOImpl;
 import com.ulatina.grupo5.dao.impl.BookeoPersonaDAOImpl;
 import com.ulatina.grupo5.dao.impl.PrecioDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
+import com.ulatina.grupo5.vista.BookeoListadoView;
 
 import com.ulatina.grupo5.vista.BookeoView;
 import com.ulatina.grupo5.vista.MenuAdminView;
@@ -78,6 +79,7 @@ public class BookeoController implements ActionListener {
         vista.txtUsuarioTickete.setEnabled(false);
         Date date = new Date();
         vista.dtpFechaVisita.setDate(date);
+        vista.lblTotalVenta.setText("");
     }
 
     private void loadComboBoxAtracciones() {
@@ -119,8 +121,8 @@ public class BookeoController implements ActionListener {
             model = (DefaultTableModel) vista.tblAtracciones.getModel();
         }
         ComboItem item = (ComboItem) this.vista.ddlAtracciones.getSelectedItem();
-        registros[0] = item.getKey();
-        registros[1] = item.getValue();
+        registros[0] = item.getValue();
+        registros[1] = item.getKey();
         model.addRow(registros);
         vista.tblAtracciones.setModel(model);
     }
@@ -152,7 +154,7 @@ public class BookeoController implements ActionListener {
         }
     }
 
-    private Boolean crearTickete() {
+    private Bookeo crearTickete() {
         Boolean rtn = false;
         int numeroTickete = daoBookeo.nextID();
         int cedulaUsuario = LoginController.sessionUsr.getCedula();
@@ -180,7 +182,7 @@ public class BookeoController implements ActionListener {
                 BookeoAtracciones bookeoAtraccion = new BookeoAtracciones();
                 bookeoAtraccion.setOrderId(daoBookeoAtracciones.nextID());
                 bookeoAtraccion.setTicket(numeroTickete);
-                bookeoAtraccion.setIdAtracciones(Integer.parseInt(vista.tblUsuarios.getModel().getValueAt(i, 0).toString()));
+                bookeoAtraccion.setIdAtracciones(Integer.parseInt(vista.tblAtracciones.getModel().getValueAt(i, 0).toString()));
                 rtn = daoBookeoAtracciones.insertar(bookeoAtraccion);
                 if (rtn) {
                     totalVenta += calcularPrecioAtraccion(bookeoAtraccion);
@@ -192,11 +194,11 @@ public class BookeoController implements ActionListener {
             bookeoAtraccion.setIdAtracciones(-1); //idAtraccion pase especial
             totalVenta += calcularPrecioAtraccion(bookeoAtraccion);
         } else if (!rtn) {
-            return rtn;
+            return null;
         }
         bookeo.setTotalVenta(totalVenta);
         rtn = daoBookeo.actualizar(bookeo);
-        return rtn;
+        return bookeo;
     }
 
     private double calcularPrecioAtraccion(BookeoAtracciones bookeoAtraccion) {
@@ -261,7 +263,13 @@ public class BookeoController implements ActionListener {
         } else if (e.getSource() == vista.btnEliminarAtraccion) {
             borrarLineaJTable(vista.tblAtracciones);
         } else if (e.getSource() == vista.btnCrearTickete) {
-            crearTickete();
+            Bookeo bookeo = crearTickete();
+            BookeoListadoView bookview = new BookeoListadoView();
+            TiqueteController ctrlTickete = new TiqueteController(bookview);
+            ctrlTickete.iniciar(bookeo);
+            bookview.setVisible(true);
+            vista.dispose();
+
         } else if (e.getSource() == vista.btnAtras) {
             volver();
         }

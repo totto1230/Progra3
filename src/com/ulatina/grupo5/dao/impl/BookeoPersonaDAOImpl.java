@@ -216,7 +216,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
     public Object[] listarPor(Object obj) {
         b = (BookeoPersona) obj;
         ArrayList<BookeoPersona> bookeoPersonas = new ArrayList<BookeoPersona>();
-        String sql = "select orderId, b.cedula , u.nombre+' '+u.apellido1+' '+u.appellido2 , ticket from BookeoPersona b inner join usuarios u on b.cedula = u.cedula where ticket = ?";
+        String sql = "select orderId, cedula, ticket from BookeoPersona where ticket = ?";
         try {
 
             conectar.connectar();
