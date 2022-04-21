@@ -24,7 +24,6 @@ public class Controlador_Admin extends MenuAdminView implements ActionListener{
         this.ui2= ui2;
         this.mod = mod;
         this.impl = impl;
-        this.ui.jButton5_back_main_menu_admin.addActionListener(this);
         this.ui.jButton_Registrar_Usuarios_Main_admin.addActionListener(this);
         this.ui.jButton_add_atraccion_main_admin.addActionListener(this);
         this.ui.jButton_ganancias_main_menu.addActionListener(this);

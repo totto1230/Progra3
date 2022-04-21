@@ -22,6 +22,8 @@ import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
 
 import com.ulatina.grupo5.vista.BookeoView;
 import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.MenuClienteView;
+import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import com.ulatina.grupo5.vista.UsuariosView;
 
 import java.awt.event.ActionEvent;
@@ -82,7 +84,7 @@ public class BookeoController implements ActionListener {
         Object[] atracciones = daoAtracciones.listarPor(true);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for (int i = 0; i < atracciones.length; i++) {
-            model.addElement(new ComboItem(((Atracciones)atracciones[i]).getNombreAtraccion(), String.valueOf(((Atracciones)atracciones[i]).getIdAtracciones())));
+            model.addElement(new ComboItem(((Atracciones) atracciones[i]).getNombreAtraccion(), String.valueOf(((Atracciones) atracciones[i]).getIdAtracciones())));
         }
 
         this.vista.ddlAtracciones.setModel(model);
@@ -99,7 +101,7 @@ public class BookeoController implements ActionListener {
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
         for (Object o : usuarios) {
-            Usuarios usr = (Usuarios)o;
+            Usuarios usr = (Usuarios) o;
             registros[0] = usr.getCedula().toString();
             registros[1] = usr.getNombre();
             registros[2] = usr.getApellido1() + " " + usr.getAppellido2();
@@ -139,7 +141,7 @@ public class BookeoController implements ActionListener {
             model.addRow(registros);
             vista.tblUsuarios.setModel(model);
         }
-        
+
     }
 
     private void borrarLineaJTable(JTable table) {
@@ -206,7 +208,7 @@ public class BookeoController implements ActionListener {
                 Usuarios usr = new Usuarios(0, "", "", "", "", "", fechaCumpleaños, 0);
                 PrecioDAOImpl.listarPorParametros parametros = daoPrecios.new listarPorParametros(bookeoAtraccion.idAtracciones, usr);
                 Object[] precios = daoPrecios.listarPor(parametros);
-                rtn += ((Precio)precios[0]).getPrecio();
+                rtn += ((Precio) precios[0]).getPrecio();
             }
         } catch (Exception e) {
             rtn = -1;
@@ -215,8 +217,27 @@ public class BookeoController implements ActionListener {
     }
 
     public void volver() {
-        main.setVisible(true);
-        vista.dispose();
+        Usuarios currentUser = LoginController.sessionUsr;
+        switch (currentUser.getTipoUsuario()) {
+            case 1:
+                MenuAdminView vistaMenuAdmin = new MenuAdminView();
+                Menu_AdminController controller = new Menu_AdminController(vistaMenuAdmin);
+                vistaMenuAdmin.setVisible(true);
+                vista.dispose();
+                break;
+            case 2:
+                MenuEmpleadoView vistaMenuEmpleado = new MenuEmpleadoView();
+                MenuEmpleadoController controllerEmpleado = new MenuEmpleadoController(vistaMenuEmpleado);
+                vistaMenuEmpleado.setVisible(true);
+                vista.dispose();
+                break;
+            case 3:
+                MenuClienteView vistaCliente = new MenuClienteView();
+                MenuClienteController controllerCliente = new MenuClienteController(vistaCliente);
+                vistaCliente.setVisible(true);
+                vista.dispose();
+                break;
+        }
     }
 
     @Override

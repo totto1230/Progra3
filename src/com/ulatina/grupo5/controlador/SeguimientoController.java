@@ -83,9 +83,9 @@ public class SeguimientoController implements ActionListener {
     }
 
     private void cargarMenuEmpleado() {
-        MenuEmpleadoView vistaMenuAdmin = new MenuEmpleadoView();
-        MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuAdmin);
-        vistaMenuAdmin.setVisible(true);
+        MenuEmpleadoView vistaMenuEmpleado = new MenuEmpleadoView();
+        MenuEmpleadoController controller = new MenuEmpleadoController(vistaMenuEmpleado);
+        vistaMenuEmpleado.setVisible(true);
         vista.dispose();
     }
 

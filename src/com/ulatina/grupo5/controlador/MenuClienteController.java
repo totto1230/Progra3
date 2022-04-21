@@ -17,7 +17,6 @@ public class MenuClienteController implements ActionListener {
 
     public MenuClienteController(MenuClienteView vista) {
         this.vista = vista;
-        this.vista.btnMenuCliente.addActionListener(this);
         this.vista.btnVerTiquete.addActionListener(this);
     }
 
@@ -28,13 +27,7 @@ public class MenuClienteController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
        
-        if (e.getSource() == vista.btnMenuCliente) {
-            loginC = new LoginController(loginVista);
-            loginC.iniciar();
-            loginVista.setVisible(true);
-            vista.dispose();
-        }
-        else if (e.getSource() == vista.btnVerTiquete){
+        if (e.getSource() == vista.btnVerTiquete){
            controlTiqute = new MenuClienteTiqueteController (vistaTiquete);
            controlTiqute.iniciar();
            vistaTiquete.setVisible(true);

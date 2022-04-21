@@ -25,7 +25,6 @@ public class MenuEmpleadoController implements ActionListener {
 
     public MenuEmpleadoController(MenuEmpleadoView vista) {
         this.vista = vista;
-        this.vista.jButton5_back_main_menu_empleado.addActionListener(this);
         this.vista.btnSeguimiento.addActionListener(this);
         this.vista.btnBuscar.addActionListener(this);
         this.vista.btnBookeo.addActionListener(this);
@@ -47,11 +46,6 @@ public class MenuEmpleadoController implements ActionListener {
             buscarAtrac = new BuscarAtraccionesController(buscarAtracVista);
             buscarAtrac.iniciar();
             buscarAtracVista.setVisible(true);
-            vista.dispose();
-        } else if (e.getSource() == vista.jButton5_back_main_menu_empleado) {
-            loginC = new LoginController(loginVista);
-            loginC.iniciar();
-            loginVista.setVisible(true);
             vista.dispose();
         } else if (e.getSource() == vista.btnBookeo) {
             bookeoC = new BookeoController(bookeoView);

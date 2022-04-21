@@ -34,7 +34,6 @@ public class MenuEmpleadoView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnSeguimiento = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton5_back_main_menu_empleado = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         jLabel_Buscar_Atracciones_Main_Empleado = new javax.swing.JLabel();
         btnBookeo = new javax.swing.JButton();
@@ -66,9 +65,6 @@ public class MenuEmpleadoView extends javax.swing.JFrame {
         btnSeguimiento.setContentAreaFilled(false);
 
         jLabel2.setText("Seguimiento de Atracciones");
-
-        jButton5_back_main_menu_empleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
-        jButton5_back_main_menu_empleado.setContentAreaFilled(false);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/add-attraction.png"))); // NOI18N
         btnBuscar.setContentAreaFilled(false);
@@ -102,10 +98,6 @@ public class MenuEmpleadoView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                         .addComponent(jLabel_Buscar_Atracciones_Main_Empleado)
                         .addGap(35, 35, 35))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton5_back_main_menu_empleado)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,9 +117,7 @@ public class MenuEmpleadoView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(jLabel_Buscar_Atracciones_Main_Empleado1)))
-                .addGap(47, 47, 47)
-                .addComponent(jButton5_back_main_menu_empleado)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -201,7 +191,6 @@ public class MenuEmpleadoView extends javax.swing.JFrame {
     public javax.swing.JButton btnBookeo;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnSeguimiento;
-    public javax.swing.JButton jButton5_back_main_menu_empleado;
     public javax.swing.JButton jButton_Buscar_Atraccio_Main_Admin;
     public javax.swing.JButton jButton_Buscar_Atraccio_Main_Admin1;
     private javax.swing.JLabel jLabel2;

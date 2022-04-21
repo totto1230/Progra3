@@ -33,7 +33,6 @@ public class MenuAdminView extends javax.swing.JFrame {
         jLabel_Registrar_atrac_Main_admin = new javax.swing.JLabel();
         jButton_mantenimiento_atracciones_main_admin = new javax.swing.JButton();
         jButton_ganancias_main_menu = new javax.swing.JButton();
-        jButton5_back_main_menu_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton_Ver_Usuarios_Main_Admin = new javax.swing.JButton();
@@ -61,9 +60,6 @@ public class MenuAdminView extends javax.swing.JFrame {
         jButton_ganancias_main_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/money.png"))); // NOI18N
         jButton_ganancias_main_menu.setContentAreaFilled(false);
 
-        jButton5_back_main_menu_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/previous1.png"))); // NOI18N
-        jButton5_back_main_menu_admin.setContentAreaFilled(false);
-
         jLabel1.setText("Seguimiento de Atracciones");
 
         jLabel2.setText("Ganancias");
@@ -82,10 +78,6 @@ public class MenuAdminView extends javax.swing.JFrame {
         jPanel_Menu_Admin.setLayout(jPanel_Menu_AdminLayout);
         jPanel_Menu_AdminLayout.setHorizontalGroup(
             jPanel_Menu_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Menu_AdminLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton5_back_main_menu_admin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_Menu_AdminLayout.createSequentialGroup()
                 .addGroup(jPanel_Menu_AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_Menu_AdminLayout.createSequentialGroup()
@@ -142,15 +134,13 @@ public class MenuAdminView extends javax.swing.JFrame {
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel2))
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(111, Short.MAX_VALUE))
                     .addGroup(jPanel_Menu_AdminLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton_Buscar_Atraccio_Main_Admin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel_Buscar_Atracciones_Main_Admin)
-                        .addGap(18, 18, 18)))
-                .addComponent(jButton5_back_main_menu_admin)
-                .addGap(45, 45, 45))
+                        .addGap(123, 123, 123))))
         );
 
         jLabel_menu_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/menu_admin.png"))); // NOI18N
@@ -233,7 +223,6 @@ public class MenuAdminView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton5_back_main_menu_admin;
     public javax.swing.JButton jButton_Buscar_Atraccio_Main_Admin;
     public javax.swing.JButton jButton_Registrar_Usuarios_Main_admin;
     public javax.swing.JButton jButton_Ver_Usuarios_Main_Admin;
