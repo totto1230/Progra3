@@ -25,6 +25,9 @@ public class BookeoListarPor {
         this.fechaHasta = fechaHasta;
     }
 
+    public BookeoListarPor() {
+    }
+
     public Integer getTipoUsuario() {
         return tipoUsuario;
     }

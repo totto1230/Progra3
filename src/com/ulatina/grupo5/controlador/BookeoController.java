@@ -5,6 +5,7 @@
 package com.ulatina.grupo5.controlador;
 
 import com.ulatina.grupo5.dao.BaseDAO;
+import com.ulatina.grupo5.dao.BookeoListarPor;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Usuarios;
@@ -23,6 +24,7 @@ import com.ulatina.grupo5.vista.BookeoListadoView;
 
 import com.ulatina.grupo5.vista.BookeoView;
 import com.ulatina.grupo5.vista.MenuAdminView;
+import com.ulatina.grupo5.vista.MenuClienteTiqueteView;
 import com.ulatina.grupo5.vista.MenuClienteView;
 import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import com.ulatina.grupo5.vista.UsuariosView;
@@ -46,7 +48,8 @@ public class BookeoController implements ActionListener {
 
     BookeoView vista = new BookeoView();
     MenuAdminView main = new MenuAdminView();
-
+    MenuClienteTiqueteView vistaTiquete = new MenuClienteTiqueteView();
+    
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
     PrecioDAOImpl daoPrecios = new PrecioDAOImpl(); // para poder crear la subclase parametros
     BaseDAO daoBookeo = new BookeoDAOImpl();
@@ -113,6 +116,26 @@ public class BookeoController implements ActionListener {
         vista.tblUsuariosBusqueda.setModel(model);
     }
 
+    public void buscarTickets(){
+        
+        BookeoListarPor filtro = new BookeoListarPor();
+        Object[] tickets = daoBookeo.listarPor(filtro);
+        String[] titulos = {"ticket", "cedula", "fechaCompra", "fechaVisita","totalVenta","paseEspecial"};
+        String[] registros = new String[titulos.length];
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        for (Object o : tickets) {
+            Bookeo bko = (Bookeo) o;
+            registros[0] = bko.getTicket().toString();
+            registros[1] = bko.getCedula().toString();
+            registros[2] = bko.getFechaCompra().toString();
+            registros[3] = bko.getFechaVisita().toString();
+            registros[4] = String.valueOf(bko.getTotalVenta());
+            model.addRow(registros);
+        }
+        vistaTiquete.tblTiquetes.setModel(model);
+    }
+    
     private void insertarAtraccionJTable() {
         String[] titulos = {"Id de Atracción", "Nombre Atracción"};
         String[] registros = new String[titulos.length];

@@ -14,15 +14,17 @@ import com.ulatina.grupo5.modelo.BookeoPersona;
 import com.ulatina.grupo5.modelo.Usuarios;
 import com.ulatina.grupo5.vista.BookeoView;
 import com.ulatina.grupo5.vista.BookeoListadoView;
+import com.ulatina.grupo5.vista.MenuClienteTiqueteView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.Integer.parseInt;
 import javax.swing.table.DefaultTableModel;
 
 public class TiqueteController implements ActionListener {
 
     BookeoListadoView vista = new BookeoListadoView();
     BookeoView main = new BookeoView();
-
+    MenuClienteTiqueteView vistaTiquete = new MenuClienteTiqueteView();
     Bookeo bookeo = new Bookeo();
 
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
@@ -112,7 +114,10 @@ public class TiqueteController implements ActionListener {
             volver();
         } else if (e.getSource() == vista.chkPaseEspecial) {
             vista.tblAtraccion.setVisible(true);
-        } else {
+        } 
+        else if (e.getSource() == vistaTiquete.btnBuscar) {
+            bookeo.setTicket(parseInt(vistaTiquete.txtOrderID.getText()));
+        }else {
             vista.tblAtraccion.setVisible(false);
         }
 
