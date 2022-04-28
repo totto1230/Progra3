@@ -116,7 +116,7 @@ public class TiqueteController implements ActionListener {
             vista.tblAtraccion.setVisible(true);
         } 
         else if (e.getSource() == vistaTiquete.btnBuscar) {
-            bookeo.setTicket(parseInt(vistaTiquete.txtOrderID.getText()));
+            bookeo.setTicket(parseInt(vistaTiquete.txtTicket.getText()));
         }else {
             vista.tblAtraccion.setVisible(false);
         }
