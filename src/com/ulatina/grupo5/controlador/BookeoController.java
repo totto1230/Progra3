@@ -20,11 +20,11 @@ import com.ulatina.grupo5.dao.impl.BookeoDAOImpl;
 import com.ulatina.grupo5.dao.impl.BookeoPersonaDAOImpl;
 import com.ulatina.grupo5.dao.impl.PrecioDAOImpl;
 import com.ulatina.grupo5.dao.impl.UsuariosDAOImpl;
-import com.ulatina.grupo5.vista.BookeoListadoView;
+import com.ulatina.grupo5.vista.BookeoTicketeView;
 
 import com.ulatina.grupo5.vista.BookeoView;
 import com.ulatina.grupo5.vista.MenuAdminView;
-import com.ulatina.grupo5.vista.MenuClienteTiqueteView;
+import com.ulatina.grupo5.vista.BookeoListadoView;
 import com.ulatina.grupo5.vista.MenuClienteView;
 import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import com.ulatina.grupo5.vista.UsuariosView;
@@ -48,7 +48,7 @@ public class BookeoController implements ActionListener {
 
     BookeoView vista = new BookeoView();
     MenuAdminView main = new MenuAdminView();
-    MenuClienteTiqueteView vistaTiquete = new MenuClienteTiqueteView();
+    BookeoListadoView vistaTiquete = new BookeoListadoView();
     
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
     PrecioDAOImpl daoPrecios = new PrecioDAOImpl(); // para poder crear la subclase parametros
@@ -287,8 +287,8 @@ public class BookeoController implements ActionListener {
             borrarLineaJTable(vista.tblAtracciones);
         } else if (e.getSource() == vista.btnCrearTickete) {
             Bookeo bookeo = crearTickete();
-            BookeoListadoView bookview = new BookeoListadoView();
-            TiqueteController ctrlTickete = new TiqueteController(bookview);
+            BookeoTicketeView bookview = new BookeoTicketeView();
+            BookeoTicketeController ctrlTickete = new BookeoTicketeController(bookview);
             ctrlTickete.iniciar(bookeo);
             bookview.setVisible(true);
             vista.dispose();

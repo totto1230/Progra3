@@ -5,7 +5,7 @@ import com.ulatina.grupo5.modelo.Atracciones;
 import com.ulatina.grupo5.modelo.Bookeo;
 import com.ulatina.grupo5.vista.AtraccionesView;
 import com.ulatina.grupo5.vista.BookeoView;
-import com.ulatina.grupo5.vista.MenuClienteTiqueteView;
+import com.ulatina.grupo5.vista.BookeoListadoView;
 import com.ulatina.grupo5.vista.MenuClienteView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,13 +15,13 @@ import javax.swing.JTable;
 
 public class MenuClienteTiqueteController implements ActionListener {
 
-    MenuClienteTiqueteView vista = new MenuClienteTiqueteView();
+    BookeoListadoView vista = new BookeoListadoView();
     MenuClienteController menuController;
     MenuClienteView vistaMenu = new MenuClienteView();
     BookeoDAOImpl dao = new BookeoDAOImpl();
     Bookeo bookeo;
 
-    public MenuClienteTiqueteController(MenuClienteTiqueteView vista) {
+    public MenuClienteTiqueteController(BookeoListadoView vista) {
         this.vista = vista;
         this.vista.btnVolver.addActionListener(this);
         this.vista.tblTiquetes.addMouseListener(new MouseAdapter() {

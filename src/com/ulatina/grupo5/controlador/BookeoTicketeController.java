@@ -1,5 +1,6 @@
 package com.ulatina.grupo5.controlador;
 
+import static com.ulatina.grupo5.controlador.LoginController.sessionUsr;
 import com.ulatina.grupo5.dao.BaseDAO;
 import com.ulatina.grupo5.dao.impl.AtraccionesDAOImpl;
 import com.ulatina.grupo5.dao.impl.BookeoAtraccionesDAOImpl;
@@ -13,18 +14,20 @@ import com.ulatina.grupo5.modelo.BookeoAtracciones;
 import com.ulatina.grupo5.modelo.BookeoPersona;
 import com.ulatina.grupo5.modelo.Usuarios;
 import com.ulatina.grupo5.vista.BookeoView;
+import com.ulatina.grupo5.vista.BookeoTicketeView;
 import com.ulatina.grupo5.vista.BookeoListadoView;
-import com.ulatina.grupo5.vista.MenuClienteTiqueteView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.lang.Integer.parseInt;
 import javax.swing.table.DefaultTableModel;
+import com.ulatina.grupo5.dao.BookeoListarPor;
+import java.util.Date;
 
-public class TiqueteController implements ActionListener {
+public class BookeoTicketeController implements ActionListener {
 
-    BookeoListadoView vista = new BookeoListadoView();
+    BookeoTicketeView vista = new BookeoTicketeView();
     BookeoView main = new BookeoView();
-    MenuClienteTiqueteView vistaTiquete = new MenuClienteTiqueteView();
+    BookeoListadoView vistaTiquete = new BookeoListadoView();
     Bookeo bookeo = new Bookeo();
 
     BaseDAO daoAtracciones = new AtraccionesDAOImpl();
@@ -34,7 +37,7 @@ public class TiqueteController implements ActionListener {
     BaseDAO daoBookeoPersonas = new BookeoPersonaDAOImpl();
     BaseDAO daoUsuarios = new UsuariosDAOImpl();
 
-    public TiqueteController(BookeoListadoView vista) {
+    public BookeoTicketeController(BookeoTicketeView vista) {
         this.vista = vista;
         this.vista.btnBackTiquetes.addActionListener(this);
         this.vista.chkPaseEspecial.addActionListener(this);
@@ -100,6 +103,33 @@ public class TiqueteController implements ActionListener {
         vista.tblAtraccion.setModel(model);
     }
 
+    private void cargarTabla() {
+        int ticket = -1;
+        if (!vistaTiquete.txtTicket.getText().isBlank()) {
+            ticket = parseInt(vistaTiquete.txtTicket.getText());
+        }
+/*        Date fechaDesde, fechaHasta;
+
+        BookeoListarPor filtro = new BookeoListarPor(sessionUsr.getTipoUsuario(), ticket, sessionUsr.getCedula(), fechaDesde, fechaHasta);
+
+        Object[] tickets = daoBookeo.listarPor(filtro);
+        String[] titulos = {"ticket", "cedula", "fechaCompra", "fechaVisita", "totalVenta", "paseEspecial"};
+        String[] registros = new String[titulos.length];
+        DefaultTableModel model = new DefaultTableModel(null, titulos);
+
+        for (Object o : tickets) {
+            Bookeo bko = (Bookeo) o;
+            registros[0] = bko.getTicket().toString();
+            registros[1] = bko.getCedula().toString();
+            registros[2] = bko.getFechaCompra().toString();
+            registros[3] = bko.getFechaVisita().toString();
+            registros[4] = String.valueOf(bko.getTotalVenta());
+            model.addRow(registros);
+        }
+        vistaTiquete.tblTiquetes.setModel(model);
+*/
+    }
+
     public void volver() {
         BookeoView bookeoView = new BookeoView();
         BookeoController bookeoC = new BookeoController(bookeoView);
@@ -114,10 +144,9 @@ public class TiqueteController implements ActionListener {
             volver();
         } else if (e.getSource() == vista.chkPaseEspecial) {
             vista.tblAtraccion.setVisible(true);
-        } 
-        else if (e.getSource() == vistaTiquete.btnBuscar) {
-            bookeo.setTicket(parseInt(vistaTiquete.txtTicket.getText()));
-        }else {
+        } else if (e.getSource() == vistaTiquete.btnBuscar) {
+            cargarTabla();
+        } else {
             vista.tblAtraccion.setVisible(false);
         }
 
