@@ -224,9 +224,9 @@ public class BookeoAtraccionesDAOImpl implements BaseDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 BookeoAtracciones bookeoAtraccion = new BookeoAtracciones();
-                p.setOrderId(Integer.parseInt(rs.getString("orderId")));
-                p.setTicket(rs.getInt("ticket"));
-                p.setIdAtracciones(Integer.parseInt(rs.getString("idAtracciones")));
+                bookeoAtraccion.setOrderId(Integer.parseInt(rs.getString("orderId")));
+                bookeoAtraccion.setTicket(rs.getInt("ticket"));
+                bookeoAtraccion.setIdAtracciones(Integer.parseInt(rs.getString("idAtracciones")));
                 bookeoAtracciones.add(bookeoAtraccion);
             }
             con.close();
