@@ -220,7 +220,7 @@ public class BookeoDAOImpl implements BaseDAO {
             sql =   "set @filtro := ?;\n" +
                     "\n" +
                     "Select b.ticket, email, fechaCompra, fechaVisita, totalVenta, paseEspecial  from Bookeo b\n" +
-                    "where b.cedula = ? or b.cedula != " +//TODO
+                    "where -1 != ?" +//esta condicion siempre se cumple, necesaria para tener un parametro en la misma posicion del usuario tipo 3
                     "and (case when @filtro = -1 then b.ticket > 1 else b.ticket = @filtro end)\n" +
                     "and fechaVisita between ? and ?";
         }
