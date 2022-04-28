@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import static java.lang.Integer.parseInt;
 import javax.swing.table.DefaultTableModel;
 import com.ulatina.grupo5.dao.BookeoListarPor;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BookeoTicketeController implements ActionListener {
@@ -108,7 +110,12 @@ public class BookeoTicketeController implements ActionListener {
         if (!vistaTiquete.txtTicket.getText().isBlank()) {
             ticket = parseInt(vistaTiquete.txtTicket.getText());
         }
-/*        Date fechaDesde, fechaHasta;
+       
+        Date date= new Date();
+        
+     /*   Date fechaDesde = ;
+        Date fechaHasta= (Date) date.getDate();
+       
 
         BookeoListarPor filtro = new BookeoListarPor(sessionUsr.getTipoUsuario(), ticket, sessionUsr.getCedula(), fechaDesde, fechaHasta);
 
@@ -126,8 +133,8 @@ public class BookeoTicketeController implements ActionListener {
             registros[4] = String.valueOf(bko.getTotalVenta());
             model.addRow(registros);
         }
-        vistaTiquete.tblTiquetes.setModel(model);
-*/
+        vistaTiquete.tblTiquetes.setModel(model);*/
+
     }
 
     public void volver() {
