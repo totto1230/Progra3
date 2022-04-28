@@ -136,7 +136,8 @@ public class BookeoTicketeView extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(chkPaseEspecial)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBackTiquetes))
+                        .addComponent(btnBackTiquetes)
+                        .addGap(28, 28, 28))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +224,7 @@ public class BookeoTicketeView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblFecha;
