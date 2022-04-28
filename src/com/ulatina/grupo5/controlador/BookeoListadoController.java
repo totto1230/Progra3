@@ -21,6 +21,7 @@ import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.lang.Integer.parseInt;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,25 +37,30 @@ public class BookeoListadoController implements ActionListener{
     BaseDAO daoBookeoAtracciones = new BookeoAtraccionesDAOImpl();
     BaseDAO daoBookeoPersonas = new BookeoPersonaDAOImpl();
     BaseDAO daoUsuarios = new UsuariosDAOImpl();
+    Date fechaDesde= new Date(2022, 4, 28, 0, 0);
+    Date fechaHasta= new Date(2022, 4, 29, 0, 0);
     
-    public void iniciar(){
-        cargarTabla();
-    }
-
     public BookeoListadoController(BookeoListadoView vistaTiquete) {
         this.vistaTiquete= vistaTiquete;
         this.vistaTiquete.btnBuscar.addActionListener(this);
         this.vistaTiquete.btnVolver.addActionListener(this);
     }
     
+    
+    public void iniciar(){
+        cargarTabla();
+        this.vistaTiquete.dtpFechaDesde.setDate(fechaDesde);
+        this.vistaTiquete.dtpFechaHasta.setDate(fechaHasta);
+        
+    }
      private void cargarTabla() {
         int ticket = -1;
         if (!vistaTiquete.txtTicket.getText().isBlank()) {
             ticket = parseInt(vistaTiquete.txtTicket.getText());
         }
       
-        Date fechaDesde = vistaTiquete.dtpFechaDesde.getDate();
-        Date fechaHasta= vistaTiquete.dtpFechaHasta.getDate();
+        fechaDesde = vistaTiquete.dtpFechaDesde.getDate();
+        fechaHasta= vistaTiquete.dtpFechaHasta.getDate();
        
         BookeoListarPor filtro = new BookeoListarPor(sessionUsr.getTipoUsuario(), ticket, sessionUsr.getCedula(), fechaDesde, fechaHasta);
 

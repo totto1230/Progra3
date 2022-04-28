@@ -64,16 +64,19 @@ public class MenuEmpleadoView extends javax.swing.JFrame {
         );
 
         btnSeguimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/mantenimiento atra.png"))); // NOI18N
+        btnSeguimiento.setBorderPainted(false);
         btnSeguimiento.setContentAreaFilled(false);
 
         jLabel2.setText("Seguimiento de Atracciones");
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/add-attraction.png"))); // NOI18N
+        btnBuscar.setBorderPainted(false);
         btnBuscar.setContentAreaFilled(false);
 
         jLabel_Buscar_Atracciones_Main_Empleado.setText("Buscar Atracciones");
 
         btnBookeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/parque-de-atracciones.png"))); // NOI18N
+        btnBookeo.setBorderPainted(false);
         btnBookeo.setContentAreaFilled(false);
 
         jLabel_Buscar_Atracciones_Main_Empleado1.setText("Reservaciones");
@@ -97,9 +100,10 @@ public class MenuEmpleadoView extends javax.swing.JFrame {
                         .addComponent(jLabel_Buscar_Atracciones_Main_Empleado1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnSeguimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(btnBookeo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnBookeo)
+                        .addGap(10, 10, 10)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
