@@ -37,7 +37,15 @@ public class BookeoListadoController implements ActionListener{
     BaseDAO daoBookeoPersonas = new BookeoPersonaDAOImpl();
     BaseDAO daoUsuarios = new UsuariosDAOImpl();
     
-    
+    public void iniciar(){
+        cargarTabla();
+    }
+
+    public BookeoListadoController(BookeoListadoView vistaTiquete) {
+        this.vistaTiquete= vistaTiquete;
+        this.vistaTiquete.btnBuscar.addActionListener(this);
+        this.vistaTiquete.btnVolver.addActionListener(this);
+    }
     
      private void cargarTabla() {
         int ticket = -1;

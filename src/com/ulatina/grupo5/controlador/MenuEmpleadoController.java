@@ -2,6 +2,7 @@ package com.ulatina.grupo5.controlador;
 
 import com.ulatina.grupo5.vista.BookeoView;
 import com.ulatina.grupo5.vista.AtraccionesListadoView;
+import com.ulatina.grupo5.vista.BookeoListadoView;
 import com.ulatina.grupo5.vista.LoginView;
 import com.ulatina.grupo5.vista.MenuEmpleadoView;
 import com.ulatina.grupo5.vista.MantenimientoView;
@@ -14,6 +15,7 @@ public class MenuEmpleadoController implements ActionListener {
     BuscarAtraccionesController buscarAtrac;
     LoginController loginC;
     BookeoController bookeoC;
+    BookeoListadoController listadoC;
 
     //BaseDAO dao = new AtraccionesDAOImpl();
     MenuEmpleadoView vista = new MenuEmpleadoView();
@@ -22,6 +24,7 @@ public class MenuEmpleadoController implements ActionListener {
     AtraccionesListadoView buscarAtracVista = new AtraccionesListadoView();
     MantenimientoView seguimientoAtraVist = new MantenimientoView();
     LoginView loginVista = new LoginView();
+    BookeoListadoView listadoView  = new BookeoListadoView();
 
     public MenuEmpleadoController(MenuEmpleadoView vista) {
         this.vista = vista;
@@ -51,6 +54,12 @@ public class MenuEmpleadoController implements ActionListener {
             bookeoC = new BookeoController(bookeoView);
             bookeoC.iniciar();
             bookeoView.setVisible(true);
+            vista.dispose();
+        }
+        else if (e.getSource() == vista.btnVerTiquetes) {
+            listadoC = new BookeoListadoController(listadoView);
+            listadoC.iniciar();
+            listadoView.setVisible(true);
             vista.dispose();
         }
 

@@ -30,10 +30,10 @@ public class MenuClienteView extends javax.swing.JFrame {
         jButton_Buscar_Atraccio_Main_Admin1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel_menu_empleadp = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnVerTiquete = new javax.swing.JButton();
         jLabelVerTiquetes = new javax.swing.JLabel();
+        jLabel_menu_empleadp = new javax.swing.JLabel();
 
         jButton_Buscar_Atraccio_Main_Admin.setContentAreaFilled(false);
 
@@ -41,20 +41,15 @@ public class MenuClienteView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_menu_empleadp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/Person.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(jLabel_menu_empleadp)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 583, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_menu_empleadp, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         btnVerTiquete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/tiqueteActvio (1).png"))); // NOI18N
@@ -62,26 +57,28 @@ public class MenuClienteView extends javax.swing.JFrame {
 
         jLabelVerTiquetes.setText("Ver Tiquetes");
 
+        jLabel_menu_empleadp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/images/Person.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(233, 233, 233)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(btnVerTiquete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(jLabelVerTiquetes)))
-                .addContainerGap(250, Short.MAX_VALUE))
+                    .addComponent(jLabel_menu_empleadp)
+                    .addComponent(btnVerTiquete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelVerTiquetes))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(btnVerTiquete, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel_menu_empleadp, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
+                .addComponent(btnVerTiquete, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelVerTiquetes)
                 .addContainerGap(125, Short.MAX_VALUE))
         );
