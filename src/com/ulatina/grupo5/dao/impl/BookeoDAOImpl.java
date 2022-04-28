@@ -1,6 +1,7 @@
 package com.ulatina.grupo5.dao.impl;
 
 import com.ulatina.grupo5.dao.BaseDAO;
+import com.ulatina.grupo5.dao.BookeoListarPor;
 import com.ulatina.grupo5.helpers.Conexion;
 import com.ulatina.grupo5.modelo.Bookeo;
 import java.sql.Connection;
@@ -8,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -199,7 +201,54 @@ public class BookeoDAOImpl implements BaseDAO {
 
     @Override
     public Object[] listarPor(Object obj) {
-        return null;
+        BookeoListarPor filtro = (BookeoListarPor)obj;
+        ArrayList<Bookeo> bookeos = new ArrayList<Bookeo>();
+        String sql = "";
+        if(filtro.getTipoUsuario() == 3)
+        {
+            sql =   "set @filtro := ?;\n" +
+                    "\n" +
+                    "Select b.ticket, email, fechaCompra, fechaVisita, totalVenta, paseEspecial  from Bookeo b\n" +
+                    "inner join BookeoPersona bp on\n" +
+                    "b.ticket = bp.ticket\n" +
+                    "where bp.cedula = ?\n" +
+                    "and (case when @filtro = -1 then b.ticket > 1 else b.ticket = @filtro end)\n" +
+                    "and fechaVisita between ? and ?";
+        }
+        else
+        {
+            sql =   "set @filtro := ?;\n" +
+                    "\n" +
+                    "Select b.ticket, email, fechaCompra, fechaVisita, totalVenta, paseEspecial  from Bookeo b\n" +
+                    "where (case when @filtro = -1 then b.ticket > 1 else b.ticket = @filtro end)\n" +
+                    "and fechaVisita between ? and ?";
+        }
+        try {
+
+            conectar.connectar();
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, filtro.getTicket());// si el ticket es -1 trae todos los ticketes, si se indica envia solo el que se esta pidiendo
+            ps.setInt(2, filtro.getCedula());
+            ps.setDate(3, new java.sql.Date(filtro.getFechaDesde().getTime()));
+            ps.setDate(4, new java.sql.Date(filtro.getFechaHasta().getTime()));
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Bookeo bookeo = new Bookeo();
+                bookeo.setTicket(Integer.parseInt(rs.getString("ticket")));
+                bookeo.setCedula(rs.getInt("cedula"));
+                bookeo.setFechaCompra(Date.valueOf(rs.getString("fechaCompra")));
+                bookeo.setFechaVisita(Date.valueOf(rs.getString("fechaVisita")));
+                bookeo.setTotalVenta(Double.parseDouble(rs.getString("totalVenta")));
+                bookeo.setPaseEspecial(Boolean.parseBoolean(rs.getString("paseEspecial")));
+                bookeos.add(bookeo);
+            }
+            con.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        return (Object[]) bookeos.toArray();
     }
 
     @Override

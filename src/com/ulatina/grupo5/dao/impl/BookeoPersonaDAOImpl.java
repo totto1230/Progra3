@@ -222,7 +222,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
             conectar.connectar();
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, b.ticket);
+            ps.setInt(1, b.getTicket());
             rs = ps.executeQuery();
             while (rs.next()) {
                 BookeoPersona bookeoPersona = new BookeoPersona();
@@ -236,10 +236,7 @@ public class BookeoPersonaDAOImpl implements BaseDAO {
         } catch (Exception ex) {
             System.out.println("Error");
         }
-        
-        
         return (Object[]) bookeoPersonas.toArray();
-
     }
 
     @Override

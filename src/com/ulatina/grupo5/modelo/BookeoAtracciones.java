@@ -23,6 +23,10 @@ public class BookeoAtracciones {
         this.ticket = ticket;
         this.idAtracciones = idAtracciones;
     }
+    
+    public BookeoAtracciones(Integer ticket) {
+         this.ticket = ticket;
+    }
 
     @Override
     public String toString() {

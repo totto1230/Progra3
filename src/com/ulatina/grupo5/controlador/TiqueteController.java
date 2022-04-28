@@ -62,7 +62,8 @@ public class TiqueteController implements ActionListener {
     }
 
     public void personas(Bookeo bookeo) {
-        BookeoPersona bookeoPersona = new BookeoPersona(1, -1, bookeo.getTicket());
+
+        BookeoPersona bookeoPersona = new BookeoPersona(bookeo.getTicket());
         Object[] personas = daoBookeoPersonas.listarPor(bookeoPersona);
 
         String[] titulos = {"Cedula", "Nombre", "Apellidos"};
@@ -81,7 +82,7 @@ public class TiqueteController implements ActionListener {
     }
 
     public void atracciones(Bookeo bookeo) {
-        BookeoAtracciones bookeoAtraccion = new BookeoAtracciones(-1, bookeo.getTicket(), -1);
+        BookeoAtracciones bookeoAtraccion = new BookeoAtracciones(bookeo.getTicket());
         Object[] atracciones = daoBookeoAtracciones.listarPor(bookeoAtraccion);
 
         String[] titulos = {"Nombre Atraccion"};

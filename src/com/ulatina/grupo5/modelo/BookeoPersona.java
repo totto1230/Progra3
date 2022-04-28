@@ -20,6 +20,9 @@ public class BookeoPersona {
         this.ticket = ticket;
     }
 
+    public BookeoPersona(Integer ticket) {
+        this.ticket = ticket;
+    }
 
     public Integer getOrderId() {
         return orderId;
