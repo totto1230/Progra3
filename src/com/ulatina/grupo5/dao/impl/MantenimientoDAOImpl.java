@@ -174,11 +174,11 @@ public class MantenimientoDAOImpl implements BaseDAO {
     @Override
     public void listar(JTable table) {
 
-        String[] titulos = {"id","IdAtraccion", "Usuario", "Fecha Revision", "Error","Descripción","Solución"};
+        String[] titulos = {"Seguimiento","Id", "Atracción", "Usuario","Nombre Usuario", "Fecha Revision", "Error","Descripción","Solución"};
         String[] registros = new String[titulos.length];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
-        String sql =    "SELECT idMantenimiento,a.idAtracciones,a.nombreAtraccion, m.cedula,u.nombre + ' ' + apellido1 nombreUsuario,fechaRevision, error, descripcion, solucion FROM Mantenimiento m\n" +
+        String sql =    "SELECT idMantenimiento,a.idAtracciones,a.nombreAtraccion, m.cedula,u.nombre + ' ' + u.apellido1 nombreUsuario,fechaRevision, error, descripcion, solucion FROM Mantenimiento m\n" +
                         "inner join Atracciones a on\n" +
                         "m.idAtracciones = a.idAtracciones\n" +
                         "inner join Usuarios u on\n" +
