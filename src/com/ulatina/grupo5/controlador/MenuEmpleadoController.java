@@ -31,6 +31,7 @@ public class MenuEmpleadoController implements ActionListener {
         this.vista.btnSeguimiento.addActionListener(this);
         this.vista.btnBuscar.addActionListener(this);
         this.vista.btnBookeo.addActionListener(this);
+        this.vista.btnVerTiquetes.addActionListener(this);
     }
     
     public void init()
